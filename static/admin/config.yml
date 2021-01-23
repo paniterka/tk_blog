@@ -189,11 +189,12 @@ collections:
             widget: "boolean"
             default: false
           - {label: "Body", name: "body", widget: "markdown"}
-  - name: 'projects'
-    label: 'Projects'
+  - name: projects
+    label: Projects
+    label_singular: Project
     folder: 'content/project'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    path: '{{slug}}/index'
     editor:
       preview: false
     fields:
