@@ -12,3 +12,8 @@
   name = "About"
   url = "about/"
   weight = 20
+
+[[main]]
+  name = "Project1"
+  url = "project/my-project-name"
+  weight = 20
