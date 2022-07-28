@@ -1,0 +1,16 @@
+---
+title: "Figuring things out one post at a time"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  fields: [image, date, title, categories, reading-time]
+  image-height: 100px
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+

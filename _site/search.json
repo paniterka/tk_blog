@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Figuring things out one post at a time",
+    "section": "",
+    "text": "cheatsheet\n\n\n \n\n\n\n\nJul 26, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncheatsheet\n\n\npandas\n\n\n \n\n\n\n\nJul 26, 2022\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/useful-git/Untitled.html",
+    "href": "posts/useful-git/Untitled.html",
+    "title": "Useful git stuff",
+    "section": "",
+    "text": "Because every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec."
+  },
+  {
+    "objectID": "posts/useful-git/Untitled.html#useful-git-commands",
+    "href": "posts/useful-git/Untitled.html#useful-git-commands",
+    "title": "Useful git stuff",
+    "section": "Useful git commands",
+    "text": "Useful git commands\nTo create a new empty branch:\ngit switch --orphan <new branch>\ngit commit --allow-empty -m \"Initial commit on orphan branch\"\ngit push -u origin <new branch>\nsource"
+  },
+  {
+    "objectID": "posts/useful-git/Untitled.html#resources",
+    "href": "posts/useful-git/Untitled.html#resources",
+    "title": "Useful git stuff",
+    "section": "Resources",
+    "text": "Resources\nBranching: - https://www.nobledesktop.com/learn/git/git-branches"
+  },
+  {
+    "objectID": "posts/useful-pandas/Untitled.html",
+    "href": "posts/useful-pandas/Untitled.html",
+    "title": "Useful pandas stuff",
+    "section": "",
+    "text": "import pandas as pd\ns = pd.Series(pd.date_range(\"20130101\", periods=4, freq='H'))\ns\n\n0   2013-01-01 00:00:00\n1   2013-01-01 01:00:00\n2   2013-01-01 02:00:00\n3   2013-01-01 03:00:00\ndtype: datetime64[ns]\n\n\nKeep just the date:\n\ns.dt.date\n\n0    2013-01-01\n1    2013-01-01\n2    2013-01-01\n3    2013-01-01\ndtype: object\n\n\nKeep just the date as datetime object:\n\ns.dt.date.astype('datetime64')\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep just the date by resetting the timestamp:\n\ns.dt.normalize()\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep the date with a particular formatting:\n\ns.dt.strftime(\"%Y/%m/%d\")\n\n0    2013/01/01\n1    2013/01/01\n2    2013/01/01\n3    2013/01/01\ndtype: object\n\n\nLinks:\n- source\n- .dt docs"
+  }
+]
