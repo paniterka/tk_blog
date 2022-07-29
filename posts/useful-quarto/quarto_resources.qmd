@@ -12,6 +12,7 @@ categories:
 ### Merging Python, R and Observable 
 
 How to merge various engines in one notebook: https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a 
+
 The secret is to declare the language in code such as: 
 
 ```{python}
