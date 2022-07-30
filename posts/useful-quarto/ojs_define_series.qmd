@@ -1,0 +1,23 @@
+---
+title: "Coupling Python and Observable using ojs_define()"
+date: "2022-07-30"
+format: html
+execute: 
+  enabled: true
+jupyter: python3
+categories:
+  - quarto
+---
+See [src](https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a) and [this Issue](https://github.com/quarto-dev/quarto-cli/issues/1589#issuecomment-1200227275)
+
+```{python}
+import pandas as pd 
+my_variable = pd.Series([0,1,2,3])
+ojs_define(my_variable = pd.DataFrame(my_variable)) # this works
+ojs_define(my_variable2 = my_variable.tolist()) # this works
+# ojs_define(my_variable = my_variable) # this doesn't
+```
+
+```{ojs}
+my_variable
+```
