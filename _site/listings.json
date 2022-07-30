@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/useful-pandas/generate_fake_dates_in_pandas.html",
+      "/posts/useful-quarto/quarto_resources.html",
       "/posts/useful-git/Untitled.html",
-      "/posts/useful-pandas/Untitled.html"
+      "/posts/useful-pandas/working_with_datetimes.html"
     ]
   }
 ]

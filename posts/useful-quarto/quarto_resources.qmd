@@ -3,6 +3,9 @@ title: "Quarto resources"
 date: "2022-07-29"
 categories:
   - cheatsheets
+execute: 
+  enabled: true
+jupyter: python3 
 --- 
 
 # Quarto resources 

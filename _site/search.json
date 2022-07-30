@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Figuring things out one post at a time",
     "section": "",
-    "text": "cheatsheet\n\n\n \n\n\n\n\nJul 26, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncheatsheet\n\n\npandas\n\n\n \n\n\n\n\nJul 26, 2022\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
+    "text": "cheatsheet\n\n\npandas\n\n\n \n\n\n\n\nJul 30, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncheatsheets\n\n\n \n\n\n\n\nJul 29, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncheatsheet\n\n\n \n\n\n\n\nJul 26, 2022\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncheatsheet\n\n\npandas\n\n\n \n\n\n\n\nJul 26, 2022\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/useful-git/Untitled.html",
@@ -40,5 +40,54 @@
     "title": "Useful pandas stuff",
     "section": "",
     "text": "import pandas as pd\ns = pd.Series(pd.date_range(\"20130101\", periods=4, freq='H'))\ns\n\n0   2013-01-01 00:00:00\n1   2013-01-01 01:00:00\n2   2013-01-01 02:00:00\n3   2013-01-01 03:00:00\ndtype: datetime64[ns]\n\n\nKeep just the date:\n\ns.dt.date\n\n0    2013-01-01\n1    2013-01-01\n2    2013-01-01\n3    2013-01-01\ndtype: object\n\n\nKeep just the date as datetime object:\n\ns.dt.date.astype('datetime64')\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep just the date by resetting the timestamp:\n\ns.dt.normalize()\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep the date with a particular formatting:\n\ns.dt.strftime(\"%Y/%m/%d\")\n\n0    2013/01/01\n1    2013/01/01\n2    2013/01/01\n3    2013/01/01\ndtype: object\n\n\nLinks:\n- source\n- .dt docs"
+  },
+  {
+    "objectID": "posts/useful-quarto/quarto_resources.html",
+    "href": "posts/useful-quarto/quarto_resources.html",
+    "title": "Quarto resources",
+    "section": "",
+    "text": "How to merge various engines in one notebook: https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a\nThe secret is to declare the language in code such as:\n\nprint('Hello python')\nbla = {'x_values': [0,1,2,3,4], 'y_values': [10,11,12,10,9]}\nojs_define(data=bla)\nprint(bla)\n\nHello python\n\n\n\n\n\n{'x_values': [0, 1, 2, 3, 4], 'y_values': [10, 11, 12, 10, 9]}\n\n\n\nInputs.table(bla)\n\n\n\n\n\n\n\nconsole.log('hello observable js')\n\n\n\n\n\n\n\nPlot.dot(bla, {x: \"x_values\", y: \"y_values\"}).plot()"
+  },
+  {
+    "objectID": "posts/useful-pandas/generate_fake_dates_in_pandas.html",
+    "href": "posts/useful-pandas/generate_fake_dates_in_pandas.html",
+    "title": "Generating random days between two dates",
+    "section": "",
+    "text": "import pandas as pd \nimport numpy as np"
+  },
+  {
+    "objectID": "posts/useful-pandas/working_with_datetimes.html",
+    "href": "posts/useful-pandas/working_with_datetimes.html",
+    "title": "Working with datetimes",
+    "section": "",
+    "text": "import pandas as pd\n\n\n\n\ns = pd.Series(pd.date_range(\"20130101\", periods=4, freq='H'))\ns\n\n0   2013-01-01 00:00:00\n1   2013-01-01 01:00:00\n2   2013-01-01 02:00:00\n3   2013-01-01 03:00:00\ndtype: datetime64[ns]\n\n\nKeep just the date:\n\ns.dt.date\n\n0    2013-01-01\n1    2013-01-01\n2    2013-01-01\n3    2013-01-01\ndtype: object\n\n\nKeep just the date as datetime object:\n\ns.dt.date.astype('datetime64')\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep just the date by resetting the timestamp:\n\ns.dt.normalize()\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep the date with a particular formatting:\n\ns.dt.strftime(\"%Y/%m/%d\")\n\n0    2013/01/01\n1    2013/01/01\n2    2013/01/01\n3    2013/01/01\ndtype: object\n\n\nLinks:\n- source\n- .dt docs"
+  },
+  {
+    "objectID": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-all-days-between-two-dates",
+    "href": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-all-days-between-two-dates",
+    "title": "Generating random days between two dates",
+    "section": "Generate all days between two dates:",
+    "text": "Generate all days between two dates:\n\npd.date_range(start_date, end_date, freq='D')\n\nDatetimeIndex(['2010-03-23', '2010-03-24', '2010-03-25', '2010-03-26',\n               '2010-03-27', '2010-03-28', '2010-03-29', '2010-03-30',\n               '2010-03-31', '2010-04-01',\n               ...\n               '2013-07-10', '2013-07-11', '2013-07-12', '2013-07-13',\n               '2013-07-14', '2013-07-15', '2013-07-16', '2013-07-17',\n               '2013-07-18', '2013-07-19'],\n              dtype='datetime64[ns]', length=1215, freq='D')"
+  },
+  {
+    "objectID": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-n-dates-equally-split",
+    "href": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-n-dates-equally-split",
+    "title": "Generating random days between two dates",
+    "section": "Generate N dates equally split:",
+    "text": "Generate N dates equally split:\n\nN = 4\npd.date_range(start_date, end_date, periods=N).normalize()\n\nDatetimeIndex(['2010-03-23', '2011-05-01', '2012-06-09', '2013-07-19'], dtype='datetime64[ns]', freq=None)"
+  },
+  {
+    "objectID": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-a-random-subsample-of-n-dates-between-the-dates",
+    "href": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-a-random-subsample-of-n-dates-between-the-dates",
+    "title": "Generating random days between two dates",
+    "section": "Generate a random subsample of N dates between the dates",
+    "text": "Generate a random subsample of N dates between the dates\nMethod 1 & 2 require to generate the whole date range first, then sample from it. Method 3 & 4 leverage numpy generators and construct dates out of generated numbers. Method 2 doesn’t require explicitly importing numpy. Method 4 gives you the times for free as well and seems the fastest according to the benchmark in the original SO thread\n\nMethod 1:\nnp.random.choice src\n\n# old syntax\n\nN = 4\n\npd.Series(\n    np.random.choice(\n        pd.date_range(start_date, end_date), \n        N, \n        replace=True # replace=True -> 1 value can appear multiple times\n    )\n) \n\n0   2010-12-07\n1   2010-05-20\n2   2011-12-17\n3   2013-02-24\ndtype: datetime64[ns]\n\n\n\n# new syntax\n\nrng = np.random.default_rng()\n\nN = 4\n\npd.Series(\n    rng.choice(\n        pd.date_range(start_date, end_date), \n        N, \n        replace=True # replace=True -> 1 value can appear multiple times\n    )\n) \n\n0   2013-03-16\n1   2010-11-18\n2   2012-05-27\n3   2011-03-24\ndtype: datetime64[ns]\n\n\n\n\nMethod 2:\npd.Series.sample()\n\nN = 4\n\npd.Series(\n    pd.date_range(start_date, end_date, freq='D')\n)\\\n.sample(N, replace=True)\\\n.reset_index(drop=True)\n\n0   2012-05-05\n1   2012-10-20\n2   2013-02-04\n3   2011-01-03\ndtype: datetime64[ns]\n\n\n\n\nMethod 3:\npd.to_timedelta\n\n# old syntax\n\nN = 4\n\nmax_days = (pd.to_datetime(end_date) - pd.to_datetime(start_date)).days\ndelta_days = pd.to_timedelta(\n    np.random.randint(0, max_days+1, N), \n    unit='D')\n\npd.to_datetime(start_date) + delta_days\n\nDatetimeIndex(['2013-05-10', '2011-07-19', '2011-05-14', '2013-01-30'], dtype='datetime64[ns]', freq=None)\n\n\n\n# new syntax\n\nrng = np.random.default_rng()\n\nN = 4\n\nmax_days = (pd.to_datetime(end_date) - pd.to_datetime(start_date)).days\ndelta_days = pd.to_timedelta(\n    rng.integers(0, max_days, size=N, endpoint=True), \n    unit='D')\n\npd.to_datetime(start_date) + delta_days\n\nDatetimeIndex(['2013-02-17', '2012-02-21', '2011-04-13', '2013-02-20'], dtype='datetime64[ns]', freq=None)\n\n\n\n\nMethod 4:\nunix timestamps src\n\n# old syntax\n\nN = 4\n\nstart_u = pd.to_datetime(start_date).value//int(1e9)\nend_u = pd.to_datetime(end_date).value//int(1e9)\npd.to_datetime(np.random.randint(start_u, end_u, N), unit='s').normalize()\n\nDatetimeIndex(['2010-07-15', '2011-05-11', '2010-10-30', '2010-05-19'], dtype='datetime64[ns]', freq=None)\n\n\n\n# new syntax\n\nrng = np.random.default_rng()\n\nN = 4\n\nstart_u = pd.to_datetime(start_date).value//int(1e9)\nend_u = pd.to_datetime(end_date).value//int(1e9)\npd.to_datetime(rng.integers(start_u, end_u, N, endpoint=True), unit='s').normalize()\n\nDatetimeIndex(['2011-03-22', '2011-08-23', '2012-12-26', '2010-08-05'], dtype='datetime64[ns]', freq=None)"
+  },
+  {
+    "objectID": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-n-dates-equally-spaced",
+    "href": "posts/useful-pandas/generate_fake_dates_in_pandas.html#generate-n-dates-equally-spaced",
+    "title": "Generating random days between two dates",
+    "section": "Generate N dates equally spaced:",
+    "text": "Generate N dates equally spaced:\n\nN = 4\n\npd.date_range(start_date, end_date, periods=N).normalize()\n\nDatetimeIndex(['2010-03-23', '2011-05-01', '2012-06-09', '2013-07-19'], dtype='datetime64[ns]', freq=None)"
   }
 ]
