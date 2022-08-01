@@ -9,6 +9,16 @@ listing:
     # image-height: 100px
     sort-ui: false
     filter-ui: false
+  - id: python_listing
+    contents: 
+      - posts\pandas 
+      - posts\mpl 
+    sort: "title asc"
+    template: listing_customstyle.ejs
+    fields: [date, title]
+    # image-height: 100px
+    sort-ui: false
+    filter-ui: false
   - id: all_posts_listing
     contents: posts
     sort: "date desc"
@@ -21,6 +31,12 @@ listing:
 page-layout: full
 title-block-banner: true 
 ---
+
+Welcome! At this point this blog is mostly just a collection of technical tips and tricks for easier reusing. 
+
+# Python: mostly pandas and matplotlib tricks 
+::: {#python_listing}
+:::
 
 # Quarto 
 ::: {#quarto_listing}
