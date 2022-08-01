@@ -1,16 +1,33 @@
 ---
 title: "Figuring things out one post at a time"
 listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  fields: [image, date, title, categories, reading-time]
-  image-height: 100px
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  - id: quarto_listing
+    contents: posts\tips_quarto
+    sort: "title asc"
+    template: listing_customstyle.ejs
+    fields: [date, title]
+    # image-height: 100px
+    sort-ui: false
+    filter-ui: false
+  - id: all_posts_listing
+    contents: posts
+    sort: "date desc"
+    type: default
+    fields: [date, title, categories, reading-time]
+    image-height: 100px
+    categories: true
+    sort-ui: false
+    filter-ui: false
 page-layout: full
-title-block-banner: true
+title-block-banner: true 
 ---
 
+# Quarto 
+::: {#quarto_listing}
+:::
+
+
+# All posts 
+::: {#all_posts_listing}
+:::
 

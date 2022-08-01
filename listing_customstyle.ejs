@@ -1,0 +1,9 @@
+```{=html}
+<div class="custom_listing">
+<ul>
+<% for (const item of items) { %>
+  <li><a href="<%- item.path %>"><%= item.title %></a> <span class="detail">(<%= item.date %>)</span></li>
+<% } %>
+</ul>
+</div>
+```

@@ -16,6 +16,9 @@ format:
   html:
     theme: flatly
     css: styles.css
+    mainfont: Merriweather
+    toc: true
+    toc-location: left 
 
 execute: 
   freeze: auto

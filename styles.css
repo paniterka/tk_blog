@@ -1,1 +1,24 @@
 /* css styles */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&family=Proza+Libre&display=swap');
+
+h2, h3, h4 {
+    margin-top: 2em !important;
+}
+
+/* style for listing_cumstomstyle.ejs */
+.custom_listing {
+}
+
+.custom_listing ul {
+    list-style-type: square;
+}
+
+.custom_listing li {
+    margin-bottom: 0.5em;
+}
+
+.custom_listing .detail {
+    color: #aaaaaa;
+    font-style: italic;
+    font-size: smaller;
+}

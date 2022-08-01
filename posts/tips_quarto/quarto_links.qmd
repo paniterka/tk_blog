@@ -1,0 +1,17 @@
+---
+title: "Various resources about quarto"
+date: "2022-08-01"
+format: html
+categories:
+  - quarto
+---
+
+# Various resources on quarto
+
+[Porting a distill blog to quarto](https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/)
+
+[The ultimate guide to starting a Quarto blog](https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html)
+
+[How to style your Quarto blog without knowing a lot of HTML/CSS](https://www.youtube.com/watch?v=ErRX8plZpQE)
+
+[Get started with Quarto: RConf2022](https://github.com/rstudio-conf-2022/get-started-quarto)
