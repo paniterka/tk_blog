@@ -1,0 +1,53 @@
+---
+title: "Style a list element to look like a table"
+date: "2022-08-05"
+format: html
+categories:
+  - css 
+---
+
+### The HTML part
+
+```
+<div class="custom_listing">
+<ul>
+<li>
+    <span class="li-contents-container">
+        <span class="left-container">
+            Here the left part of the list element. Can consist of spans.
+        </span>
+        <span class="right-container">
+            Something that will be aligned to the right.
+        </span>
+    </span>
+</li>
+</ul>
+</div>
+```
+
+### The CSS part
+
+```
+.custom_listing li .li-contents-container{
+    display: flex; 
+    align-items: center;
+}
+
+.custom_listing .left-container {
+    width: 70%;
+    margin-right: auto;
+}
+
+.custom_listing .right-container {
+    max-width: 25%;
+    margin-left: auto; 
+    text-align: right;
+}
+
+```
+
+### Remark
+
+Having a parent `li-contents-container` is crucial to be able to display a bullet point or another symbol for each `<li>` item. 
+
+[src](https://stackoverflow.com/a/41951734)

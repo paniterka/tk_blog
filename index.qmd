@@ -9,32 +9,47 @@ listing:
     # image-height: 100px
     sort-ui: false
     filter-ui: false
+    categories: true
   - id: python_listing
     contents: 
       - posts\pandas 
       - posts\mpl 
+    sort: "title asc"
+    # type: default
+    template: listing_customstyle.ejs 
+    fields: [date, title]
+    # image-height: 100px
+    sort-ui: false
+    filter-ui: false
+    categories: true
+  - id: other_tech_listing
+    contents: 
+      - posts\other_tech 
     sort: "title asc"
     template: listing_customstyle.ejs
     fields: [date, title]
     # image-height: 100px
     sort-ui: false
     filter-ui: false
-  - id: all_posts_listing
-    contents: posts
-    sort: "date desc"
-    type: default
-    fields: [date, title, categories, reading-time]
-    image-height: 100px
     categories: true
-    sort-ui: false
-    filter-ui: false
+  # - id: all_posts_listing
+  #   contents: posts
+  #   sort: "date desc"
+  #   type: default
+  #   fields: [date, title, categories, reading-time]
+  #   image-height: 100px
+  #   categories: true
+  #   sort-ui: false
+  #   filter-ui: false
 page-layout: full
 title-block-banner: true 
 ---
 
 Welcome! At this point this blog is mostly just a collection of technical tips and tricks for easier reusing. 
 
-# Python: mostly pandas and matplotlib tricks 
+# Python 
+Mostly pandas and matplotlib tricks.
+
 ::: {#python_listing}
 :::
 
@@ -43,7 +58,8 @@ Welcome! At this point this blog is mostly just a collection of technical tips a
 :::
 
 
-# All posts 
-::: {#all_posts_listing}
+# Other tech topics 
+::: {#other_tech_listing}
 :::
+
 

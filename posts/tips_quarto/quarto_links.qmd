@@ -15,3 +15,5 @@ categories:
 [How to style your Quarto blog without knowing a lot of HTML/CSS](https://www.youtube.com/watch?v=ErRX8plZpQE)
 
 [Get started with Quarto: RConf2022](https://github.com/rstudio-conf-2022/get-started-quarto)
+
+[Awesome Quarto](https://github.com/mcanouil/awesome-quarto)

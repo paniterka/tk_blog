@@ -1,0 +1,11 @@
+---
+title: "Various Pandas resources"
+date: "2022-08-04"
+format: html
+categories:
+  - pandas
+---
+
+## R-related
+- [Data manipulation R-Python conversion guide](https://www.mit.edu/~amidi/teaching/data-science-tools/conversion-guide/r-python-data-manipulation/#)
+- RPY2 [github](https://github.com/rpy2/rpy2) and [docs](https://rpy2.github.io/doc/v3.5.x/html/index.html)

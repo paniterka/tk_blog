@@ -1,0 +1,33 @@
+---
+title: "Various Matplotlib resources"
+date: "2022-08-04"
+format: html
+categories:
+  - matplotlib
+---
+
+## Stylesheets, `rcParams`, cyclers, color palettes
+
+- [Tueplots](https://github.com/pnkraemer/tueplots)
+    - sets of `rcParams` as dictionaries adapted to various styling requirements
+    - configuration for ML conferences: AISTATS 2022, method-of-machine-learning group in Tübingen, ICML 2022, JMLR 2001, Neurips 2021, Neurips 2022 
+- [SciencePlots](https://github.com/garrettj403/SciencePlots)
+    - Science, IEEE 
+    - color and line style cyclers for academic publishing
+- [MetBrewer](https://github.com/BlakeRMills/MetBrewer)
+    - collection of color palettes inspired by the works of art from Met Gallery
+    - install via `pip install git+https://github.com/BlakeRMills/MetBrewer.git#subdirectory=Python` [src](https://github.com/BlakeRMills/MetBrewer/pull/12)
+    - not all the pallettes from R are ported into Python
+
+
+
+
+## Matplotlib extensions 
+
+- [Cookiecutter repository for new extensions](https://github.com/matplotlib/matplotlib-extension-cookiecutter)
+- [Official list of 3rd party packages](https://matplotlib.org/mpl-third-party/)
+
+
+## Helper modules 
+- [colour](https://pypi.org/project/colour/)
+    - simple way to manipulate color representations

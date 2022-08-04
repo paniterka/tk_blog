@@ -1,0 +1,15 @@
+---
+title: "Writing EJS templates"
+date: "2022-08-05"
+format: html
+categories:
+  - ejs 
+  - quarto
+  - javascript
+---
+
+When writing custom templates, categories are joined into string which is comma-separated but has no spaces between the categories. Because of that, if the text is wider than its container, it will overflow instead of being wrapped. One solution is to add spaces using `String.replace()`: 
+```
+<%= String(item.categories).replace(/,/g, ', ') %>
+```
+
