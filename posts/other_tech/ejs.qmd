@@ -9,7 +9,8 @@ categories:
 ---
 
 When writing custom templates, categories are joined into string which is comma-separated but has no spaces between the categories. Because of that, if the text is wider than its container, it will overflow instead of being wrapped. One solution is to add spaces using `String.replace()`: 
-```
+
+```js
 <%= String(item.categories).replace(/,/g, ', ') %>
 ```
 

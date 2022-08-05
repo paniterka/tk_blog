@@ -1,0 +1,64 @@
+---
+title: "All posts"
+listing:
+  - id: quarto_listing
+    contents: posts\tips_quarto
+    sort: "title asc"
+    template: listing_customstyle.ejs
+    fields: [date, title]
+    # image-height: 100px
+    sort-ui: false
+    filter-ui: false
+    categories: true
+  - id: python_listing
+    contents: 
+      - posts\pandas 
+      - posts\mpl 
+    sort: "title asc"
+    # type: default
+    template: listing_customstyle.ejs 
+    fields: [date, title]
+    # image-height: 100px
+    sort-ui: false
+    filter-ui: false
+    categories: true
+    page-size: 10
+  - id: other_tech_listing
+    contents: 
+      - posts\other_tech 
+    sort: "title asc"
+    template: listing_customstyle.ejs
+    fields: [date, title]
+    # image-height: 100px
+    sort-ui: false
+    filter-ui: false
+    categories: true
+  # - id: all_posts_listing
+  #   contents: posts
+  #   sort: "date desc"
+  #   type: default
+  #   fields: [date, title, categories, reading-time]
+  #   image-height: 100px
+  #   categories: true
+  #   sort-ui: false
+  #   filter-ui: false
+page-layout: full
+title-block-banner: true 
+---
+
+## Python 
+Mostly pandas and matplotlib tricks.
+
+::: {#python_listing}
+:::
+
+## Quarto 
+::: {#quarto_listing}
+:::
+
+
+## Other tech topics 
+::: {#other_tech_listing}
+:::
+
+

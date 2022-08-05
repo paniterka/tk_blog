@@ -1,5 +1,24 @@
 /* css styles */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&family=Proza+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+
+.quarto-title-banner{
+    /* background-color: red; */
+}
+
+.main-title {
+    padding-top: 2em;
+    padding-bottom: 2em; 
+    /* padding-left: 1em; */
+    /* padding-right: 1em; */
+    font-family: "Jost";
+    text-transform: uppercase;
+    /* font-stretch: 150%; */
+    text-align: center;
+}
 
 h2, h3, h4 {
     margin-top: 2em !important;
@@ -46,4 +65,13 @@ ol.matchGraph li .rightMatch {width: 38%; display: inline-block;} */
     max-width: 25%;
     margin-left: auto; 
     text-align: right;
+}
+
+.view_all {
+    text-align: center;
+
+}
+
+.view_all a {
+    font-weight: bold;
 }

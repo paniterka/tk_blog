@@ -8,7 +8,7 @@ categories:
 
 ### The HTML part
 
-```
+```html
 <div class="custom_listing">
 <ul>
 <li>
@@ -27,7 +27,7 @@ categories:
 
 ### The CSS part
 
-```
+```css
 .custom_listing li .li-contents-container{
     display: flex; 
     align-items: center;

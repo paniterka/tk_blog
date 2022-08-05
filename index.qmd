@@ -1,65 +1,37 @@
 ---
-title: "Figuring things out one post at a time"
+title: "<div class=\"main-title\">Figuring things out<br>one post at a time</div>"
 listing:
-  - id: quarto_listing
-    contents: posts\tips_quarto
-    sort: "title asc"
+  - id: latest_posts
+    contents: posts
+    sort: "date desc"
     template: listing_customstyle.ejs
     fields: [date, title]
     # image-height: 100px
     sort-ui: false
     filter-ui: false
-    categories: true
-  - id: python_listing
-    contents: 
-      - posts\pandas 
-      - posts\mpl 
-    sort: "title asc"
-    # type: default
-    template: listing_customstyle.ejs 
-    fields: [date, title]
-    # image-height: 100px
-    sort-ui: false
-    filter-ui: false
-    categories: true
-  - id: other_tech_listing
-    contents: 
-      - posts\other_tech 
-    sort: "title asc"
-    template: listing_customstyle.ejs
-    fields: [date, title]
-    # image-height: 100px
-    sort-ui: false
-    filter-ui: false
-    categories: true
-  # - id: all_posts_listing
-  #   contents: posts
-  #   sort: "date desc"
-  #   type: default
-  #   fields: [date, title, categories, reading-time]
-  #   image-height: 100px
-  #   categories: true
-  #   sort-ui: false
-  #   filter-ui: false
-page-layout: full
-title-block-banner: true 
+    categories: false
+    max-items: 5
+page-layout: article
+title-block-banner: 1811433_adj.jpg
+toc: false
+toc-location: body
 ---
 
-Welcome! At this point this blog is mostly just a collection of technical tips and tricks for easier reusing. 
-
-# Python 
-Mostly pandas and matplotlib tricks.
-
-::: {#python_listing}
-:::
-
-# Quarto 
-::: {#quarto_listing}
+:::{.column-page}
 :::
 
 
-# Other tech topics 
-::: {#other_tech_listing}
+Welcome! 
+
+At this point this blog is mostly just a collection of code snippets and tips for visualizing data with Python. 
+
+
+## Latest posts
+
+::: {#latest_posts}
 :::
 
+<div class="view_all">[Browse all posts...](all_posts_categorized.qmd)</div>
+
+<!-- ## Tutorials and projects  -->
 
