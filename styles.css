@@ -3,7 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Spline+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
+body {
+    /* font-weight: 200 !important; */
+}
 
 .quarto-title-banner{
     /* background-color: red; */

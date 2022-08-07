@@ -16,7 +16,10 @@ format:
   html:
     theme: flatly
     css: styles.css
-    mainfont: Merriweather
+    # mainfont: Source Sans Pro
+    mainfont: Assistant
+    # mainfont: Archivo
+    # mainfont: Spline Sans
     toc: true
     toc-location: left 
 
