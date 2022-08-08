@@ -1,0 +1,13 @@
+---
+title: "Is academia data literate?"
+date: "2022-08-08"
+format: html
+draft: true
+categories:
+  - scientometrics
+---
+
+Funding agencies: require ridiculous metrics 
+
+DORA as answer to the illiteracy problem 
+

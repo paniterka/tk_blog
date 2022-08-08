@@ -1,0 +1,26 @@
+---
+title: "Is research assessment working at all in the situation of job scarcity"
+date: "2022-08-08"
+format: html
+draft: true
+categories:
+  - scientometrics
+---
+
+https://twitter.com/dwebsterhist/status/1556003605160894467 
+
+If the pipeline is so leaky, that out of 100 PhDs we get 1 Professor on tenure track, how can we possibly even evaluate the quality of candidates? 
+
+Quality is multidimensional. We have to create a ranking, so collapse all the dimensions onto one. 
+
+Why is ranking scientists any better than ranking whole universities? 
+
+Is being a 10% better teacher the same important as being a 10% better researcher? Can one compensate for another? Or maybe there should be a factor of 2? 
+
+Look at the hiring outcomes at Google: many quantifiable parameters. Do they get the best people? Probably not. 
+
+Metrics driven research assessment is a myth as long as there are so few positions in the academia we can be hiring to. 
+
+The candidates are so good nevertheless that our research metrics do not allow for differentiation. And recruiting professors can have the privilege of dismissing fully qualified candidates only because [they were not eating spaghetti the right way](https://twitter.com/roughhousesm/status/1556179512219652096) 
+
+Your individual metrics carry a statistical noise. Why have you never asked what is the estimation error on your h-index? Since information discovery is a stochastic process, in parallel universe your citation metric would not be the same as one you have in this universe. Who on the hiring committee has asked themselves this question? 

@@ -1,0 +1,11 @@
+{
+  "hash": "caa7faa93f389800f2c3b7a3df5b2702",
+  "result": {
+    "markdown": "---\ntitle: \"Tick formatting recipes\"\ndate: \"2022-08-08\"\nformat: html\ncategories:\n  - matplotlib\n---\n\n## Space as a separator between thousands \n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\nimport matplotlib.pyplot as plt \n\ny = [0, 1e4, 2.3e4, 3.12e4]\nx = [2000, 2010, 2020, 2030]\n```\n:::\n\n\nUse the `FuncFormatter`, which requires a function of a form: \n```python\ndef my_func(x,pos): \n    # blablabla \n    return formatted_x_string\n```\n\nNow implement the formatter. We want every 3 digits separated by a space, and our labels to be integers (won't work for floats). We will use `format()`, which accepts parameter `,d` producing comma-separated notation, and replace the commas with spaces. \n\nThe formatter can be applied to each axis separately. \n\n```python\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))\n```\n\n::: {.cell execution_count=2}\n``` {.python .cell-code}\nf, ax = plt.subplots()\nax.plot(x,y,marker='o')\n\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))\n```\n\n::: {.cell-output .cell-output-display}\n![](tick_formatting_files/figure-html/cell-3-output-1.png){width=596 height=404}\n:::\n:::\n\n\n",
+    "supporting": [
+      "tick_formatting_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

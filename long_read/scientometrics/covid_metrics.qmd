@@ -1,0 +1,11 @@
+---
+title: "Will covid kill h-index?"
+date: "2022-08-08"
+format: html
+draft: true
+categories:
+  - scientometrics
+---
+
+Impact of covid-related papers as measured through citations -> more citations than any other topic, effectively skewing all the metrics to unreasonable / uncomparable values 
+

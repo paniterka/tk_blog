@@ -1,0 +1,43 @@
+---
+title: "Tick formatting recipes"
+date: "2022-08-08"
+format: html
+jupyter: python3
+categories:
+  - matplotlib
+---
+
+## Space as a separator between thousands 
+```{python}
+import matplotlib.pyplot as plt 
+
+y = [0, 1e4, 2.3e4, 3.12e4]
+x = [2000, 2010, 2020, 2030]
+```
+
+Use the `FuncFormatter`, which requires a function of a form: 
+```python
+def my_func(x,pos): 
+    # blablabla 
+    return formatted_x_string
+```
+
+Now implement the formatter. We want every 3 digits separated by a space, and our labels to be integers (won't work for floats). We will use `format()`, which accepts parameter `,d` producing comma-separated notation, and replace the commas with spaces. 
+
+The formatter can be applied to each axis separately. 
+
+```python
+from matplotlib.ticker import FuncFormatter
+format_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')
+ax.yaxis.set_major_formatter(FuncFormatter(format_spaces))
+```
+
+```{python}
+f, ax = plt.subplots()
+ax.plot(x,y,marker='o')
+
+from matplotlib.ticker import FuncFormatter
+format_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')
+ax.yaxis.set_major_formatter(FuncFormatter(format_spaces))
+
+```
