@@ -3,6 +3,7 @@
     "listing": "/all_posts_categorized.html",
     "items": [
       "/posts/tips_quarto/ojs_define_series.html",
+      "/posts/tips_quarto/quarto_worktree.html",
       "/posts/tips_quarto/quarto_howto.html",
       "/posts/tips_quarto/quarto_links.html",
       "/posts/mpl/colormaps.html",
@@ -34,6 +35,7 @@
       "/posts/mpl/mpl_numpy_warping.html",
       "/posts/mpl/colormaps.html",
       "/posts/tips_quarto/quarto_links.html",
+      "/posts/tips_quarto/quarto_worktree.html",
       "/posts/pandas/generate_fake_dates_in_pandas.html",
       "/posts/tips_quarto/ojs_define_series.html",
       "/posts/tips_quarto/quarto_howto.html",

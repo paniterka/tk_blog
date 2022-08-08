@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-26">
+<meta name="dcterms.date" content="2022-08-01">
 
-<title>Teresa Kubacka’s Blog - Useful git stuff</title>
+<title>Teresa Kubacka’s Blog - Fix the quarto publish gh-pages error on windows</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,9 +96,9 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Useful git stuff</h1>
+      <h1 class="title">Fix the <code>quarto publish gh-pages</code> error on windows</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">cheatsheet</div>
+                <div class="quarto-category">quarto</div>
                 <div class="quarto-category">git</div>
               </div>
                   </div>
@@ -111,7 +111,7 @@ ul.task-list{list-style: none;}
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 26, 2022</p>
+        <p class="date">August 1, 2022</p>
       </div>
     </div>
       
@@ -121,21 +121,7 @@ ul.task-list{list-style: none;}
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#useful-git-commands" id="toc-useful-git-commands" class="nav-link active" data-scroll-target="#useful-git-commands">Useful git commands</a>
-  <ul class="collapse">
-  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches">Branches</a></li>
-  <li><a href="#unstaging-files" id="toc-unstaging-files" class="nav-link" data-scroll-target="#unstaging-files">Unstaging files</a>
-  <ul class="collapse">
-  <li><a href="#added-but-not-committed" id="toc-added-but-not-committed" class="nav-link" data-scroll-target="#added-but-not-committed">added but not committed</a></li>
-  <li><a href="#committed-but-not-pushed" id="toc-committed-but-not-pushed" class="nav-link" data-scroll-target="#committed-but-not-pushed">committed but not pushed</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+    
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -146,36 +132,20 @@ ul.task-list{list-style: none;}
 
 
 
-<p>Because every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec.&nbsp;</p>
-<section id="useful-git-commands" class="level1">
-<h1>Useful git commands</h1>
-<section id="branches" class="level2">
-<h2 class="anchored" data-anchor-id="branches">Branches</h2>
-<p>To create a new empty branch:</p>
-<pre><code>git switch --orphan &lt;new branch&gt;
-git commit --allow-empty -m "Initial commit on orphan branch"
-git push -u origin &lt;new branch&gt;</code></pre>
-<p><a href="https://stackoverflow.com/a/34100189">source</a></p>
-<p>https://www.nobledesktop.com/learn/git/git-branches</p>
-</section>
-<section id="unstaging-files" class="level2">
-<h2 class="anchored" data-anchor-id="unstaging-files">Unstaging files</h2>
-<p>https://sethrobertson.github.io/GitFixUm/fixup.html</p>
-<section id="added-but-not-committed" class="level3">
-<h3 class="anchored" data-anchor-id="added-but-not-committed">added but not committed</h3>
-</section>
-<section id="committed-but-not-pushed" class="level3">
-<h3 class="anchored" data-anchor-id="committed-but-not-pushed">committed but not pushed</h3>
-<p>https://stackoverflow.com/a/15321456</p>
-<pre><code>git reset --soft HEAD^ 
-git reset HEAD path/to/unwanted_file
-git commit -c ORIG_HEAD </code></pre>
-<p>The last command will recommit with the original commit message</p>
+<p>Sometimes <code>quarto publish gh-pages</code> hangs while creating the worktree.</p>
+<p>For me the following worked (suggested by <a href="https://opensource.com/article/21/4/git-worktree">this tutorial</a> and the <a href="https://github.com/quarto-dev/quarto-cli/blob/046f7fc0228e4480b4d9af57f92b5538f8a27e5b/src/publish/gh-pages/gh-pages.ts">commands <code>quarto publish</code> uses</a> ).</p>
+<p>First notice the extra directory in your git repository, called <code>2054a64</code> or similar.</p>
+<p>Then do:</p>
+<pre><code>cd 2054a64 
+git add -Af . 
+git commit --allow-empty -m "Semi-manual deploy"
+git remote -v
+git push --force origin HEAD:gh-pages
+cd ..
+git worktree remove 2054a64 
+git worktree prune</code></pre>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

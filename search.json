@@ -18,14 +18,14 @@
     "href": "all_posts_categorized.html#quarto",
     "title": "All posts",
     "section": "Quarto",
-    "text": "Quarto\n\n  \n    \n      \n        \n          \n            Coupling Python and Observable using ojs_define() \n            \n              (Jul 30, 2022)\n            \n          \n           quarto \n        \n      \n      \n        \n          \n            Quarto how-to \n            \n              (Jul 29, 2022)\n            \n          \n           cheatsheet \n        \n      \n      \n        \n          \n            Various resources about quarto \n            \n              (Aug 1, 2022)\n            \n          \n           quarto \n        \n      \n    \n  \n\nNo matching items"
+    "text": "Quarto\n\n  \n    \n      \n        \n          \n            Coupling Python and Observable using ojs_define() \n            \n              (Jul 30, 2022)\n            \n          \n           quarto \n        \n      \n      \n        \n          \n            Fix the `quarto publish gh-pages` error on windows \n            \n              (Aug 1, 2022)\n            \n          \n           quarto, git \n        \n      \n      \n        \n          \n            Quarto how-to \n            \n              (Jul 29, 2022)\n            \n          \n           cheatsheet \n        \n      \n      \n        \n          \n            Various resources about quarto \n            \n              (Aug 1, 2022)\n            \n          \n           quarto \n        \n      \n    \n  \n\nNo matching items"
   },
   {
     "objectID": "all_posts_categorized.html#other-tech-topics",
     "href": "all_posts_categorized.html#other-tech-topics",
     "title": "All posts",
     "section": "Other tech topics",
-    "text": "Other tech topics\n\n\n  \n    \n      \n        \n          \n            Style a list element to look like a table \n            \n              (Aug 5, 2022)\n            \n          \n           css \n        \n      \n      \n        \n          \n            Useful git stuff \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n    \n  \n\nNo matching items"
+    "text": "Other tech topics\n\n\n  \n    \n      \n        \n          \n            Style a list element to look like a table \n            \n              (Aug 5, 2022)\n            \n          \n           css \n        \n      \n      \n        \n          \n            Useful git stuff \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, git \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n    \n  \n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -161,13 +161,6 @@
     "text": "Unstaging files\nhttps://sethrobertson.github.io/GitFixUm/fixup.html\n\nadded but not committed\n\n\ncommitted but not pushed\nhttps://stackoverflow.com/a/15321456\ngit reset --soft HEAD^ \ngit reset HEAD path/to/unwanted_file\ngit commit -c ORIG_HEAD \nThe last command will recommit with the original commit message"
   },
   {
-    "objectID": "posts/other_tech/useful_git.html#quarto-complaining-about-fatal-gh-pages-is-already-checked-out-at-3987a70",
-    "href": "posts/other_tech/useful_git.html#quarto-complaining-about-fatal-gh-pages-is-already-checked-out-at-3987a70",
-    "title": "Useful git stuff",
-    "section": "Quarto complaining about fatal gh-pages is already checked out at 3987a70",
-    "text": "Quarto complaining about fatal gh-pages is already checked out at 3987a70\nTHIS MAY NOT WORK\nsrc\n\ngit: remove 3987a70 directory, commit, push\ngit worktree prune\nquarto publish gh-pages\n\nThis happened for me as I had a github action set up AND ran quarto publish gh-pages simultaneously, which froze and left the 3987a70 folder hanging in the directory"
-  },
-  {
     "objectID": "posts/pandas/generate_fake_dates_in_pandas.html",
     "href": "posts/pandas/generate_fake_dates_in_pandas.html",
     "title": "Generating random days between two dates",
@@ -243,5 +236,12 @@
     "title": "Various resources about quarto",
     "section": "",
     "text": "Porting a distill blog to quarto\nThe ultimate guide to starting a Quarto blog\nHow to style your Quarto blog without knowing a lot of HTML/CSS\nGet started with Quarto: RConf2022\nAwesome Quarto"
+  },
+  {
+    "objectID": "posts/tips_quarto/quarto_worktree.html",
+    "href": "posts/tips_quarto/quarto_worktree.html",
+    "title": "Fix the quarto publish gh-pages error on windows",
+    "section": "",
+    "text": "For me the following worked (suggested by this tutorial and the commands quarto publish uses ).\nFirst notice the extra directory in your git repository, called 2054a64 or similar.\nThen do:\ncd 2054a64 \ngit add -Af . \ngit commit --allow-empty -m \"Semi-manual deploy\"\ngit remote -v\ngit push --force origin HEAD:gh-pages\ncd ..\ngit worktree remove 2054a64 \ngit worktree prune"
   }
 ]
