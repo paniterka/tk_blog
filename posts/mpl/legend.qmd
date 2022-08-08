@@ -1,0 +1,17 @@
+---
+title: "Customizing the legend"
+date: "2022-08-08"
+format: html
+jupyter: python3
+categories:
+  - matplotlib
+---
+
+## Move the legend to top right corner outside of the chart, no border 
+
+```python
+ax.legend(handles, labels, 
+          bbox_to_anchor=[1.05,1], loc='upper left', 
+          edgecolor='w', facecolor='none',
+          borderpad=0, borderaxespad=0)
+``` 
