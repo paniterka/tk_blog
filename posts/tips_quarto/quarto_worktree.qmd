@@ -1,0 +1,26 @@
+---
+title: "Fix the `quarto publish gh-pages` error on windows"
+date: "2022-08-01"
+format: html
+categories:
+  - quarto
+  - git
+---
+
+Sometimes `quarto publish gh-pages` hangs while creating the worktree. 
+
+For me the following worked (suggested by [this tutorial](https://opensource.com/article/21/4/git-worktree) and the [commands `quarto publish` uses](https://github.com/quarto-dev/quarto-cli/blob/046f7fc0228e4480b4d9af57f92b5538f8a27e5b/src/publish/gh-pages/gh-pages.ts) ).
+
+First notice the extra directory in your git repository, called `2054a64` or similar. 
+
+Then do: 
+``` 
+cd 2054a64 
+git add -Af . 
+git commit --allow-empty -m "Semi-manual deploy"
+git remote -v
+git push --force origin HEAD:gh-pages
+cd ..
+git worktree remove 2054a64 
+git worktree prune
+```
