@@ -1,6 +1,6 @@
 ---
 title: "Fix the `quarto publish gh-pages` error on windows"
-date: "2022-08-01"
+date: "2022-08-08"
 format: html
 categories:
   - quarto
