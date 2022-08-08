@@ -1,0 +1,247 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "all_posts_categorized.html",
+    "href": "all_posts_categorized.html",
+    "title": "All posts",
+    "section": "",
+    "text": "Mostly pandas and matplotlib tricks.\n\n  \n    \n      \n        \n          \n            Creating colormaps in matplotlib \n            \n              (Aug 2, 2022)\n            \n          \n           cheatsheet, matplotlib \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Generating random days between two dates \n            \n              (Jul 30, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Saving a chart as a numpy array and warping it using skimage \n            \n              (Aug 3, 2022)\n            \n          \n           cheatsheet, matplotlib, numpy \n        \n      \n      \n        \n          \n            Skipping empty csv rows \n            \n              (Aug 4, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Matplotlib resources \n            \n              (Aug 4, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Pandas resources \n            \n              (Aug 4, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Working with datetimes \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n    \n  \n\nNo matching items"
+  },
+  {
+    "objectID": "all_posts_categorized.html#quarto",
+    "href": "all_posts_categorized.html#quarto",
+    "title": "All posts",
+    "section": "Quarto",
+    "text": "Quarto\n\n  \n    \n      \n        \n          \n            Coupling Python and Observable using ojs_define() \n            \n              (Jul 30, 2022)\n            \n          \n           quarto \n        \n      \n      \n        \n          \n            Quarto how-to \n            \n              (Jul 29, 2022)\n            \n          \n           cheatsheet \n        \n      \n      \n        \n          \n            Various resources about quarto \n            \n              (Aug 1, 2022)\n            \n          \n           quarto \n        \n      \n    \n  \n\nNo matching items"
+  },
+  {
+    "objectID": "all_posts_categorized.html#other-tech-topics",
+    "href": "all_posts_categorized.html#other-tech-topics",
+    "title": "All posts",
+    "section": "Other tech topics",
+    "text": "Other tech topics\n\n\n  \n    \n      \n        \n          \n            Style a list element to look like a table \n            \n              (Aug 5, 2022)\n            \n          \n           css \n        \n      \n      \n        \n          \n            Useful git stuff \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n    \n  \n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nFiguring things outone post at a time\n",
+    "section": "",
+    "text": "Welcome!\nAt this point this blog is mostly just a collection of code snippets and tips for visualizing data with Python."
+  },
+  {
+    "objectID": "index.html#latest-posts",
+    "href": "index.html#latest-posts",
+    "title": "\nFiguring things outone post at a time\n",
+    "section": "Latest posts",
+    "text": "Latest posts\n\n\n  \n    \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n      \n        \n          \n            Style a list element to look like a table \n            \n              (Aug 5, 2022)\n            \n          \n           css \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
+  },
+  {
+    "objectID": "posts/mpl/colormaps.html",
+    "href": "posts/mpl/colormaps.html",
+    "title": "Creating colormaps in matplotlib",
+    "section": "",
+    "text": "import matplotlib.pyplot as plt\n%matplotlib inline"
+  },
+  {
+    "objectID": "posts/mpl/colormaps.html#create-colormap-from-a-list-of-colors",
+    "href": "posts/mpl/colormaps.html#create-colormap-from-a-list-of-colors",
+    "title": "Creating colormaps in matplotlib",
+    "section": "Create colormap from a list of colors",
+    "text": "Create colormap from a list of colors\n\nfrom matplotlib.colors import LinearSegmentedColormap\ncustom_cmap = LinearSegmentedColormap.from_list(name=\"my_cmap\", colors=[\"green\", \"black\", \"purple\"])\ncustom_cmap\n\nmy_cmap  underbad over \n\n\n\nfrom matplotlib.colors import ListedColormap, BoundaryNorm\n\ncustom_cmap2 = ListedColormap(name=\"another_cmap\", colors=['green', 'black', 'purple'])\n\ncustom_cmap2\n\nanother_cmap  underbad over \n\n\n\n# ListedColormap with norm: \nnorm2 = BoundaryNorm([-1, -0.15, 0.15, 1], custom_cmap2.N) \n# BoundaryNorm maps values to INTEGERS instead of floats 0..1\nprint(norm2(0.5))\n\nf, ax = plt.subplots()\np = ax.imshow([[-0.5, -0.1], [0,0.1], [0.8,0.5]], cmap=custom_cmap2, norm=norm2)\nf.colorbar(mappable=p, spacing='proportional')\n\n2\n\n\n<matplotlib.colorbar.Colorbar at 0x1d1859349d0>"
+  },
+  {
+    "objectID": "posts/mpl/colormaps.html#merge-2-colormaps",
+    "href": "posts/mpl/colormaps.html#merge-2-colormaps",
+    "title": "Creating colormaps in matplotlib",
+    "section": "Merge 2 colormaps",
+    "text": "Merge 2 colormaps\n\ncmap1 = LinearSegmentedColormap.from_list(name=\"cmap1\", colors=[\"green\", \"black\", \"purple\"])\ncmap2 = LinearSegmentedColormap.from_list(name=\"cmap2\", colors=[\"blue\", \"yellow\", \"orange\"])\n\nWith sharp edge:\n\nimport numpy as np\ncolors_cmap1 = cmap1(np.linspace(0, 1, 100))\ncolors_cmap2 = cmap2(np.linspace(0, 1, 200))\nall_colors = np.vstack((colors_cmap1, colors_cmap2))\n\ncmap_merged = LinearSegmentedColormap.from_list('merged',all_colors)\n\ncmap_merged\n\nmerged  underbad over \n\n\nWith smooth transition:\n\ncolors_cmap1 = cmap1(np.linspace(0, 1, 3))\ncolors_cmap2 = cmap2(np.linspace(0, 1, 6))\nall_colors = np.vstack((colors_cmap1, colors_cmap2))\n\ncmap_merged = LinearSegmentedColormap.from_list('merged',all_colors)\n\ncmap_merged\n\nmerged  underbad over"
+  },
+  {
+    "objectID": "posts/mpl/legend.html",
+    "href": "posts/mpl/legend.html",
+    "title": "Customizing the legend",
+    "section": "",
+    "text": "ax.legend(handles, labels, \n          bbox_to_anchor=[1.05,1], loc='upper left', \n          edgecolor='w', facecolor='none',\n          borderpad=0, borderaxespad=0)"
+  },
+  {
+    "objectID": "posts/mpl/mpl_numpy_warping.html",
+    "href": "posts/mpl/mpl_numpy_warping.html",
+    "title": "Saving a chart as a numpy array and warping it using skimage",
+    "section": "",
+    "text": "import matplotlib.pyplot as plt \nimport numpy as np\n%matplotlib inline\n\nLet’s generate an example chart:\n\nx = [1,2,3]\nbars = [10,15,12]\n\nf, ax = plt.subplots(dpi=100)\n# when using plt.subplots, the canvas and renderer get created automatically \nax.bar(x, bars);\n\n\n\n\n\nExport the figure to a numpy array\nMethod 1 src\n\ns, (width, height) = f.canvas.print_to_buffer()\nrgba = np.frombuffer(s, np.uint8).reshape((height, width, 4))\nplt.imshow(rgba, aspect='equal');\n\n\n\n\n\nprint(type(rgba))\nprint(rgba.shape)\n\n<class 'numpy.ndarray'>\n(400, 600, 4)\n\n\nMethod 2 src\n\nrgba = np.asarray(f.canvas.buffer_rgba())\nplt.imshow(rgba);\n\n\n\n\n\nprint(type(rgba))\nprint(rgba.shape)\n\n<class 'numpy.ndarray'>\n(400, 600, 4)\n\n\n\n\nRemove the alpha channel in a numpy array (RGBA->RGB)\nTo remove the alpha channel it’s enough to run: src\n\nrgb = rgba[:,:,:3]\n\nThe resulting chart is the same (our transparency is anyway white)\n\nplt.imshow(rgb);\n\n\n\n\nBoth methods respect the dpi set when creating the figure using plt.subplots\n\n\nWarping images using skimage\nNow we can warp the image:\n\nfrom skimage.transform import swirl\n\nswirled = swirl(rgb, rotation=0, strength=30, radius=120)\n\n\nf, ax = plt.subplots(ncols = 2, figsize=(10,4))\n\nax[0].imshow(rgb, aspect='equal')\nax[0].set_title('original')\n\nax[1].imshow(swirled, aspect='equal')\nax[1].set_title('warped')\n\n[a.axis('off') for a in ax];\n\n\n\n\nMore on skimage transforms: https://scikit-image.org/docs/stable/api/skimage.transform.html"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html",
+    "href": "posts/mpl/tick_formatting.html",
+    "title": "Tick formatting recipes",
+    "section": "",
+    "text": "import matplotlib.pyplot as plt \n\ny = [0, 1e4, 2.3e4, 3.12e4]\nx = [2000, 2010, 2020, 2030]\n\nUse the FuncFormatter, which requires a function of a form:\ndef my_func(x,pos): \n    # blablabla \n    return formatted_x_string\nNow implement the formatter. We want every 3 digits separated by a space, and our labels to be integers (won’t work for floats). We will use format(), which accepts parameter ,d producing comma-separated notation, and replace the commas with spaces.\nThe formatter can be applied to each axis separately.\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))\n\nf, ax = plt.subplots()\nax.plot(x,y,marker='o')\n\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))"
+  },
+  {
+    "objectID": "posts/mpl/various_resources.html",
+    "href": "posts/mpl/various_resources.html",
+    "title": "Various Matplotlib resources",
+    "section": "",
+    "text": "Tueplots\n\nsets of rcParams as dictionaries adapted to various styling requirements\nconfiguration for ML conferences: AISTATS 2022, method-of-machine-learning group in Tübingen, ICML 2022, JMLR 2001, Neurips 2021, Neurips 2022\n\nSciencePlots\n\nScience, IEEE\ncolor and line style cyclers for academic publishing\n\nMetBrewer\n\ncollection of color palettes inspired by the works of art from Met Gallery\ninstall via pip install git+https://github.com/BlakeRMills/MetBrewer.git#subdirectory=Python src\nnot all the pallettes from R are ported into Python"
+  },
+  {
+    "objectID": "posts/mpl/various_resources.html#matplotlib-extensions",
+    "href": "posts/mpl/various_resources.html#matplotlib-extensions",
+    "title": "Various Matplotlib resources",
+    "section": "Matplotlib extensions",
+    "text": "Matplotlib extensions\n\nCookiecutter repository for new extensions\nOfficial list of 3rd party packages"
+  },
+  {
+    "objectID": "posts/mpl/various_resources.html#helper-modules",
+    "href": "posts/mpl/various_resources.html#helper-modules",
+    "title": "Various Matplotlib resources",
+    "section": "Helper modules",
+    "text": "Helper modules\n\ncolour\n\nsimple way to manipulate color representations"
+  },
+  {
+    "objectID": "posts/mpl/watermarks_footnotes.html",
+    "href": "posts/mpl/watermarks_footnotes.html",
+    "title": "Watermarks, footnotes and other annotations",
+    "section": "",
+    "text": "import matplotlib.pyplot as plt"
+  },
+  {
+    "objectID": "posts/mpl/watermarks_footnotes.html#add-a-watermark",
+    "href": "posts/mpl/watermarks_footnotes.html#add-a-watermark",
+    "title": "Watermarks, footnotes and other annotations",
+    "section": "Add a watermark",
+    "text": "Add a watermark\nSometimes you want a big fat text on your chart that says that these are preliminary results.\n\nf, ax = plt.subplots()\n\nimport matplotlib.patheffects as path_effects\n\nwatermark_text = 'draft'\nt = ax.text(0.5, 0.5, watermark_text, transform=ax.transAxes,\n        fontsize=80, color='white', alpha=0.3,  weight=\"bold\", \n        ha='center', va='center', rotation='30')\nt.set_path_effects([path_effects.Stroke(linewidth=3, foreground='lightgray')])\n\n\n\n\nChange color='white' to make it colorful. The edge color is encoded in set_path_effects as foreground."
+  },
+  {
+    "objectID": "posts/mpl/watermarks_footnotes.html#add-a-footnote",
+    "href": "posts/mpl/watermarks_footnotes.html#add-a-footnote",
+    "title": "Watermarks, footnotes and other annotations",
+    "section": "Add a footnote",
+    "text": "Add a footnote\n\nBottom right\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate('\\n'.join(footnote), \n            xy = (1.05,0), xycoords=ax, ha='left', va='bottom',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(1.05, 0, 'Data source: XY\\nAuthor: TK')\n\n\n\n\n\nThe footnote is positioned relative to the axes (xycoords+ha+va). The pad is removed. Aligning to bottom makes it robust for multiline entries.\n\n\nBottom left under the chart\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate('|'.join(footnote), \n            xy = (0,0), xycoords=ax, ha='left', va='top',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(0, 0, 'Data source: XY|Author: TK')"
+  },
+  {
+    "objectID": "posts/other_tech/ejs.html",
+    "href": "posts/other_tech/ejs.html",
+    "title": "Writing EJS templates",
+    "section": "",
+    "text": "<%= String(item.categories).replace(/,/g, ', ') %>"
+  },
+  {
+    "objectID": "posts/other_tech/table_like_li_css.html",
+    "href": "posts/other_tech/table_like_li_css.html",
+    "title": "Style a list element to look like a table",
+    "section": "",
+    "text": "The CSS part\n.custom_listing li .li-contents-container{\n    display: flex; \n    align-items: center;\n}\n\n.custom_listing .left-container {\n    width: 70%;\n    margin-right: auto;\n}\n\n.custom_listing .right-container {\n    max-width: 25%;\n    margin-left: auto; \n    text-align: right;\n}\n\n\nRemark\nHaving a parent li-contents-container is crucial to be able to display a bullet point or another symbol for each <li> item.\nsrc"
+  },
+  {
+    "objectID": "posts/other_tech/useful_git.html",
+    "href": "posts/other_tech/useful_git.html",
+    "title": "Useful git stuff",
+    "section": "",
+    "text": "Because every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec."
+  },
+  {
+    "objectID": "posts/other_tech/useful_git.html#branches",
+    "href": "posts/other_tech/useful_git.html#branches",
+    "title": "Useful git stuff",
+    "section": "Branches",
+    "text": "Branches\nTo create a new empty branch:\ngit switch --orphan <new branch>\ngit commit --allow-empty -m \"Initial commit on orphan branch\"\ngit push -u origin <new branch>\nsource\nhttps://www.nobledesktop.com/learn/git/git-branches"
+  },
+  {
+    "objectID": "posts/other_tech/useful_git.html#unstaging-files",
+    "href": "posts/other_tech/useful_git.html#unstaging-files",
+    "title": "Useful git stuff",
+    "section": "Unstaging files",
+    "text": "Unstaging files\nhttps://sethrobertson.github.io/GitFixUm/fixup.html\n\nadded but not committed\n\n\ncommitted but not pushed\nhttps://stackoverflow.com/a/15321456\ngit reset --soft HEAD^ \ngit reset HEAD path/to/unwanted_file\ngit commit -c ORIG_HEAD \nThe last command will recommit with the original commit message"
+  },
+  {
+    "objectID": "posts/other_tech/useful_git.html#quarto-complaining-about-fatal-gh-pages-is-already-checked-out-at-3987a70",
+    "href": "posts/other_tech/useful_git.html#quarto-complaining-about-fatal-gh-pages-is-already-checked-out-at-3987a70",
+    "title": "Useful git stuff",
+    "section": "Quarto complaining about fatal gh-pages is already checked out at 3987a70",
+    "text": "Quarto complaining about fatal gh-pages is already checked out at 3987a70\nTHIS MAY NOT WORK\nsrc\n\ngit: remove 3987a70 directory, commit, push\ngit worktree prune\nquarto publish gh-pages\n\nThis happened for me as I had a github action set up AND ran quarto publish gh-pages simultaneously, which froze and left the 3987a70 folder hanging in the directory"
+  },
+  {
+    "objectID": "posts/pandas/generate_fake_dates_in_pandas.html",
+    "href": "posts/pandas/generate_fake_dates_in_pandas.html",
+    "title": "Generating random days between two dates",
+    "section": "",
+    "text": "import pandas as pd \nimport numpy as np"
+  },
+  {
+    "objectID": "posts/pandas/generate_fake_dates_in_pandas.html#generate-all-days-between-two-dates",
+    "href": "posts/pandas/generate_fake_dates_in_pandas.html#generate-all-days-between-two-dates",
+    "title": "Generating random days between two dates",
+    "section": "Generate all days between two dates:",
+    "text": "Generate all days between two dates:\n\npd.date_range(start_date, end_date, freq='D')\n\nDatetimeIndex(['2010-03-23', '2010-03-24', '2010-03-25', '2010-03-26',\n               '2010-03-27', '2010-03-28', '2010-03-29', '2010-03-30',\n               '2010-03-31', '2010-04-01',\n               ...\n               '2013-07-10', '2013-07-11', '2013-07-12', '2013-07-13',\n               '2013-07-14', '2013-07-15', '2013-07-16', '2013-07-17',\n               '2013-07-18', '2013-07-19'],\n              dtype='datetime64[ns]', length=1215, freq='D')"
+  },
+  {
+    "objectID": "posts/pandas/generate_fake_dates_in_pandas.html#generate-n-dates-equally-spaced",
+    "href": "posts/pandas/generate_fake_dates_in_pandas.html#generate-n-dates-equally-spaced",
+    "title": "Generating random days between two dates",
+    "section": "Generate N dates equally spaced:",
+    "text": "Generate N dates equally spaced:\n\nN = 4\n\npd.date_range(start_date, end_date, periods=N).normalize()\n\nDatetimeIndex(['2010-03-23', '2011-05-01', '2012-06-09', '2013-07-19'], dtype='datetime64[ns]', freq=None)"
+  },
+  {
+    "objectID": "posts/pandas/generate_fake_dates_in_pandas.html#generate-a-random-subsample-of-n-dates-between-the-dates",
+    "href": "posts/pandas/generate_fake_dates_in_pandas.html#generate-a-random-subsample-of-n-dates-between-the-dates",
+    "title": "Generating random days between two dates",
+    "section": "Generate a random subsample of N dates between the dates",
+    "text": "Generate a random subsample of N dates between the dates\nMethod 1 & 2 require to generate the whole date range first, then sample from it. Method 3 & 4 leverage numpy generators and construct dates out of generated numbers. Method 2 doesn’t require explicitly importing numpy. Method 4 gives you the times for free as well and seems the fastest according to the benchmark in the original SO thread\n\nMethod 1:\nnp.random.choice src\n\n# old syntax\n\nN = 4\n\npd.Series(\n    np.random.choice(\n        pd.date_range(start_date, end_date), \n        N, \n        replace=True # replace=True -> 1 value can appear multiple times\n    )\n) \n\n0   2010-12-07\n1   2010-05-20\n2   2011-12-17\n3   2013-02-24\ndtype: datetime64[ns]\n\n\n\n# new syntax\n\nrng = np.random.default_rng()\n\nN = 4\n\npd.Series(\n    rng.choice(\n        pd.date_range(start_date, end_date), \n        N, \n        replace=True # replace=True -> 1 value can appear multiple times\n    )\n) \n\n0   2013-03-16\n1   2010-11-18\n2   2012-05-27\n3   2011-03-24\ndtype: datetime64[ns]\n\n\n\n\nMethod 2:\npd.Series.sample()\n\nN = 4\n\npd.Series(\n    pd.date_range(start_date, end_date, freq='D')\n)\\\n.sample(N, replace=True)\\\n.reset_index(drop=True)\n\n0   2012-05-05\n1   2012-10-20\n2   2013-02-04\n3   2011-01-03\ndtype: datetime64[ns]\n\n\n\n\nMethod 3:\npd.to_timedelta\n\n# old syntax\n\nN = 4\n\nmax_days = (pd.to_datetime(end_date) - pd.to_datetime(start_date)).days\ndelta_days = pd.to_timedelta(\n    np.random.randint(0, max_days+1, N), \n    unit='D')\n\npd.to_datetime(start_date) + delta_days\n\nDatetimeIndex(['2013-05-10', '2011-07-19', '2011-05-14', '2013-01-30'], dtype='datetime64[ns]', freq=None)\n\n\n\n# new syntax\n\nrng = np.random.default_rng()\n\nN = 4\n\nmax_days = (pd.to_datetime(end_date) - pd.to_datetime(start_date)).days\ndelta_days = pd.to_timedelta(\n    rng.integers(0, max_days, size=N, endpoint=True), \n    unit='D')\n\npd.to_datetime(start_date) + delta_days\n\nDatetimeIndex(['2013-02-17', '2012-02-21', '2011-04-13', '2013-02-20'], dtype='datetime64[ns]', freq=None)\n\n\n\n\nMethod 4:\nunix timestamps src\n\n# old syntax\n\nN = 4\n\nstart_u = pd.to_datetime(start_date).value//int(1e9)\nend_u = pd.to_datetime(end_date).value//int(1e9)\npd.to_datetime(np.random.randint(start_u, end_u, N), unit='s').normalize()\n\nDatetimeIndex(['2010-07-15', '2011-05-11', '2010-10-30', '2010-05-19'], dtype='datetime64[ns]', freq=None)\n\n\n\n# new syntax\n\nrng = np.random.default_rng()\n\nN = 4\n\nstart_u = pd.to_datetime(start_date).value//int(1e9)\nend_u = pd.to_datetime(end_date).value//int(1e9)\npd.to_datetime(rng.integers(start_u, end_u, N, endpoint=True), unit='s').normalize()\n\nDatetimeIndex(['2011-03-22', '2011-08-23', '2012-12-26', '2010-08-05'], dtype='datetime64[ns]', freq=None)"
+  },
+  {
+    "objectID": "posts/pandas/skipping_arbitrary_empty_rows.html",
+    "href": "posts/pandas/skipping_arbitrary_empty_rows.html",
+    "title": "Skipping empty csv rows",
+    "section": "",
+    "text": "Comment line 1 \nComment line 2 \nComment line 3 \n\ncol1, col2, col3 \n10, 12, 13\n21, 20, 22\nPandas accepts also file objects as an input, so you can travel through the lines until you find a separating line (or another condition) and then proceed with pd.read_csv:\nimport pandas as pd\n\nf = open(\"data.csv\")\nwhile f.readline() != '\\n':\n    pass\n\ndf = pd.read_csv(f, header=None)\nf.close()\nAs suggested in src"
+  },
+  {
+    "objectID": "posts/pandas/various_pandas_resources.html",
+    "href": "posts/pandas/various_pandas_resources.html",
+    "title": "Various Pandas resources",
+    "section": "",
+    "text": "Data manipulation R-Python conversion guide\nRPY2 github and docs"
+  },
+  {
+    "objectID": "posts/pandas/working_with_datetimes.html",
+    "href": "posts/pandas/working_with_datetimes.html",
+    "title": "Working with datetimes",
+    "section": "",
+    "text": "import pandas as pd\n\n\n\n\ns = pd.Series(pd.date_range(\"20130101\", periods=4, freq='H'))\ns\n\n0   2013-01-01 00:00:00\n1   2013-01-01 01:00:00\n2   2013-01-01 02:00:00\n3   2013-01-01 03:00:00\ndtype: datetime64[ns]\n\n\nKeep just the date:\n\ns.dt.date\n\n0    2013-01-01\n1    2013-01-01\n2    2013-01-01\n3    2013-01-01\ndtype: object\n\n\nKeep just the date as datetime object:\n\ns.dt.date.astype('datetime64')\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep just the date by resetting the timestamp:\n\ns.dt.normalize()\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep the date with a particular formatting:\n\ns.dt.strftime(\"%Y/%m/%d\")\n\n0    2013/01/01\n1    2013/01/01\n2    2013/01/01\n3    2013/01/01\ndtype: object\n\n\nLinks:\n- source\n- .dt docs"
+  },
+  {
+    "objectID": "posts/tips_quarto/ojs_define_series.html",
+    "href": "posts/tips_quarto/ojs_define_series.html",
+    "title": "Coupling Python and Observable using ojs_define()",
+    "section": "",
+    "text": "import pandas as pd \nmy_variable = pd.Series([0,1,2,3])\nojs_define(my_variable = pd.DataFrame(my_variable)) # this works\nojs_define(my_variable2 = my_variable.tolist()) # this works\n# ojs_define(my_variable = my_variable) # this doesn't\n\nDeprecationWarning:\n\nImporting display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display\n\n\n\n\n\n\n\n\n\n\nmy_variable"
+  },
+  {
+    "objectID": "posts/tips_quarto/quarto_howto.html",
+    "href": "posts/tips_quarto/quarto_howto.html",
+    "title": "Quarto how-to",
+    "section": "",
+    "text": "src\n\nCreate a template with an .ejs extension\nitems stores your list items. You can loop through them. Every item has parameters corresponding to the listing fields, e.g. item.title, item.date etc. You need to wrap them in special brackets, e.g. <%= item.title %>\nYou can define divs, spans and other elements, and add classes to them. Then you can modify the styling using css, e.g. in your main styles.css file or another file\nTo use the template, in the listing part of the document, instead of type: default declare template: path\\to\\custom_listing_declaration.ejs"
+  },
+  {
+    "objectID": "posts/tips_quarto/quarto_howto.html#merging-python-and-observable",
+    "href": "posts/tips_quarto/quarto_howto.html#merging-python-and-observable",
+    "title": "Quarto how-to",
+    "section": "Merging Python and Observable",
+    "text": "Merging Python and Observable\nHow to merge various engines in one notebook: https://gist.github.com/hrbrmstr/23355194d1964688596553a0e6a0050a\nThe secret is to declare the language in code such as:\n\nprint('Hello python')\n# bla = {'x_values': [0,1,2,3,4], 'y_values': [10,11,12,10,9]}\nbla0 = {'x_values': [0,1,2,3,4], 'y_values': [10,11,12,10,9]}\nbla = []\nfor i in range(len(bla0['x_values'])):\n  tmp = {}\n  for k in bla0.keys():\n    tmp[k] = bla0[k][i]\n  bla.append(tmp)\nojs_define(bla=bla)\nprint(bla)\n\nHello python\n\n\nDeprecationWarning:\n\nImporting display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display\n\n\n\n\n\n\n[{'x_values': 0, 'y_values': 10}, {'x_values': 1, 'y_values': 11}, {'x_values': 2, 'y_values': 12}, {'x_values': 3, 'y_values': 10}, {'x_values': 4, 'y_values': 9}]\n\n\n\nbla\n\n\n\n\n\n\n\nconsole.log('hello observable js')\n\n\n\n\n\n\n\nPlot.dot(bla, {x: \"x_values\", y: \"y_values\"}).plot()"
+  },
+  {
+    "objectID": "posts/tips_quarto/quarto_links.html",
+    "href": "posts/tips_quarto/quarto_links.html",
+    "title": "Various resources about quarto",
+    "section": "",
+    "text": "Porting a distill blog to quarto\nThe ultimate guide to starting a Quarto blog\nHow to style your Quarto blog without knowing a lot of HTML/CSS\nGet started with Quarto: RConf2022\nAwesome Quarto"
+  }
+]
