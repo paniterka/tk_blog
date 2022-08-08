@@ -1,0 +1,62 @@
+---
+title: Useful git stuff
+date: '2022-07-26'
+categories:
+  - cheatsheet
+draft: false
+jupyter: python3
+---
+
+Because every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec. 
+
+# Useful git commands 
+
+## Branches
+
+To create a new empty branch: 
+
+```
+git switch --orphan <new branch>
+git commit --allow-empty -m "Initial commit on orphan branch"
+git push -u origin <new branch>
+```
+
+[source](https://stackoverflow.com/a/34100189)
+
+https://www.nobledesktop.com/learn/git/git-branches 
+
+
+## Unstaging files 
+
+https://sethrobertson.github.io/GitFixUm/fixup.html 
+
+### added but not committed 
+
+
+
+### committed but not pushed 
+https://stackoverflow.com/a/15321456 
+```
+git reset --soft HEAD^ 
+git reset HEAD path/to/unwanted_file
+git commit -c ORIG_HEAD 
+```
+The last command will recommit with the original commit message 
+
+
+
+
+## Quarto complaining about `fatal gh-pages is already checked out at 3987a70`
+
+THIS MAY NOT WORK 
+
+[src](https://stackoverflow.com/questions/41545293/branch-is-already-checked-out-at-other-location-in-git-worktrees)
+
+- git: remove `3987a70` directory, commit, push
+- `git worktree prune`
+- `quarto publish gh-pages`
+
+This happened for me as I had a github action set up AND ran `quarto publish gh-pages` simultaneously, which froze and left the `3987a70` folder hanging in the directory
+
+
+
