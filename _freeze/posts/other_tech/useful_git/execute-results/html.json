@@ -1,0 +1,11 @@
+{
+  "hash": "a55ed7ba142f21e1f0c52c1da43550e8",
+  "result": {
+    "markdown": "---\ntitle: Useful git stuff\ndate: '2022-07-26'\ncategories:\n  - cheatsheet\ndraft: false\n---\n\nBecause every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec. \n\n# Useful git commands \n\n## Branches\n\nTo create a new empty branch: \n\n```\ngit switch --orphan <new branch>\ngit commit --allow-empty -m \"Initial commit on orphan branch\"\ngit push -u origin <new branch>\n```\n\n[source](https://stackoverflow.com/a/34100189)\n\nhttps://www.nobledesktop.com/learn/git/git-branches \n\n\n## Unstaging files \n\nhttps://sethrobertson.github.io/GitFixUm/fixup.html \n\n### added but not committed \n\n\n\n### committed but not pushed \nhttps://stackoverflow.com/a/15321456 \n```\ngit reset --soft HEAD^ \ngit reset HEAD path/to/unwanted_file\ngit commit -c ORIG_HEAD \n```\nThe last command will recommit with the original commit message \n\n\n\n\n## Quarto complaining about `fatal gh-pages is already checked out at 3987a70`\n\nTHIS MAY NOT WORK \n\n[src](https://stackoverflow.com/questions/41545293/branch-is-already-checked-out-at-other-location-in-git-worktrees)\n\n- git: remove `3987a70` directory, commit, push\n- `git worktree prune`\n- `quarto publish gh-pages`\n\nThis happened for me as I had a github action set up AND ran `quarto publish gh-pages` simultaneously, which froze and left the `3987a70` folder hanging in the directory\n\n",
+    "supporting": [
+      "useful_git_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
