@@ -2,82 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://paniterka.github.io/tk_blog/about.html</loc>
-    <lastmod>2022-08-08T21:23:48.231Z</lastmod>
+    <lastmod>2022-08-18T17:12:15.062Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/all_posts_categorized.html</loc>
-    <lastmod>2022-08-08T21:23:49.628Z</lastmod>
+    <lastmod>2022-08-18T17:12:16.528Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/index.html</loc>
-    <lastmod>2022-08-08T21:23:50.956Z</lastmod>
+    <lastmod>2022-08-18T17:12:17.944Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/colormaps.html</loc>
-    <lastmod>2022-08-08T21:23:55.786Z</lastmod>
+    <lastmod>2022-08-18T17:12:22.920Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/legend.html</loc>
-    <lastmod>2022-08-08T21:23:57.751Z</lastmod>
+    <lastmod>2022-08-18T17:12:27.371Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/mpl_numpy_warping.html</loc>
-    <lastmod>2022-08-08T21:23:59.009Z</lastmod>
+    <lastmod>2022-08-18T17:12:28.647Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/tick_formatting.html</loc>
-    <lastmod>2022-08-08T21:24:00.402Z</lastmod>
+    <lastmod>2022-08-18T17:12:30.072Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/various_resources.html</loc>
-    <lastmod>2022-08-08T21:24:01.611Z</lastmod>
+    <lastmod>2022-08-18T17:12:31.282Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/watermarks_footnotes.html</loc>
-    <lastmod>2022-08-08T21:24:03.024Z</lastmod>
+    <lastmod>2022-08-18T17:12:32.729Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/ejs.html</loc>
-    <lastmod>2022-08-08T21:24:04.459Z</lastmod>
+    <lastmod>2022-08-18T17:12:34.152Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paniterka.github.io/tk_blog/posts/other_tech/poetry.html</loc>
+    <lastmod>2022-08-18T17:12:35.382Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/table_like_li_css.html</loc>
-    <lastmod>2022-08-08T21:24:05.668Z</lastmod>
+    <lastmod>2022-08-18T17:12:36.803Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/useful_git.html</loc>
-    <lastmod>2022-08-08T21:24:06.870Z</lastmod>
+    <lastmod>2022-08-18T17:12:38.009Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/generate_fake_dates_in_pandas.html</loc>
-    <lastmod>2022-08-08T21:24:08.116Z</lastmod>
+    <lastmod>2022-08-18T17:12:39.298Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/skipping_arbitrary_empty_rows.html</loc>
-    <lastmod>2022-08-08T21:24:09.312Z</lastmod>
+    <lastmod>2022-08-18T17:12:40.528Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/various_pandas_resources.html</loc>
-    <lastmod>2022-08-08T21:24:10.498Z</lastmod>
+    <lastmod>2022-08-18T17:12:41.734Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/working_with_datetimes.html</loc>
-    <lastmod>2022-08-08T21:24:11.716Z</lastmod>
+    <lastmod>2022-08-18T17:12:42.960Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/ojs_define_series.html</loc>
-    <lastmod>2022-08-08T21:24:13.348Z</lastmod>
+    <lastmod>2022-08-18T17:12:44.670Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_howto.html</loc>
-    <lastmod>2022-08-08T21:24:15.018Z</lastmod>
+    <lastmod>2022-08-18T17:12:46.420Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_links.html</loc>
-    <lastmod>2022-08-08T21:24:16.218Z</lastmod>
+    <lastmod>2022-08-18T17:12:47.648Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_worktree.html</loc>
-    <lastmod>2022-08-08T21:24:17.407Z</lastmod>
+    <lastmod>2022-08-18T17:12:48.868Z</lastmod>
   </url>
 </urlset>

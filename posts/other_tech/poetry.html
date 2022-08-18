@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-26">
+<meta name="dcterms.date" content="2022-08-18">
 
-<title>Teresa Kubacka’s Blog - Useful git stuff</title>
+<title>Teresa Kubacka’s Blog - Poetry tips and tricks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,10 +96,10 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Useful git stuff</h1>
+      <h1 class="title">Poetry tips and tricks</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">cheatsheet</div>
-                <div class="quarto-category">git</div>
+                <div class="quarto-category">poetry</div>
               </div>
                   </div>
   </div>
@@ -111,7 +111,7 @@ ul.task-list{list-style: none;}
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 26, 2022</p>
+        <p class="date">August 18, 2022</p>
       </div>
     </div>
       
@@ -125,14 +125,13 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#useful-git-commands" id="toc-useful-git-commands" class="nav-link active" data-scroll-target="#useful-git-commands">Useful git commands</a>
+  <li><a href="#mount-an-ipykernel-in-a-poetry-environment-to-use-with-your-global-jupyter" id="toc-mount-an-ipykernel-in-a-poetry-environment-to-use-with-your-global-jupyter" class="nav-link active" data-scroll-target="#mount-an-ipykernel-in-a-poetry-environment-to-use-with-your-global-jupyter">Mount an ipykernel in a poetry environment to use with your global Jupyter</a></li>
+  <li><a href="#install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere" id="toc-install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere" class="nav-link" data-scroll-target="#install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere">Install the main package in the ipykernel so that it’s available from anywhere</a></li>
+  <li><a href="#see-the-location-of-the-current-venv" id="toc-see-the-location-of-the-current-venv" class="nav-link" data-scroll-target="#see-the-location-of-the-current-venv">See the location of the current venv:</a></li>
+  <li><a href="#managing-different-poetry-environments-in-different-branches" id="toc-managing-different-poetry-environments-in-different-branches" class="nav-link" data-scroll-target="#managing-different-poetry-environments-in-different-branches">Managing different poetry environments in different branches</a>
   <ul class="collapse">
-  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches">Branches</a></li>
-  <li><a href="#unstaging-files" id="toc-unstaging-files" class="nav-link" data-scroll-target="#unstaging-files">Unstaging files</a>
-  <ul class="collapse">
-  <li><a href="#added-but-not-committed" id="toc-added-but-not-committed" class="nav-link" data-scroll-target="#added-but-not-committed">added but not committed</a></li>
-  <li><a href="#committed-but-not-pushed" id="toc-committed-but-not-pushed" class="nav-link" data-scroll-target="#committed-but-not-pushed">committed but not pushed</a></li>
-  </ul></li>
+  <li><a href="#solution-1-recreate-the-environment-at-switch" id="toc-solution-1-recreate-the-environment-at-switch" class="nav-link" data-scroll-target="#solution-1-recreate-the-environment-at-switch">Solution 1: recreate the environment at switch</a></li>
+  <li><a href="#solution-2-keep-branches-in-separate-directories-and-make-poetry-create-local-environments" id="toc-solution-2-keep-branches-in-separate-directories-and-make-poetry-create-local-environments" class="nav-link" data-scroll-target="#solution-2-keep-branches-in-separate-directories-and-make-poetry-create-local-environments">Solution 2: keep branches in separate directories and make poetry create local environments</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -146,35 +145,64 @@ ul.task-list{list-style: none;}
 
 
 
-<p>Because every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec.&nbsp;</p>
-<section id="useful-git-commands" class="level1">
-<h1>Useful git commands</h1>
-<section id="branches" class="level2">
-<h2 class="anchored" data-anchor-id="branches">Branches</h2>
-<p>To create a new completely empty branch:</p>
-<pre><code>git switch --orphan &lt;new branch&gt;
-git commit --allow-empty -m "Initial commit on orphan branch"
-git push -u origin &lt;new branch&gt;</code></pre>
-<p><a href="https://stackoverflow.com/a/34100189">src</a> <a href="https://www.nobledesktop.com/learn/git/git-branches">Article on branches</a></p>
-<p>To pull a new branch from the server without touching the current branch: <code>git fetch &lt;remote_name&gt; &lt;branch_name&gt;</code> which in most cases is <a href="https://stackoverflow.com/a/27792437">src</a></p>
-<pre><code>git fetch origin &lt;branch_name&gt;</code></pre>
+<section id="mount-an-ipykernel-in-a-poetry-environment-to-use-with-your-global-jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="mount-an-ipykernel-in-a-poetry-environment-to-use-with-your-global-jupyter">Mount an ipykernel in a poetry environment to use with your global Jupyter</h2>
+<p>Install <code>ipykernel</code> as development dependency:</p>
+<pre><code>poetry add -D ipykernel</code></pre>
+<p>Register the ipykernel:</p>
+<pre><code>poetry run python -m ipykernel install --user --name my_kernel</code></pre>
+<p>Check that the kernel is registered:</p>
+<pre><code>jupyter kernelspec list</code></pre>
 </section>
-<section id="unstaging-files" class="level2">
-<h2 class="anchored" data-anchor-id="unstaging-files">Unstaging files</h2>
-<p>https://sethrobertson.github.io/GitFixUm/fixup.html</p>
-<section id="added-but-not-committed" class="level3">
-<h3 class="anchored" data-anchor-id="added-but-not-committed">added but not committed</h3>
+<section id="install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere">Install the main package in the ipykernel so that it’s available from anywhere</h2>
+<p>Poetry by default will try to do it, but Jupyter will not recognize this. You need to add a <code>setup.py</code> alongside your <code>__init__.py</code>:</p>
+<pre><code>from setuptools import setup, find_packages
+
+setup(
+    name='name_of_your_package',
+    version='0.1.0',
+    packages=find_packages(include=['name_of_your_package', 'name_of_your_package.*'])
+)</code></pre>
 </section>
-<section id="committed-but-not-pushed" class="level3">
-<h3 class="anchored" data-anchor-id="committed-but-not-pushed">committed but not pushed</h3>
-<p>https://stackoverflow.com/a/15321456</p>
-<pre><code>git reset --soft HEAD^ 
-git reset HEAD path/to/unwanted_file
-git commit -c ORIG_HEAD </code></pre>
-<p>The last command will recommit with the original commit message</p>
+<section id="see-the-location-of-the-current-venv" class="level2">
+<h2 class="anchored" data-anchor-id="see-the-location-of-the-current-venv">See the location of the current venv:</h2>
+<pre><code>poetry env info --path</code></pre>
+</section>
+<section id="managing-different-poetry-environments-in-different-branches" class="level2">
+<h2 class="anchored" data-anchor-id="managing-different-poetry-environments-in-different-branches">Managing different poetry environments in different branches</h2>
+<p>By default, Poetry will create one global environment for a given project name. This can be problematic when you use different dependencies on different branches, but within the same project.</p>
+<section id="solution-1-recreate-the-environment-at-switch" class="level3">
+<h3 class="anchored" data-anchor-id="solution-1-recreate-the-environment-at-switch">Solution 1: recreate the environment at switch</h3>
+<p>Switch branches and recreate the environment from scratch:</p>
+<pre><code>poetry env list
+poetry env remove env_name_like_listed_above
+poetry lock
+poetry install </code></pre>
+<p>or</p>
+<pre><code>poetry install --remove-untracked</code></pre>
+</section>
+<section id="solution-2-keep-branches-in-separate-directories-and-make-poetry-create-local-environments" class="level3">
+<h3 class="anchored" data-anchor-id="solution-2-keep-branches-in-separate-directories-and-make-poetry-create-local-environments">Solution 2: keep branches in separate directories and make poetry create local environments</h3>
+<p>Clone each branch into a separate local directory. To make poetry create separate environments w/o having to rename the project name in pyproject.toml, run:</p>
+<ul>
+<li>for all the projects:</li>
+</ul>
+<pre><code>poetry config virtualenvs.in-project true</code></pre>
+<ul>
+<li>only for those projects - run separately in each directory</li>
+</ul>
+<pre><code>poetry config virtualenvs.in-project true --local</code></pre>
+<p>And then run:</p>
+<pre><code>poetry lock 
+poetry install</code></pre>
+<p>Lock is important to create a new venv.</p>
+<p>To see the current config:</p>
+<pre><code>poetry config --list</code></pre>
+<p><a href="https://github.com/python-poetry/poetry/issues/272">src1</a> <a href="https://stackoverflow.com/questions/62029371/python-poetry-error-setting-settings-virtualenvs-in-project-does-not-exist">src2</a> <a href="https://github.com/python-poetry/poetry/issues/108#issuecomment-628681234">src3</a></p>
+<p>Then mount Ipython kernel in each environment separately.</p>
 
 
-</section>
 </section>
 </section>
 

@@ -25,7 +25,7 @@
     "href": "all_posts_categorized.html#other-tech-topics",
     "title": "All posts",
     "section": "Other tech topics",
-    "text": "Other tech topics\n\n\n  \n    \n      \n        \n          \n            Style a list element to look like a table \n            \n              (Aug 5, 2022)\n            \n          \n           css \n        \n      \n      \n        \n          \n            Useful git stuff \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, git \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n    \n  \n\nNo matching items"
+    "text": "Other tech topics\n\n\n  \n    \n      \n        \n          \n            Poetry tips and tricks \n            \n              (Aug 18, 2022)\n            \n          \n           cheatsheet, poetry \n        \n      \n      \n        \n          \n            Style a list element to look like a table \n            \n              (Aug 5, 2022)\n            \n          \n           css \n        \n      \n      \n        \n          \n            Useful git stuff \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, git \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n    \n  \n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -39,7 +39,7 @@
     "href": "index.html#latest-posts",
     "title": "\nFiguring things outone post at a time\n",
     "section": "Latest posts",
-    "text": "Latest posts\n\n  \n    \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Fix the `quarto publish gh-pages` error on windows \n            \n              (Aug 8, 2022)\n            \n          \n           quarto, git \n        \n      \n      \n        \n          \n            Writing EJS templates \n            \n              (Aug 5, 2022)\n            \n          \n           ejs, quarto, javascript \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
+    "text": "Latest posts\n\n  \n    \n      \n        \n          \n            Poetry tips and tricks \n            \n              (Aug 18, 2022)\n            \n          \n           cheatsheet, poetry \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Fix the `quarto publish gh-pages` error on windows \n            \n              (Aug 8, 2022)\n            \n          \n           quarto, git \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
   },
   {
     "objectID": "posts/mpl/colormaps.html",
@@ -133,6 +133,34 @@
     "text": "<%= String(item.categories).replace(/,/g, ', ') %>"
   },
   {
+    "objectID": "posts/other_tech/poetry.html",
+    "href": "posts/other_tech/poetry.html",
+    "title": "Poetry tips and tricks",
+    "section": "",
+    "text": "Install ipykernel as development dependency:\npoetry add -D ipykernel\nRegister the ipykernel:\npoetry run python -m ipykernel install --user --name my_kernel\nCheck that the kernel is registered:\njupyter kernelspec list"
+  },
+  {
+    "objectID": "posts/other_tech/poetry.html#install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere",
+    "href": "posts/other_tech/poetry.html#install-the-main-package-in-the-ipykernel-so-that-its-available-from-anywhere",
+    "title": "Poetry tips and tricks",
+    "section": "Install the main package in the ipykernel so that it’s available from anywhere",
+    "text": "Install the main package in the ipykernel so that it’s available from anywhere\nPoetry by default will try to do it, but Jupyter will not recognize this. You need to add a setup.py alongside your __init__.py:\nfrom setuptools import setup, find_packages\n\nsetup(\n    name='name_of_your_package',\n    version='0.1.0',\n    packages=find_packages(include=['name_of_your_package', 'name_of_your_package.*'])\n)"
+  },
+  {
+    "objectID": "posts/other_tech/poetry.html#see-the-location-of-the-current-venv",
+    "href": "posts/other_tech/poetry.html#see-the-location-of-the-current-venv",
+    "title": "Poetry tips and tricks",
+    "section": "See the location of the current venv:",
+    "text": "See the location of the current venv:\npoetry env info --path"
+  },
+  {
+    "objectID": "posts/other_tech/poetry.html#managing-different-poetry-environments-in-different-branches",
+    "href": "posts/other_tech/poetry.html#managing-different-poetry-environments-in-different-branches",
+    "title": "Poetry tips and tricks",
+    "section": "Managing different poetry environments in different branches",
+    "text": "Managing different poetry environments in different branches\nBy default, Poetry will create one global environment for a given project name. This can be problematic when you use different dependencies on different branches, but within the same project.\n\nSolution 1: recreate the environment at switch\nSwitch branches and recreate the environment from scratch:\npoetry env list\npoetry env remove env_name_like_listed_above\npoetry lock\npoetry install \nor\npoetry install --remove-untracked\n\n\nSolution 2: keep branches in separate directories and make poetry create local environments\nClone each branch into a separate local directory. To make poetry create separate environments w/o having to rename the project name in pyproject.toml, run:\n\nfor all the projects:\n\npoetry config virtualenvs.in-project true\n\nonly for those projects - run separately in each directory\n\npoetry config virtualenvs.in-project true --local\nAnd then run:\npoetry lock \npoetry install\nLock is important to create a new venv.\nTo see the current config:\npoetry config --list\nsrc1 src2 src3\nThen mount Ipython kernel in each environment separately."
+  },
+  {
     "objectID": "posts/other_tech/table_like_li_css.html",
     "href": "posts/other_tech/table_like_li_css.html",
     "title": "Style a list element to look like a table",
@@ -151,7 +179,7 @@
     "href": "posts/other_tech/useful_git.html#branches",
     "title": "Useful git stuff",
     "section": "Branches",
-    "text": "Branches\nTo create a new empty branch:\ngit switch --orphan <new branch>\ngit commit --allow-empty -m \"Initial commit on orphan branch\"\ngit push -u origin <new branch>\nsource\nhttps://www.nobledesktop.com/learn/git/git-branches"
+    "text": "Branches\nTo create a new completely empty branch:\ngit switch --orphan <new branch>\ngit commit --allow-empty -m \"Initial commit on orphan branch\"\ngit push -u origin <new branch>\nsrc Article on branches\nTo pull a new branch from the server without touching the current branch: git fetch <remote_name> <branch_name> which in most cases is src\ngit fetch origin <branch_name>"
   },
   {
     "objectID": "posts/other_tech/useful_git.html#unstaging-files",

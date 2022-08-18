@@ -16,6 +16,7 @@
       "/posts/pandas/various_pandas_resources.html",
       "/posts/mpl/watermarks_footnotes.html",
       "/posts/pandas/working_with_datetimes.html",
+      "/posts/other_tech/poetry.html",
       "/posts/other_tech/table_like_li_css.html",
       "/posts/other_tech/useful_git.html",
       "/posts/other_tech/ejs.html"
@@ -24,6 +25,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/other_tech/poetry.html",
       "/posts/mpl/legend.html",
       "/posts/mpl/tick_formatting.html",
       "/posts/mpl/watermarks_footnotes.html",
