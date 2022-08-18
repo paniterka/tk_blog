@@ -1,0 +1,97 @@
+---
+title: Poetry tips and tricks  
+date: '2022-08-18'
+categories:
+  - cheatsheet
+  - poetry
+---
+
+## Mount an ipykernel in a poetry environment to use with your global Jupyter 
+
+Install `ipykernel` as development dependency: 
+```
+poetry add -D ipykernel
+```
+
+Register the ipykernel: 
+```
+poetry run python -m ipykernel install --user --name my_kernel
+```
+
+Check that the kernel is registered: 
+```
+jupyter kernelspec list
+```
+
+## Install the main package in the ipykernel so that it's available from anywhere 
+
+Poetry by default will try to do it, but Jupyter will not recognize this. You need to add a `setup.py` alongside your `__init__.py`:
+
+```
+from setuptools import setup, find_packages
+
+setup(
+    name='name_of_your_package',
+    version='0.1.0',
+    packages=find_packages(include=['name_of_your_package', 'name_of_your_package.*'])
+)
+```
+
+## See the location of the current venv: 
+
+```
+poetry env info --path
+```
+
+## Managing different poetry environments in different branches 
+
+By default, Poetry will create one global environment for a given project name. This can be problematic when you use different dependencies on different branches, but within the same project. 
+
+
+### Solution 1: recreate the environment at switch 
+
+Switch branches and recreate the environment from scratch: 
+
+```
+poetry env list
+poetry env remove env_name_like_listed_above
+poetry lock
+poetry install 
+``` 
+
+or 
+```
+poetry install --remove-untracked
+```
+
+
+### Solution 2: keep branches in separate directories and make poetry create local environments 
+
+Clone each branch into a separate local directory. To make poetry create separate environments w/o having to rename the project name in pyproject.toml, run: 
+
+- for all the projects: 
+```
+poetry config virtualenvs.in-project true
+``` 
+
+- only for those projects - run separately in each directory 
+
+```
+poetry config virtualenvs.in-project true --local
+```
+
+And then run: 
+```
+poetry lock 
+poetry install
+```
+Lock is important to create a new venv. 
+
+To see the current config: 
+```
+poetry config --list
+```
+
+[src1](https://github.com/python-poetry/poetry/issues/272) [src2](https://stackoverflow.com/questions/62029371/python-poetry-error-setting-settings-virtualenvs-in-project-does-not-exist) [src3](https://github.com/python-poetry/poetry/issues/108#issuecomment-628681234)
+
+Then mount Ipython kernel in each environment separately. 

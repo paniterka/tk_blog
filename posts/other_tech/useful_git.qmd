@@ -12,17 +12,21 @@ Because every now and then there is this thing you need to do with git, but beca
 
 ## Branches
 
-To create a new empty branch: 
-
+To create a new completely empty branch: 
 ```
 git switch --orphan <new branch>
 git commit --allow-empty -m "Initial commit on orphan branch"
 git push -u origin <new branch>
 ```
+[src](https://stackoverflow.com/a/34100189)
+[Article on branches](https://www.nobledesktop.com/learn/git/git-branches) 
 
-[source](https://stackoverflow.com/a/34100189)
 
-https://www.nobledesktop.com/learn/git/git-branches 
+To pull a new branch from the server without touching the current branch: `git fetch <remote_name> <branch_name>`
+which in most cases is [src](https://stackoverflow.com/a/27792437)
+```
+git fetch origin <branch_name>
+```
 
 
 ## Unstaging files 
