@@ -1,0 +1,36 @@
+---
+title: "Generate dictionaries from dataframes"
+date: "2022-09-16"
+format: html
+categories:
+  - pandas
+---
+
+Sometimes it is useful to use dictionaries in pandas workflows. For example, when using a `df.replace()` or `df.rename()` command. Sometimes it is useful when those dictionaries are generated from another dataframe. 
+
+Concrete example could be working with messy country names. Let's say I have a dataframe containing some values per country: 
+```python
+df = pd.DataFrame([['Poland', 'Jan Nowak', 3], ['POL', 'Martyna Kowalska', 15], ['PL', 'Joanna Byk', 19]], 
+        columns=['country', 'athlete', 'score'])
+```
+
+and another dataframe which contains attribution of a messy country name to a proper country name: 
+```python
+countries = pd.DataFrame(['Poland', 'PL'], ['POL', 'PL'], ['PL', 'PL'], columns=['messy', 'proper'])
+```
+Here `countries` is generated programmatically, but the benefit of using a `countries` dataframe is that it can be maintained in a form of an external csv or xlsx, which contains a hand-curated list of synonyms. 
+
+What we want to get is a dictionary of a form: `{'messy_name': 'proper_name'}`. 
+
+We can achieve it in a following way: 
+```python
+names_dict = countries.drop_duplicates().set_index('messy')['proper'].to_dict()
+```
+
+We need to drop duplicates, otherwise we will only get the first entry (keys are unique in a dictionary). Optimally we would do it at the earlier stage. 
+
+To clean the messy names, we can then do: 
+```python
+df['country'].replace(names_dict)
+```
+to get a disambiguated column. We can overwrite the original or create a new column, e.g. `country_clean`. 

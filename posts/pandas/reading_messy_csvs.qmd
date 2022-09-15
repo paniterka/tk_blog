@@ -1,0 +1,92 @@
+---
+title: "Dealing with messy CSVs"
+date: "2022-09-16"
+format: html
+categories:
+  - pandas
+---
+
+In the wild, some data come as messy CSVs or TXT files. Luckily, we can customize the `pd.read_csv()` to deal with many surprises that await us. 
+
+## Configure the file imports 
+
+To set the explicit file encoding, for a case when the non-Latin characters were saved in a weird way. Pick your favorite one (`ansi`, `utf-8` etc.)
+```python
+pd.read_csv('messyfile.txt', encoding='ansi')
+```
+
+Delimiter other than a comma. Common delimiters are: `\t` for tab, `|` for pipe etc. 
+```python
+pd.read_csv('messyfile.tsv', delimiter='\t')
+pd.read_csv('messyfile.tsv', sep='\t')
+```
+
+Your CSV has a commentary on top of your data and you know how many lines there are (here, 9 lines of commentary): 
+```python
+pd.read_csv('messyfile.csv', skiprows=9)
+```
+
+Your CSV has a commentary above/in/below your data and it is preceded with a `#`: 
+```python
+pd.read_csv('messyfile.csv', comment='#')
+```
+
+Your CSV has data which look like `NaN`, but are actually proper data points, e.g. a shortcut `NA` for North America: (this will also switch off all the other ways of fishing out the `NaN` values)
+```python
+pd.read_csv('messyfile.csv', na_filter=False)
+```
+
+Your CSV has textual data which contain a valid double-quote character as part of the string which has been escaped with `\`: 
+```python
+pd.read_csv('messyfile.csv', escapechar='\')
+```
+
+You know that the table is at the beginning of the file and it takes 11 lines, and below the table there is an unknown volume of garbage/commentary: 
+```python
+pd.read_csv('messyfile.csv', nrows=11)
+```
+
+## How to snoop the file before reading  
+Sometimes the mess is big and we want to snoop the file first and decide between an import scenario. 
+
+For example, we have a set of csvs and the headers are missing in some of them. The columns should be the same in each file. We know what the default header should be. We can store it in a variable: 
+
+```python
+headerline = 'col1,col2,col3'
+header_names = headerline.split(',')
+```
+If your column names are messy, you may want to strip them from whitespace etc. in this step. 
+
+Then we can open each csv file separately, snoop the beginning and decide on the import scenario. It is important to move back the cursor to the beginning after performing a read operation. 
+
+```python
+with open('single_file.csv') as tmp_file:
+
+  # snoop the first line and move the file pointer back to the file beginning 
+  x = tmp_file.tell() # get the initial position 
+  first_line = tmp_file.readline().decode('utf-8') # snoop 
+  tmp_file.seek(x) # move the pointer back to the iniital position 
+  
+  # do something depending on what we found out 
+  if first_line != headerline: # if the headerline is missing at the beginning 
+      df_tmp = pd.read_csv(tmp_file, delimiter=',', 
+                            header=0, names=header_names) # read header manually
+      # here you can do something else to your data to clean it
+  else: 
+      df_tmp = pd.read_csv(tmp_file, delimiter=',') # read as usual 
+```
+
+I had a real case like this, where in the bunch of CSVs the header was sometimes above and sometimes _below_ the data table. I want to believe that a person who created this data set must have had a very very bad day. 
+
+
+## To merge the csvs into one big dataframe 
+
+The best is to use `pd.concat()`: 
+```python
+df_list = []
+for f in list_of_files: 
+  df_tmp = pd.read_csv(f) # here you can use your customized read function like in the snooping example
+  df_list.append(df_tmp)
+big_df = pd.concat(df_list).reset_index()
+```
+Remember to `reset_index()`, as all the dataframes will come with their own index, which may screw up your `loc` operations later on if you leave duplicate indices. 

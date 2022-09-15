@@ -1,5 +1,5 @@
 ---
-title: "<div class=\"main-title\">Figuring things out<br>one post at a time</div>"
+title: "Figuring things out<br>one post at a time"
 listing:
   - id: latest_posts
     contents: posts
@@ -15,6 +15,7 @@ page-layout: article
 title-block-banner: 1811433_adj.jpg
 toc: false
 toc-location: body
+css: styles_main.css
 ---
 
 :::{.column-page}
