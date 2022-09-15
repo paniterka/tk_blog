@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-03">
+<meta name="dcterms.date" content="2022-09-16">
 
-<title>Teresa Kubacka’s Blog - Saving a chart as a numpy array and warping it using skimage</title>
+<title>Teresa Kubacka’s Blog - Dealing with messy CSVs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,11 +166,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Saving a chart as a numpy array and warping it using skimage</h1>
+      <h1 class="title">Dealing with messy CSVs</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">cheatsheet</div>
-                <div class="quarto-category">matplotlib</div>
-                <div class="quarto-category">numpy</div>
+                <div class="quarto-category">pandas</div>
               </div>
                   </div>
   </div>
@@ -182,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 3, 2022</p>
+        <p class="date">September 16, 2022</p>
       </div>
     </div>
       
@@ -196,9 +194,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#export-the-figure-to-a-numpy-array" id="toc-export-the-figure-to-a-numpy-array" class="nav-link active" data-scroll-target="#export-the-figure-to-a-numpy-array">Export the figure to a numpy array</a></li>
-  <li><a href="#remove-the-alpha-channel-in-a-numpy-array-rgba-rgb" id="toc-remove-the-alpha-channel-in-a-numpy-array-rgba-rgb" class="nav-link" data-scroll-target="#remove-the-alpha-channel-in-a-numpy-array-rgba-rgb">Remove the alpha channel in a numpy array (RGBA-&gt;RGB)</a></li>
-  <li><a href="#warping-images-using-skimage" id="toc-warping-images-using-skimage" class="nav-link" data-scroll-target="#warping-images-using-skimage">Warping images using skimage</a></li>
+  <li><a href="#configure-the-file-imports" id="toc-configure-the-file-imports" class="nav-link active" data-scroll-target="#configure-the-file-imports">Configure the file imports</a></li>
+  <li><a href="#how-to-snoop-the-file-before-reading" id="toc-how-to-snoop-the-file-before-reading" class="nav-link" data-scroll-target="#how-to-snoop-the-file-before-reading">How to snoop the file before reading</a></li>
+  <li><a href="#to-merge-the-csvs-into-one-big-dataframe" id="toc-to-merge-the-csvs-into-one-big-dataframe" class="nav-link" data-scroll-target="#to-merge-the-csvs-into-one-big-dataframe">To merge the csvs into one big dataframe</a></li>
   </ul>
 </nav>
 </nav>
@@ -211,98 +209,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>Sometimes we may want to create an image with plotting API of matplotlib, but then apply a transform that only works for numpy arrays (for example, skimage’s warps). This is how you do it:</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let’s generate an example chart:</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(dpi<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># when using plt.subplots, the canvas and renderer get created automatically </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ax.bar(x, bars)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="mpl_numpy_warping_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<section id="export-the-figure-to-a-numpy-array" class="level3">
-<h3 class="anchored" data-anchor-id="export-the-figure-to-a-numpy-array">Export the figure to a numpy array</h3>
-<p>Method 1 <a href="https://matplotlib.org/3.1.1/gallery/user_interfaces/canvasagg.html">src</a></p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s, (width, height) <span class="op">=</span> f.canvas.print_to_buffer()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>rgba <span class="op">=</span> np.frombuffer(s, np.uint8).reshape((height, width, <span class="dv">4</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(rgba, aspect<span class="op">=</span><span class="st">'equal'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="mpl_numpy_warping_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(rgba))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rgba.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'numpy.ndarray'&gt;
-(400, 600, 4)</code></pre>
-</div>
-</div>
-<p>Method 2 <a href="https://matplotlib.org/stable/gallery/user_interfaces/canvasagg.html">src</a></p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rgba <span class="op">=</span> np.asarray(f.canvas.buffer_rgba())</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(rgba)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="mpl_numpy_warping_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(rgba))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rgba.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'numpy.ndarray'&gt;
-(400, 600, 4)</code></pre>
-</div>
-</div>
+<p>In the wild, some data come as messy CSVs or TXT files. Luckily, we can customize the <code>pd.read_csv()</code> to deal with many surprises that await us.</p>
+<section id="configure-the-file-imports" class="level2">
+<h2 class="anchored" data-anchor-id="configure-the-file-imports">Configure the file imports</h2>
+<p>To set the explicit file encoding, for a case when the non-Latin characters were saved in a weird way. Pick your favorite one (<code>ansi</code>, <code>utf-8</code> etc.)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.txt'</span>, encoding<span class="op">=</span><span class="st">'ansi'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Delimiter other than a comma. Common delimiters are: <code>\t</code> for tab, <code>|</code> for pipe etc.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.tsv'</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.tsv'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Your CSV has a commentary on top of your data and you know how many lines there are (here, 9 lines of commentary):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.csv'</span>, skiprows<span class="op">=</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Your CSV has a commentary above/in/below your data and it is preceded with a <code>#</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.csv'</span>, comment<span class="op">=</span><span class="st">'#'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Your CSV has data which look like <code>NaN</code>, but are actually proper data points, e.g.&nbsp;a shortcut <code>NA</code> for North America: (this will also switch off all the other ways of fishing out the <code>NaN</code> values)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.csv'</span>, na_filter<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Your CSV has textual data which contain a valid double-quote character as part of the string which has been escaped with <code>\</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.csv'</span>, escapechar<span class="op">=</span><span class="st">'</span><span class="ch">\'</span><span class="st">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You know that the table is at the beginning of the file and it takes 11 lines, and below the table there is an unknown volume of garbage/commentary:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'messyfile.csv'</span>, nrows<span class="op">=</span><span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="remove-the-alpha-channel-in-a-numpy-array-rgba-rgb" class="level3">
-<h3 class="anchored" data-anchor-id="remove-the-alpha-channel-in-a-numpy-array-rgba-rgb">Remove the alpha channel in a numpy array (RGBA-&gt;RGB)</h3>
-<p>To remove the alpha channel it’s enough to run: <a href="https://stackoverflow.com/a/35902359">src</a></p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>rgb <span class="op">=</span> rgba[:,:,:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The resulting chart is the same (our transparency is anyway white)</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(rgb)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="mpl_numpy_warping_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Both methods respect the <code>dpi</code> set when creating the figure using <code>plt.subplots</code></p>
+<section id="how-to-snoop-the-file-before-reading" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-snoop-the-file-before-reading">How to snoop the file before reading</h2>
+<p>Sometimes the mess is big and we want to snoop the file first and decide between an import scenario.</p>
+<p>For example, we have a set of csvs and the headers are missing in some of them. The columns should be the same in each file. We know what the default header should be. We can store it in a variable:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>headerline <span class="op">=</span> <span class="st">'col1,col2,col3'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>header_names <span class="op">=</span> headerline.split(<span class="st">','</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If your column names are messy, you may want to strip them from whitespace etc. in this step.</p>
+<p>Then we can open each csv file separately, snoop the beginning and decide on the import scenario. It is important to move back the cursor to the beginning after performing a read operation.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'single_file.csv'</span>) <span class="im">as</span> tmp_file:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># snoop the first line and move the file pointer back to the file beginning </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> tmp_file.tell() <span class="co"># get the initial position </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  first_line <span class="op">=</span> tmp_file.readline().decode(<span class="st">'utf-8'</span>) <span class="co"># snoop </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  tmp_file.seek(x) <span class="co"># move the pointer back to the iniital position </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># do something depending on what we found out </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> first_line <span class="op">!=</span> headerline: <span class="co"># if the headerline is missing at the beginning </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      df_tmp <span class="op">=</span> pd.read_csv(tmp_file, delimiter<span class="op">=</span><span class="st">','</span>, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                            header<span class="op">=</span><span class="dv">0</span>, names<span class="op">=</span>header_names) <span class="co"># read header manually</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="co"># here you can do something else to your data to clean it</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>: </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      df_tmp <span class="op">=</span> pd.read_csv(tmp_file, delimiter<span class="op">=</span><span class="st">','</span>) <span class="co"># read as usual </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I had a real case like this, where in the bunch of CSVs the header was sometimes above and sometimes <em>below</em> the data table. I want to believe that a person who created this data set must have had a very very bad day.</p>
 </section>
-<section id="warping-images-using-skimage" class="level3">
-<h3 class="anchored" data-anchor-id="warping-images-using-skimage">Warping images using skimage</h3>
-<p>Now we can warp the image:</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.transform <span class="im">import</span> swirl</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>swirled <span class="op">=</span> swirl(rgb, rotation<span class="op">=</span><span class="dv">0</span>, strength<span class="op">=</span><span class="dv">30</span>, radius<span class="op">=</span><span class="dv">120</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">4</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].imshow(rgb, aspect<span class="op">=</span><span class="st">'equal'</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'original'</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].imshow(swirled, aspect<span class="op">=</span><span class="st">'equal'</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'warped'</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>[a.axis(<span class="st">'off'</span>) <span class="cf">for</span> a <span class="kw">in</span> ax]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="mpl_numpy_warping_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>More on skimage transforms: https://scikit-image.org/docs/stable/api/skimage.transform.html</p>
+<section id="to-merge-the-csvs-into-one-big-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="to-merge-the-csvs-into-one-big-dataframe">To merge the csvs into one big dataframe</h2>
+<p>The best is to use <code>pd.concat()</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_list <span class="op">=</span> []</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> list_of_files: </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  df_tmp <span class="op">=</span> pd.read_csv(f) <span class="co"># here you can use your customized read function like in the snooping example</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  df_list.append(df_tmp)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>big_df <span class="op">=</span> pd.concat(df_list).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember to <code>reset_index()</code>, as all the dataframes will come with their own index, which may screw up your <code>loc</code> operations later on if you leave duplicate indices.</p>
 
 
 </section>

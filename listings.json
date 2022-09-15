@@ -8,6 +8,8 @@
       "/posts/tips_quarto/quarto_links.html",
       "/posts/mpl/colormaps.html",
       "/posts/mpl/legend.html",
+      "/posts/pandas/reading_messy_csvs.html",
+      "/posts/pandas/pandas_dictionaries.html",
       "/posts/pandas/generate_fake_dates_in_pandas.html",
       "/posts/mpl/mpl_numpy_warping.html",
       "/posts/pandas/skipping_arbitrary_empty_rows.html",
@@ -25,6 +27,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/pandas/pandas_dictionaries.html",
+      "/posts/pandas/reading_messy_csvs.html",
       "/posts/other_tech/poetry.html",
       "/posts/mpl/legend.html",
       "/posts/mpl/tick_formatting.html",

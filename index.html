@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.1.245">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -102,9 +107,11 @@ background-size: cover;
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Teresa Kubacka’s Blog</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -133,9 +140,7 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><div class="main-title">
-Figuring things out<br>one post at a time
-</div></h1>
+      <h1 class="title">Figuring things out<br>one post at a time</h1>
                       </div>
   </div>
     
@@ -167,7 +172,29 @@ Figuring things out<br>one post at a time
 <div id="listing-latest_posts" class="quarto-listing quarto-listing-container-custom">
   <div class="custom_listing">
     <ul class="list">
-      <li data-index="0" data-categories="cheatsheet,poetry" data-listing-date-sort="1660773600000" data-listing-file-modified-sort="1660842628574" data-listing-reading-time-sort="1.255">
+      <li data-index="0" data-categories="pandas" data-listing-date-sort="1663279200000" data-listing-file-modified-sort="1663280846736" data-listing-reading-time-sort="1.065">
+        <span class="li-contents-container">
+          <span class="title-container">
+            <a href="./posts/pandas/pandas_dictionaries.html" class="listing-title">Generate dictionaries from dataframes</a> 
+            <span class="detail">
+              <span class="listing-date">(Sep 16, 2022)</span>
+            </span>
+          </span>
+          <span class="categories"> pandas </span>
+        </span>
+      </li>
+      <li data-index="1" data-categories="pandas" data-listing-date-sort="1663279200000" data-listing-file-modified-sort="1663283199660" data-listing-reading-time-sort="2.955">
+        <span class="li-contents-container">
+          <span class="title-container">
+            <a href="./posts/pandas/reading_messy_csvs.html" class="listing-title">Dealing with messy CSVs</a> 
+            <span class="detail">
+              <span class="listing-date">(Sep 16, 2022)</span>
+            </span>
+          </span>
+          <span class="categories"> pandas </span>
+        </span>
+      </li>
+      <li data-index="2" data-categories="cheatsheet,poetry" data-listing-date-sort="1660773600000" data-listing-file-modified-sort="1660842628574" data-listing-reading-time-sort="1.255">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/other_tech/poetry.html" class="listing-title">Poetry tips and tricks</a> 
@@ -178,7 +205,7 @@ Figuring things out<br>one post at a time
           <span class="categories"> cheatsheet, poetry </span>
         </span>
       </li>
-      <li data-index="1" data-categories="matplotlib" data-listing-date-sort="1659909600000" data-listing-file-modified-sort="1659992027458" data-listing-reading-time-sort="0.195">
+      <li data-index="3" data-categories="matplotlib" data-listing-date-sort="1659909600000" data-listing-file-modified-sort="1659992027458" data-listing-reading-time-sort="0.195">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/mpl/legend.html" class="listing-title">Customizing the legend</a> 
@@ -189,7 +216,7 @@ Figuring things out<br>one post at a time
           <span class="categories"> matplotlib </span>
         </span>
       </li>
-      <li data-index="2" data-categories="matplotlib" data-listing-date-sort="1659909600000" data-listing-file-modified-sort="1659992027460" data-listing-reading-time-sort="0.55">
+      <li data-index="4" data-categories="matplotlib" data-listing-date-sort="1659909600000" data-listing-file-modified-sort="1659992027460" data-listing-reading-time-sort="0.55">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/mpl/tick_formatting.html" class="listing-title">Tick formatting recipes</a> 
@@ -198,28 +225,6 @@ Figuring things out<br>one post at a time
             </span>
           </span>
           <span class="categories"> matplotlib </span>
-        </span>
-      </li>
-      <li data-index="3" data-categories="matplotlib" data-listing-date-sort="1659909600000" data-listing-file-modified-sort="1659992027461" data-listing-reading-time-sort="1.235">
-        <span class="li-contents-container">
-          <span class="title-container">
-            <a href="./posts/mpl/watermarks_footnotes.html" class="listing-title">Watermarks, footnotes and other annotations</a> 
-            <span class="detail">
-              <span class="listing-date">(Aug 8, 2022)</span>
-            </span>
-          </span>
-          <span class="categories"> matplotlib </span>
-        </span>
-      </li>
-      <li data-index="4" data-categories="quarto,git" data-listing-date-sort="1659909600000" data-listing-file-modified-sort="1659993795320" data-listing-reading-time-sort="0.325">
-        <span class="li-contents-container">
-          <span class="title-container">
-            <a href="./posts/tips_quarto/quarto_worktree.html" class="listing-title">Fix the `quarto publish gh-pages` error on windows</a> 
-            <span class="detail">
-              <span class="listing-date">(Aug 8, 2022)</span>
-            </span>
-          </span>
-          <span class="categories"> quarto, git </span>
         </span>
       </li>
     </ul>
@@ -307,7 +312,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
