@@ -11,7 +11,7 @@
     "href": "all_posts_categorized.html",
     "title": "All posts",
     "section": "",
-    "text": "Mostly pandas and matplotlib tricks.\n\n  \n    \n      \n        \n          \n            Creating colormaps in matplotlib \n            \n              (Aug 2, 2022)\n            \n          \n           cheatsheet, matplotlib \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generating random days between two dates \n            \n              (Jul 30, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Saving a chart as a numpy array and warping it using skimage \n            \n              (Aug 3, 2022)\n            \n          \n           cheatsheet, matplotlib, numpy \n        \n      \n      \n        \n          \n            Skipping empty csv rows \n            \n              (Aug 4, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Matplotlib resources \n            \n              (Aug 4, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Pandas resources \n            \n              (Aug 4, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Working with datetimes \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n    \n  \n\nNo matching items"
+    "text": "Mostly pandas and matplotlib tricks.\n\n  \n    \n      \n        \n          \n            Creating colormaps in matplotlib \n            \n              (Aug 2, 2022)\n            \n          \n           cheatsheet, matplotlib \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generating random days between two dates \n            \n              (Jul 30, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Saving a chart as a numpy array and warping it using skimage \n            \n              (Aug 3, 2022)\n            \n          \n           cheatsheet, matplotlib, numpy \n        \n      \n      \n        \n          \n            Skipping empty csv rows \n            \n              (Aug 4, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Sep 21, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Matplotlib resources \n            \n              (Aug 4, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Pandas resources \n            \n              (Aug 4, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Working with datetimes \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n    \n  \n\nNo matching items"
   },
   {
     "objectID": "all_posts_categorized.html#quarto",
@@ -39,7 +39,7 @@
     "href": "index.html#latest-posts",
     "title": "Figuring things outone post at a time",
     "section": "Latest posts",
-    "text": "Latest posts\n\n  \n    \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Poetry tips and tricks \n            \n              (Aug 18, 2022)\n            \n          \n           cheatsheet, poetry \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
+    "text": "Latest posts\n\n  \n    \n      \n        \n          \n            Tick formatting recipes \n            \n              (Sep 21, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Poetry tips and tricks \n            \n              (Aug 18, 2022)\n            \n          \n           cheatsheet, poetry \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
   },
   {
     "objectID": "posts/mpl/colormaps.html",
@@ -81,7 +81,49 @@
     "href": "posts/mpl/tick_formatting.html",
     "title": "Tick formatting recipes",
     "section": "",
-    "text": "import matplotlib.pyplot as plt \n\ny = [0, 1e4, 2.3e4, 3.12e4]\nx = [2000, 2010, 2020, 2030]\n\nUse the FuncFormatter, which requires a function of a form:\ndef my_func(x,pos): \n    # blablabla \n    return formatted_x_string\nNow implement the formatter. We want every 3 digits separated by a space, and our labels to be integers (won’t work for floats). We will use format(), which accepts parameter ,d producing comma-separated notation, and replace the commas with spaces.\nThe formatter can be applied to each axis separately.\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))\n\nf, ax = plt.subplots()\nax.plot(x,y,marker='o')\n\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))"
+    "text": "mpl gallery about ticks\nmpl ticker API"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html#default-tick-formatter",
+    "href": "posts/mpl/tick_formatting.html#default-tick-formatter",
+    "title": "Tick formatting recipes",
+    "section": "Default tick formatter",
+    "text": "Default tick formatter\nfrom matplotlib.ticker import ScalarFormatter\nax.xaxis.set_major_formatter(ScalarFormatter())"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html#format-string-as-usually",
+    "href": "posts/mpl/tick_formatting.html#format-string-as-usually",
+    "title": "Tick formatting recipes",
+    "section": "Format string as usually",
+    "text": "Format string as usually\nfrom matplotlib.ticker import StrMethodFormatter\nax.xaxis.set_major_formatter(StrMethodFormatter('{x:.1f}'))"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html#ticks-in-a-scientificengineering-notation",
+    "href": "posts/mpl/tick_formatting.html#ticks-in-a-scientificengineering-notation",
+    "title": "Tick formatting recipes",
+    "section": "Ticks in a scientific/engineering notation",
+    "text": "Ticks in a scientific/engineering notation\nfrom matplotlib.ticker import EngFormatter\nax.xaxis.set_major_formatter(EngFormatter(sep='')) # no unit, no distance to the multiplier \nax.xaxis.set_major_formatter(EngFormatter(unit='Hz')) \nsrc"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html#percent-formatter-that-does-the-scaling-too",
+    "href": "posts/mpl/tick_formatting.html#percent-formatter-that-does-the-scaling-too",
+    "title": "Tick formatting recipes",
+    "section": "Percent formatter that does the scaling too",
+    "text": "Percent formatter that does the scaling too\nfrom matplotlib.ticker import PercentFormatter\nvalue_100perc = 2.5 # data value corresponding to the 100%\nax.xaxis.set_major_formatter(PercentFormatter(xmax=value_100perc))"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html#lambda-formatter-func-formatter",
+    "href": "posts/mpl/tick_formatting.html#lambda-formatter-func-formatter",
+    "title": "Tick formatting recipes",
+    "section": "Lambda formatter (func formatter)",
+    "text": "Lambda formatter (func formatter)\nOption 1:\nfrom matplotlib import ticker \n\n@ticker.FuncFormatter\ndef custom_formatter(x, pos):\n    return f'[{x:.2f}]'\n\nax.xaxis.set_major_formatter(custom_formatter)\nOption 2:\nfrom matplotlib.ticker import FuncFormatter \n\ncustom_formatter = lambda x, pos: f'[{x:.2f}]'\nax.xaxis.set_major_formatter(FuncFormatter(custom_formatter))\nsrc"
+  },
+  {
+    "objectID": "posts/mpl/tick_formatting.html#space-as-a-separator-between-thousands",
+    "href": "posts/mpl/tick_formatting.html#space-as-a-separator-between-thousands",
+    "title": "Tick formatting recipes",
+    "section": "Space as a separator between thousands",
+    "text": "Space as a separator between thousands\n\nimport matplotlib.pyplot as plt \n\ny = [0, 1e4, 2.3e4, 3.12e4]\nx = [2000, 2010, 2020, 2030]\n\nUse the FuncFormatter, which requires a function of a form:\ndef my_func(x,pos): \n    # blablabla \n    return formatted_x_string\nNow implement the formatter. We want every 3 digits separated by a space, and our labels to be integers (won’t work for floats). We will use format(), which accepts parameter ,d producing comma-separated notation, and replace the commas with spaces.\nThe formatter can be applied to each axis separately.\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))\n\nf, ax = plt.subplots()\nax.plot(x,y,marker='o')\n\nfrom matplotlib.ticker import FuncFormatter\nformat_spaces = lambda x, pos: format(int(round(x)), ',d').replace(',',' ')\nax.yaxis.set_major_formatter(FuncFormatter(format_spaces))"
   },
   {
     "objectID": "posts/mpl/various_resources.html",

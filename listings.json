@@ -27,11 +27,11 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/mpl/tick_formatting.html",
       "/posts/pandas/pandas_dictionaries.html",
       "/posts/pandas/reading_messy_csvs.html",
       "/posts/other_tech/poetry.html",
       "/posts/mpl/legend.html",
-      "/posts/mpl/tick_formatting.html",
       "/posts/mpl/watermarks_footnotes.html",
       "/posts/tips_quarto/quarto_worktree.html",
       "/posts/other_tech/ejs.html",

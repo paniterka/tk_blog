@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-08">
+<meta name="dcterms.date" content="2022-09-21">
 
 <title>Teresa Kubacka’s Blog - Tick formatting recipes</title>
 <style>
@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 8, 2022</p>
+        <p class="date">September 21, 2022</p>
       </div>
     </div>
       
@@ -194,7 +194,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#space-as-a-separator-between-thousands" id="toc-space-as-a-separator-between-thousands" class="nav-link active" data-scroll-target="#space-as-a-separator-between-thousands">Space as a separator between thousands</a></li>
+  <li><a href="#default-tick-formatter" id="toc-default-tick-formatter" class="nav-link active" data-scroll-target="#default-tick-formatter">Default tick formatter</a></li>
+  <li><a href="#format-string-as-usually" id="toc-format-string-as-usually" class="nav-link" data-scroll-target="#format-string-as-usually">Format string as usually</a></li>
+  <li><a href="#ticks-in-a-scientificengineering-notation" id="toc-ticks-in-a-scientificengineering-notation" class="nav-link" data-scroll-target="#ticks-in-a-scientificengineering-notation">Ticks in a scientific/engineering notation</a></li>
+  <li><a href="#percent-formatter-that-does-the-scaling-too" id="toc-percent-formatter-that-does-the-scaling-too" class="nav-link" data-scroll-target="#percent-formatter-that-does-the-scaling-too">Percent formatter that does the scaling too</a></li>
+  <li><a href="#lambda-formatter-func-formatter" id="toc-lambda-formatter-func-formatter" class="nav-link" data-scroll-target="#lambda-formatter-func-formatter">Lambda formatter (func formatter)</a></li>
+  <li><a href="#space-as-a-separator-between-thousands" id="toc-space-as-a-separator-between-thousands" class="nav-link" data-scroll-target="#space-as-a-separator-between-thousands">Space as a separator between thousands</a></li>
   </ul>
 </nav>
 </nav>
@@ -207,30 +212,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<p><a href="https://matplotlib.org/stable/gallery/ticks/index.html">mpl gallery about ticks</a><br>
+<a href="https://matplotlib.org/stable/api/ticker_api.html">mpl ticker API</a></p>
+<section id="default-tick-formatter" class="level2">
+<h2 class="anchored" data-anchor-id="default-tick-formatter">Default tick formatter</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> ScalarFormatter</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(ScalarFormatter()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="format-string-as-usually" class="level2">
+<h2 class="anchored" data-anchor-id="format-string-as-usually">Format string as usually</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> StrMethodFormatter</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(StrMethodFormatter(<span class="st">'</span><span class="sc">{x:.1f}</span><span class="st">'</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ticks-in-a-scientificengineering-notation" class="level2">
+<h2 class="anchored" data-anchor-id="ticks-in-a-scientificengineering-notation">Ticks in a scientific/engineering notation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> EngFormatter</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(EngFormatter(sep<span class="op">=</span><span class="st">''</span>)) <span class="co"># no unit, no distance to the multiplier </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(EngFormatter(unit<span class="op">=</span><span class="st">'Hz'</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/engineering_formatter.html">src</a></p>
+</section>
+<section id="percent-formatter-that-does-the-scaling-too" class="level2">
+<h2 class="anchored" data-anchor-id="percent-formatter-that-does-the-scaling-too">Percent formatter that does the scaling too</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> PercentFormatter</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>value_100perc <span class="op">=</span> <span class="fl">2.5</span> <span class="co"># data value corresponding to the 100%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(PercentFormatter(xmax<span class="op">=</span>value_100perc))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="lambda-formatter-func-formatter" class="level2">
+<h2 class="anchored" data-anchor-id="lambda-formatter-func-formatter">Lambda formatter (func formatter)</h2>
+<p>Option 1:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> ticker </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">@ticker.FuncFormatter</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_formatter(x, pos):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'[</span><span class="sc">{</span>x<span class="sc">:.2f}</span><span class="ss">]'</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(custom_formatter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Option 2:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>custom_formatter <span class="op">=</span> <span class="kw">lambda</span> x, pos: <span class="ss">f'[</span><span class="sc">{</span>x<span class="sc">:.2f}</span><span class="ss">]'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(FuncFormatter(custom_formatter))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="https://matplotlib.org/stable/gallery/ticks/tick-formatters.html#">src</a></p>
+</section>
 <section id="space-as-a-separator-between-thousands" class="level2">
 <h2 class="anchored" data-anchor-id="space-as-a-separator-between-thousands">Space as a separator between thousands</h2>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">1e4</span>, <span class="fl">2.3e4</span>, <span class="fl">3.12e4</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">2000</span>, <span class="dv">2010</span>, <span class="dv">2020</span>, <span class="dv">2030</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">1e4</span>, <span class="fl">2.3e4</span>, <span class="fl">3.12e4</span>]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">2000</span>, <span class="dv">2010</span>, <span class="dv">2020</span>, <span class="dv">2030</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use the <code>FuncFormatter</code>, which requires a function of a form:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_func(x,pos): </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># blablabla </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> formatted_x_string</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_func(x,pos): </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># blablabla </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> formatted_x_string</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now implement the formatter. We want every 3 digits separated by a space, and our labels to be integers (won’t work for floats). We will use <code>format()</code>, which accepts parameter <code>,d</code> producing comma-separated notation, and replace the commas with spaces.</p>
 <p>The formatter can be applied to each axis separately.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>format_spaces <span class="op">=</span> <span class="kw">lambda</span> x, pos: <span class="bu">format</span>(<span class="bu">int</span>(<span class="bu">round</span>(x)), <span class="st">',d'</span>).replace(<span class="st">','</span>,<span class="st">' '</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(FuncFormatter(format_spaces))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>format_spaces <span class="op">=</span> <span class="kw">lambda</span> x, pos: <span class="bu">format</span>(<span class="bu">int</span>(<span class="bu">round</span>(x)), <span class="st">',d'</span>).replace(<span class="st">','</span>,<span class="st">' '</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(FuncFormatter(format_spaces))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x,y,marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>format_spaces <span class="op">=</span> <span class="kw">lambda</span> x, pos: <span class="bu">format</span>(<span class="bu">int</span>(<span class="bu">round</span>(x)), <span class="st">',d'</span>).replace(<span class="st">','</span>,<span class="st">' '</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(FuncFormatter(format_spaces))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x,y,marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>format_spaces <span class="op">=</span> <span class="kw">lambda</span> x, pos: <span class="bu">format</span>(<span class="bu">int</span>(<span class="bu">round</span>(x)), <span class="st">',d'</span>).replace(<span class="st">','</span>,<span class="st">' '</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(FuncFormatter(format_spaces))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="tick_formatting_files/figure-html/cell-3-output-1.png" width="596" height="404"></p>
 </div>
