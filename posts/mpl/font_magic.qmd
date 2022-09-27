@@ -1,0 +1,48 @@
+---
+title: "Font magic"
+date: "2022-09-27"
+format: html
+jupyter: python3
+categories:
+  - matplotlib
+---
+
+```{python}
+import matplotlib.pyplot as plt 
+```
+
+## Use fontprops with various entities 
+
+Declare fontprops: 
+```python
+import matplotlib as mpl
+
+custom_font = mpl.font_manager.FontProperties(
+    family='Verdana', style='italic', size=14
+    )
+```
+
+```python
+ax.annotate('Something interesting here', 
+            xy = (0.5,0.5), xycoords=ax,
+            fontproperties=custom_font,)
+
+f.suptitle('Nice title', 
+            fontproperties=custom_font, )
+
+for tick in ax.get_yticklabels():
+    tick.set_font_properties(custom_font)
+
+ax.legend(handles=handles, prop=custom_font)
+```
+
+## Use local ttf file as fontprops  
+
+```python
+from pathlib import Path
+
+title_font = mpl.font_manager.FontProperties(
+            fname=Path("./Barlow/Barlow-Bold.ttf"), size=20)
+
+```
+

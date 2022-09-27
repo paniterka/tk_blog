@@ -1,11 +1,73 @@
 ---
 title: "Tick formatting recipes"
-date: "2022-08-08"
+date: "2022-09-21"
 format: html
 jupyter: python3
 categories:
   - matplotlib
 ---
+
+[mpl gallery about ticks](https://matplotlib.org/stable/gallery/ticks/index.html)  
+[mpl ticker API](https://matplotlib.org/stable/api/ticker_api.html)
+
+## Default tick formatter 
+
+```python
+from matplotlib.ticker import ScalarFormatter
+ax.xaxis.set_major_formatter(ScalarFormatter()) 
+```
+
+## Format string as usually 
+
+```python
+from matplotlib.ticker import StrMethodFormatter
+ax.xaxis.set_major_formatter(StrMethodFormatter('{x:.1f}')) 
+```
+
+## Ticks in a scientific/engineering notation 
+
+```python
+from matplotlib.ticker import EngFormatter
+ax.xaxis.set_major_formatter(EngFormatter(sep='')) # no unit, no distance to the multiplier 
+ax.xaxis.set_major_formatter(EngFormatter(unit='Hz')) 
+```
+[src](https://matplotlib.org/stable/gallery/text_labels_and_annotations/engineering_formatter.html)
+
+
+## Percent formatter that does the scaling too 
+
+```python
+from matplotlib.ticker import PercentFormatter
+value_100perc = 2.5 # data value corresponding to the 100%
+ax.xaxis.set_major_formatter(PercentFormatter(xmax=value_100perc))  
+```
+
+## Lambda formatter (func formatter)
+
+Option 1: 
+
+```python
+from matplotlib import ticker 
+
+@ticker.FuncFormatter
+def custom_formatter(x, pos):
+    return f'[{x:.2f}]'
+
+ax.xaxis.set_major_formatter(custom_formatter)
+
+```
+
+Option 2: 
+```python
+from matplotlib.ticker import FuncFormatter 
+
+custom_formatter = lambda x, pos: f'[{x:.2f}]'
+ax.xaxis.set_major_formatter(FuncFormatter(custom_formatter))
+
+```
+
+[src](https://matplotlib.org/stable/gallery/ticks/tick-formatters.html#)
+
 
 ## Space as a separator between thousands 
 ```{python}

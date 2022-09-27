@@ -1,11 +1,13 @@
 ---
 title: "Customizing the legend"
-date: "2022-08-08"
+date: "2022-09-27"
 format: html
 jupyter: python3
 categories:
   - matplotlib
 ---
+
+Modified on: 2022-08-08, 2022-09-27
 
 ## Move the legend to top right corner outside of the chart, no border 
 
@@ -15,3 +17,19 @@ ax.legend(handles, labels,
           edgecolor='w', facecolor='none',
           borderpad=0, borderaxespad=0)
 ``` 
+
+## Place the legend between two topmost horizontal gridlines 
+```python
+
+h = ax.plot(...)
+
+top_tick = np.mean([ax.get_yticks()[-2], ax.get_yticks()[-3]])
+left_tick = ax.get_xlim()[0]
+
+l = ax.legend(handles=[h],  
+    bbox_to_anchor=[left_tick,top_tick], bbox_transform=ax.transData, loc='center left', 
+    borderpad=0.0, borderaxespad=0.5, 
+    )
+
+```
+

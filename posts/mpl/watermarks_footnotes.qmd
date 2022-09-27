@@ -1,6 +1,6 @@
 ---
 title: "Watermarks, footnotes and other annotations"
-date: "2022-08-08"
+date: "2022-09-27"
 format: html
 jupyter: python3
 categories:
@@ -66,7 +66,28 @@ footnote = [
 ]
 
 ax.annotate('|'.join(footnote), 
-            xy = (0,0), xycoords=ax, ha='left', va='top',
+            xy = (0,-0.25), xycoords=ax, ha='left', va='top',
+            fontsize=8, style='italic', 
+            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')
+        )
+```
+
+```{python}
+
+f, ax = plt.subplots()
+
+footnote = [
+    'Data source: XY',
+    'Author: TK'
+]
+
+ax.annotate(footnote[0], 
+            xy = (0,-0.25), xycoords=ax, ha='left', va='top',
+            fontsize=8, style='italic', 
+            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')
+        )
+ax.annotate(footnote[1], 
+            xy = (1,-0.25), xycoords=ax, ha='right', va='top',
             fontsize=8, style='italic', 
             bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')
         )
