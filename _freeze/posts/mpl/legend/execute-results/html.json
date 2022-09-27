@@ -1,9 +1,9 @@
 {
-  "hash": "d71e50b9f219420a68e3ce56a7fc524d",
+  "hash": "b701734c92577c89e6ac577c3405faa3",
   "result": {
-    "markdown": "---\ntitle: Customizing the legend\ndate: '2022-08-08'\nformat: html\ncategories:\n  - matplotlib\n---\n\n## Move the legend to top right corner outside of the chart, no border \n\n```python\nax.legend(handles, labels, \n          bbox_to_anchor=[1.05,1], loc='upper left', \n          edgecolor='w', facecolor='none',\n          borderpad=0, borderaxespad=0)\n``` \n\n",
+    "markdown": "---\ntitle: Customizing the legend\ndate: '2022-09-27'\nformat: html\ncategories:\n  - matplotlib\n---\n\nModified on: 2022-08-08, 2022-09-27\n\n## Move the legend to top right corner outside of the chart, no border \n\n```python\nax.legend(handles, labels, \n          bbox_to_anchor=[1.05,1], loc='upper left', \n          edgecolor='w', facecolor='none',\n          borderpad=0, borderaxespad=0)\n``` \n\n## Place the legend between two topmost horizontal gridlines \n```python\n\nh = ax.plot(...)\n\ntop_tick = np.mean([ax.get_yticks()[-2], ax.get_yticks()[-3]])\nleft_tick = ax.get_xlim()[0]\n\nl = ax.legend(handles=[h],  \n    bbox_to_anchor=[left_tick,top_tick], bbox_transform=ax.transData, loc='center left', \n    borderpad=0.0, borderaxespad=0.5, \n    )\n\n```\n\n",
     "supporting": [
-      "legend_files"
+      "legend_files\\figure-html"
     ],
     "filters": [],
     "includes": {}
