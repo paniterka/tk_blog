@@ -9,6 +9,7 @@
       "/posts/mpl/colormaps.html",
       "/posts/mpl/legend.html",
       "/posts/pandas/reading_messy_csvs.html",
+      "/posts/mpl/font_magic.html",
       "/posts/pandas/pandas_dictionaries.html",
       "/posts/pandas/generate_fake_dates_in_pandas.html",
       "/posts/mpl/mpl_numpy_warping.html",
@@ -27,12 +28,13 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/mpl/font_magic.html",
+      "/posts/mpl/legend.html",
+      "/posts/mpl/watermarks_footnotes.html",
       "/posts/mpl/tick_formatting.html",
       "/posts/pandas/pandas_dictionaries.html",
       "/posts/pandas/reading_messy_csvs.html",
       "/posts/other_tech/poetry.html",
-      "/posts/mpl/legend.html",
-      "/posts/mpl/watermarks_footnotes.html",
       "/posts/tips_quarto/quarto_worktree.html",
       "/posts/other_tech/ejs.html",
       "/posts/other_tech/table_like_li_css.html",

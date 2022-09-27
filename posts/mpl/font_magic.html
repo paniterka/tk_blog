@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-26">
+<meta name="dcterms.date" content="2022-09-27">
 
-<title>Teresa Kubacka’s Blog - Useful git stuff</title>
+<title>Teresa Kubacka’s Blog - Font magic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -104,10 +167,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Useful git stuff</h1>
+      <h1 class="title">Font magic</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">cheatsheet</div>
-                <div class="quarto-category">git</div>
+                <div class="quarto-category">matplotlib</div>
               </div>
                   </div>
   </div>
@@ -119,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 26, 2022</p>
+        <p class="date">September 27, 2022</p>
       </div>
     </div>
     
@@ -134,15 +196,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#useful-git-commands" id="toc-useful-git-commands" class="nav-link active" data-scroll-target="#useful-git-commands">Useful git commands</a>
-  <ul class="collapse">
-  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches">Branches</a></li>
-  <li><a href="#unstaging-files" id="toc-unstaging-files" class="nav-link" data-scroll-target="#unstaging-files">Unstaging files</a>
-  <ul class="collapse">
-  <li><a href="#added-but-not-committed" id="toc-added-but-not-committed" class="nav-link" data-scroll-target="#added-but-not-committed">added but not committed</a></li>
-  <li><a href="#committed-but-not-pushed" id="toc-committed-but-not-pushed" class="nav-link" data-scroll-target="#committed-but-not-pushed">committed but not pushed</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#use-fontprops-with-various-entities" id="toc-use-fontprops-with-various-entities" class="nav-link active" data-scroll-target="#use-fontprops-with-various-entities">Use fontprops with various entities</a></li>
+  <li><a href="#use-local-ttf-file-as-fontprops" id="toc-use-local-ttf-file-as-fontprops" class="nav-link" data-scroll-target="#use-local-ttf-file-as-fontprops">Use local ttf file as fontprops</a></li>
   </ul>
 </nav>
 </nav>
@@ -155,36 +210,37 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Because every now and then there is this thing you need to do with git, but because you do it not so often, you have to google it for like 30 sec.&nbsp;</p>
-<section id="useful-git-commands" class="level1">
-<h1>Useful git commands</h1>
-<section id="branches" class="level2">
-<h2 class="anchored" data-anchor-id="branches">Branches</h2>
-<p>To create a new completely empty branch:</p>
-<pre><code>git switch --orphan &lt;new branch&gt;
-git commit --allow-empty -m "Initial commit on orphan branch"
-git push -u origin &lt;new branch&gt;</code></pre>
-<p><a href="https://stackoverflow.com/a/34100189">src</a> <a href="https://www.nobledesktop.com/learn/git/git-branches">Article on branches</a></p>
-<p>To pull a new branch from the server without touching the current branch: <code>git fetch &lt;remote_name&gt; &lt;branch_name&gt;</code> which in most cases is <a href="https://stackoverflow.com/a/27792437">src</a></p>
-<pre><code>git fetch origin &lt;branch_name&gt;</code></pre>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="use-fontprops-with-various-entities" class="level2">
+<h2 class="anchored" data-anchor-id="use-fontprops-with-various-entities">Use fontprops with various entities</h2>
+<p>Declare fontprops:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>custom_font <span class="op">=</span> mpl.font_manager.FontProperties(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    family<span class="op">=</span><span class="st">'Verdana'</span>, style<span class="op">=</span><span class="st">'italic'</span>, size<span class="op">=</span><span class="dv">14</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Something interesting here'</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>            xy <span class="op">=</span> (<span class="fl">0.5</span>,<span class="fl">0.5</span>), xycoords<span class="op">=</span>ax,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            fontproperties<span class="op">=</span>custom_font,)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">'Nice title'</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            fontproperties<span class="op">=</span>custom_font, )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tick <span class="kw">in</span> ax.get_yticklabels():</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    tick.set_font_properties(custom_font)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>ax.legend(handles<span class="op">=</span>handles, prop<span class="op">=</span>custom_font)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="unstaging-files" class="level2">
-<h2 class="anchored" data-anchor-id="unstaging-files">Unstaging files</h2>
-<p>https://sethrobertson.github.io/GitFixUm/fixup.html</p>
-<section id="added-but-not-committed" class="level3">
-<h3 class="anchored" data-anchor-id="added-but-not-committed">added but not committed</h3>
-</section>
-<section id="committed-but-not-pushed" class="level3">
-<h3 class="anchored" data-anchor-id="committed-but-not-pushed">committed but not pushed</h3>
-<p>https://stackoverflow.com/a/15321456</p>
-<pre><code>git reset --soft HEAD^ 
-git reset HEAD path/to/unwanted_file
-git commit -c ORIG_HEAD </code></pre>
-<p>The last command will recommit with the original commit message</p>
+<section id="use-local-ttf-file-as-fontprops" class="level2">
+<h2 class="anchored" data-anchor-id="use-local-ttf-file-as-fontprops">Use local ttf file as fontprops</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>title_font <span class="op">=</span> mpl.font_manager.FontProperties(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            fname<span class="op">=</span>Path(<span class="st">"./Barlow/Barlow-Bold.ttf"</span>), size<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

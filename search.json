@@ -11,7 +11,7 @@
     "href": "all_posts_categorized.html",
     "title": "All posts",
     "section": "",
-    "text": "Mostly pandas and matplotlib tricks.\n\n  \n    \n      \n        \n          \n            Creating colormaps in matplotlib \n            \n              (Aug 2, 2022)\n            \n          \n           cheatsheet, matplotlib \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generating random days between two dates \n            \n              (Jul 30, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Saving a chart as a numpy array and warping it using skimage \n            \n              (Aug 3, 2022)\n            \n          \n           cheatsheet, matplotlib, numpy \n        \n      \n      \n        \n          \n            Skipping empty csv rows \n            \n              (Aug 4, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Sep 21, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Matplotlib resources \n            \n              (Aug 4, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Pandas resources \n            \n              (Aug 4, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Working with datetimes \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n    \n  \n\nNo matching items"
+    "text": "Mostly pandas and matplotlib tricks.\n\n  \n    \n      \n        \n          \n            Creating colormaps in matplotlib \n            \n              (Aug 2, 2022)\n            \n          \n           cheatsheet, matplotlib \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Sep 27, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Font magic \n            \n              (Sep 27, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Generating random days between two dates \n            \n              (Jul 30, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Saving a chart as a numpy array and warping it using skimage \n            \n              (Aug 3, 2022)\n            \n          \n           cheatsheet, matplotlib, numpy \n        \n      \n      \n        \n          \n            Skipping empty csv rows \n            \n              (Aug 4, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Sep 21, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Matplotlib resources \n            \n              (Aug 4, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Various Pandas resources \n            \n              (Aug 4, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Sep 27, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Working with datetimes \n            \n              (Jul 26, 2022)\n            \n          \n           cheatsheet, pandas \n        \n      \n    \n  \n\nNo matching items"
   },
   {
     "objectID": "all_posts_categorized.html#quarto",
@@ -39,7 +39,7 @@
     "href": "index.html#latest-posts",
     "title": "Figuring things outone post at a time",
     "section": "Latest posts",
-    "text": "Latest posts\n\n  \n    \n      \n        \n          \n            Tick formatting recipes \n            \n              (Sep 21, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Dealing with messy CSVs \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n      \n        \n          \n            Poetry tips and tricks \n            \n              (Aug 18, 2022)\n            \n          \n           cheatsheet, poetry \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Aug 8, 2022)\n            \n          \n           matplotlib \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
+    "text": "Latest posts\n\n  \n    \n      \n        \n          \n            Font magic \n            \n              (Sep 27, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Customizing the legend \n            \n              (Sep 27, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Watermarks, footnotes and other annotations \n            \n              (Sep 27, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Tick formatting recipes \n            \n              (Sep 21, 2022)\n            \n          \n           matplotlib \n        \n      \n      \n        \n          \n            Generate dictionaries from dataframes \n            \n              (Sep 16, 2022)\n            \n          \n           pandas \n        \n      \n    \n  \n\nNo matching items\n\n\n\nBrowse all posts…"
   },
   {
     "objectID": "posts/mpl/colormaps.html",
@@ -63,18 +63,53 @@
     "text": "Merge 2 colormaps\n\ncmap1 = LinearSegmentedColormap.from_list(name=\"cmap1\", colors=[\"green\", \"black\", \"purple\"])\ncmap2 = LinearSegmentedColormap.from_list(name=\"cmap2\", colors=[\"blue\", \"yellow\", \"orange\"])\n\nWith sharp edge:\n\nimport numpy as np\ncolors_cmap1 = cmap1(np.linspace(0, 1, 100))\ncolors_cmap2 = cmap2(np.linspace(0, 1, 200))\nall_colors = np.vstack((colors_cmap1, colors_cmap2))\n\ncmap_merged = LinearSegmentedColormap.from_list('merged',all_colors)\n\ncmap_merged\n\nmerged  underbad over \n\n\nWith smooth transition:\n\ncolors_cmap1 = cmap1(np.linspace(0, 1, 3))\ncolors_cmap2 = cmap2(np.linspace(0, 1, 6))\nall_colors = np.vstack((colors_cmap1, colors_cmap2))\n\ncmap_merged = LinearSegmentedColormap.from_list('merged',all_colors)\n\ncmap_merged\n\nmerged  underbad over"
   },
   {
+    "objectID": "posts/mpl/font_magic.html",
+    "href": "posts/mpl/font_magic.html",
+    "title": "Font magic",
+    "section": "",
+    "text": "import matplotlib.pyplot as plt"
+  },
+  {
+    "objectID": "posts/mpl/font_magic.html#use-fontprops-with-various-entities",
+    "href": "posts/mpl/font_magic.html#use-fontprops-with-various-entities",
+    "title": "Font magic",
+    "section": "Use fontprops with various entities",
+    "text": "Use fontprops with various entities\nDeclare fontprops:\nimport matplotlib as mpl\n\ncustom_font = mpl.font_manager.FontProperties(\n    family='Verdana', style='italic', size=14\n    )\nax.annotate('Something interesting here', \n            xy = (0.5,0.5), xycoords=ax,\n            fontproperties=custom_font,)\n\nf.suptitle('Nice title', \n            fontproperties=custom_font, )\n\nfor tick in ax.get_yticklabels():\n    tick.set_font_properties(custom_font)\n\nax.legend(handles=handles, prop=custom_font)"
+  },
+  {
+    "objectID": "posts/mpl/font_magic.html#use-local-ttf-file-as-fontprops",
+    "href": "posts/mpl/font_magic.html#use-local-ttf-file-as-fontprops",
+    "title": "Font magic",
+    "section": "Use local ttf file as fontprops",
+    "text": "Use local ttf file as fontprops\nfrom pathlib import Path\n\ntitle_font = mpl.font_manager.FontProperties(\n            fname=Path(\"./Barlow/Barlow-Bold.ttf\"), size=20)"
+  },
+  {
     "objectID": "posts/mpl/legend.html",
     "href": "posts/mpl/legend.html",
     "title": "Customizing the legend",
     "section": "",
-    "text": "ax.legend(handles, labels, \n          bbox_to_anchor=[1.05,1], loc='upper left', \n          edgecolor='w', facecolor='none',\n          borderpad=0, borderaxespad=0)"
+    "text": "Modified on: 2022-08-08, 2022-09-27"
+  },
+  {
+    "objectID": "posts/mpl/legend.html#move-the-legend-to-top-right-corner-outside-of-the-chart-no-border",
+    "href": "posts/mpl/legend.html#move-the-legend-to-top-right-corner-outside-of-the-chart-no-border",
+    "title": "Customizing the legend",
+    "section": "Move the legend to top right corner outside of the chart, no border",
+    "text": "Move the legend to top right corner outside of the chart, no border\nax.legend(handles, labels, \n          bbox_to_anchor=[1.05,1], loc='upper left', \n          edgecolor='w', facecolor='none',\n          borderpad=0, borderaxespad=0)"
+  },
+  {
+    "objectID": "posts/mpl/legend.html#place-the-legend-between-two-topmost-horizontal-gridlines",
+    "href": "posts/mpl/legend.html#place-the-legend-between-two-topmost-horizontal-gridlines",
+    "title": "Customizing the legend",
+    "section": "Place the legend between two topmost horizontal gridlines",
+    "text": "Place the legend between two topmost horizontal gridlines\n\nh = ax.plot(...)\n\ntop_tick = np.mean([ax.get_yticks()[-2], ax.get_yticks()[-3]])\nleft_tick = ax.get_xlim()[0]\n\nl = ax.legend(handles=[h],  \n    bbox_to_anchor=[left_tick,top_tick], bbox_transform=ax.transData, loc='center left', \n    borderpad=0.0, borderaxespad=0.5, \n    )"
   },
   {
     "objectID": "posts/mpl/mpl_numpy_warping.html",
     "href": "posts/mpl/mpl_numpy_warping.html",
     "title": "Saving a chart as a numpy array and warping it using skimage",
     "section": "",
-    "text": "import matplotlib.pyplot as plt \nimport numpy as np\n%matplotlib inline\n\nLet’s generate an example chart:\n\nx = [1,2,3]\nbars = [10,15,12]\n\nf, ax = plt.subplots(dpi=100)\n# when using plt.subplots, the canvas and renderer get created automatically \nax.bar(x, bars);\n\n\n\n\n\nExport the figure to a numpy array\nMethod 1 src\n\ns, (width, height) = f.canvas.print_to_buffer()\nrgba = np.frombuffer(s, np.uint8).reshape((height, width, 4))\nplt.imshow(rgba, aspect='equal');\n\n\n\n\n\nprint(type(rgba))\nprint(rgba.shape)\n\n<class 'numpy.ndarray'>\n(400, 600, 4)\n\n\nMethod 2 src\n\nrgba = np.asarray(f.canvas.buffer_rgba())\nplt.imshow(rgba);\n\n\n\n\n\nprint(type(rgba))\nprint(rgba.shape)\n\n<class 'numpy.ndarray'>\n(400, 600, 4)\n\n\n\n\nRemove the alpha channel in a numpy array (RGBA->RGB)\nTo remove the alpha channel it’s enough to run: src\n\nrgb = rgba[:,:,:3]\n\nThe resulting chart is the same (our transparency is anyway white)\n\nplt.imshow(rgb);\n\n\n\n\nBoth methods respect the dpi set when creating the figure using plt.subplots\n\n\nWarping images using skimage\nNow we can warp the image:\n\nfrom skimage.transform import swirl\n\nswirled = swirl(rgb, rotation=0, strength=30, radius=120)\n\n\nf, ax = plt.subplots(ncols = 2, figsize=(10,4))\n\nax[0].imshow(rgb, aspect='equal')\nax[0].set_title('original')\n\nax[1].imshow(swirled, aspect='equal')\nax[1].set_title('warped')\n\n[a.axis('off') for a in ax];\n\n\n\n\nMore on skimage transforms: https://scikit-image.org/docs/stable/api/skimage.transform.html"
+    "text": "Sometimes we may want to create an image with plotting API of matplotlib, but then apply a transform that only works for numpy arrays (for example, skimage’s warps). This is how you do it:\n\nimport matplotlib.pyplot as plt \nimport numpy as np\n%matplotlib inline\n\nLet’s generate an example chart:\n\nx = [1,2,3]\nbars = [10,15,12]\n\nf, ax = plt.subplots(dpi=100)\n# when using plt.subplots, the canvas and renderer get created automatically \nax.bar(x, bars);\n\n\n\n\n\nExport the figure to a numpy array\nMethod 1 src\n\ns, (width, height) = f.canvas.print_to_buffer()\nrgba = np.frombuffer(s, np.uint8).reshape((height, width, 4))\nplt.imshow(rgba, aspect='equal');\n\n\n\n\n\nprint(type(rgba))\nprint(rgba.shape)\n\n<class 'numpy.ndarray'>\n(400, 600, 4)\n\n\nMethod 2 src\n\nrgba = np.asarray(f.canvas.buffer_rgba())\nplt.imshow(rgba);\n\n\n\n\n\nprint(type(rgba))\nprint(rgba.shape)\n\n<class 'numpy.ndarray'>\n(400, 600, 4)\n\n\n\n\nRemove the alpha channel in a numpy array (RGBA->RGB)\nTo remove the alpha channel it’s enough to run: src\n\nrgb = rgba[:,:,:3]\n\nThe resulting chart is the same (our transparency is anyway white)\n\nplt.imshow(rgb);\n\n\n\n\nBoth methods respect the dpi set when creating the figure using plt.subplots\n\n\nWarping images using skimage\nNow we can warp the image:\n\nfrom skimage.transform import swirl\n\nswirled = swirl(rgb, rotation=0, strength=30, radius=120)\n\n\nf, ax = plt.subplots(ncols = 2, figsize=(10,4))\n\nax[0].imshow(rgb, aspect='equal')\nax[0].set_title('original')\n\nax[1].imshow(swirled, aspect='equal')\nax[1].set_title('warped')\n\n[a.axis('off') for a in ax];\n\n\n\n\nMore on skimage transforms: https://scikit-image.org/docs/stable/api/skimage.transform.html"
   },
   {
     "objectID": "posts/mpl/tick_formatting.html",
@@ -165,14 +200,14 @@
     "href": "posts/mpl/watermarks_footnotes.html#add-a-footnote",
     "title": "Watermarks, footnotes and other annotations",
     "section": "Add a footnote",
-    "text": "Add a footnote\n\nBottom right\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate('\\n'.join(footnote), \n            xy = (1.05,0), xycoords=ax, ha='left', va='bottom',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(1.05, 0, 'Data source: XY\\nAuthor: TK')\n\n\n\n\n\nThe footnote is positioned relative to the axes (xycoords+ha+va). The pad is removed. Aligning to bottom makes it robust for multiline entries.\n\n\nBottom left under the chart\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate('|'.join(footnote), \n            xy = (0,0), xycoords=ax, ha='left', va='top',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(0, 0, 'Data source: XY|Author: TK')"
+    "text": "Add a footnote\n\nBottom right\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate('\\n'.join(footnote), \n            xy = (1.05,0), xycoords=ax, ha='left', va='bottom',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(1.05, 0, 'Data source: XY\\nAuthor: TK')\n\n\n\n\n\nThe footnote is positioned relative to the axes (xycoords+ha+va). The pad is removed. Aligning to bottom makes it robust for multiline entries.\n\n\nBottom left under the chart\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate('|'.join(footnote), \n            xy = (0,-0.25), xycoords=ax, ha='left', va='top',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(0, -0.25, 'Data source: XY|Author: TK')\n\n\n\n\n\n\nf, ax = plt.subplots()\n\nfootnote = [\n    'Data source: XY',\n    'Author: TK'\n]\n\nax.annotate(footnote[0], \n            xy = (0,-0.25), xycoords=ax, ha='left', va='top',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\nax.annotate(footnote[1], \n            xy = (1,-0.25), xycoords=ax, ha='right', va='top',\n            fontsize=8, style='italic', \n            bbox=dict(boxstyle='square,pad=0.0',fc='none', ec='none')\n        )\n\nText(1, -0.25, 'Author: TK')"
   },
   {
     "objectID": "posts/other_tech/ejs.html",
     "href": "posts/other_tech/ejs.html",
     "title": "Writing EJS templates",
     "section": "",
-    "text": "<%= String(item.categories).replace(/,/g, ', ') %>"
+    "text": "When writing custom templates, categories are joined into string which is comma-separated but has no spaces between the categories. Because of that, if the text is wider than its container, it will overflow instead of being wrapped. One solution is to add spaces using String.replace():\n<%= String(item.categories).replace(/,/g, ', ') %>"
   },
   {
     "objectID": "posts/other_tech/poetry.html",
@@ -207,7 +242,7 @@
     "href": "posts/other_tech/table_like_li_css.html",
     "title": "Style a list element to look like a table",
     "section": "",
-    "text": "The CSS part\n.custom_listing li .li-contents-container{\n    display: flex; \n    align-items: center;\n}\n\n.custom_listing .left-container {\n    width: 70%;\n    margin-right: auto;\n}\n\n.custom_listing .right-container {\n    max-width: 25%;\n    margin-left: auto; \n    text-align: right;\n}\n\n\nRemark\nHaving a parent li-contents-container is crucial to be able to display a bullet point or another symbol for each <li> item.\nsrc"
+    "text": "The HTML part\n<div class=\"custom_listing\">\n<ul>\n<li>\n    <span class=\"li-contents-container\">\n        <span class=\"left-container\">\n            Here the left part of the list element. Can consist of spans.\n        </span>\n        <span class=\"right-container\">\n            Something that will be aligned to the right.\n        </span>\n    </span>\n</li>\n</ul>\n</div>\n\n\nThe CSS part\n.custom_listing li .li-contents-container{\n    display: flex; \n    align-items: center;\n}\n\n.custom_listing .left-container {\n    width: 70%;\n    margin-right: auto;\n}\n\n.custom_listing .right-container {\n    max-width: 25%;\n    margin-left: auto; \n    text-align: right;\n}\n\n\nRemark\nHaving a parent li-contents-container is crucial to be able to display a bullet point or another symbol for each <li> item.\nsrc"
   },
   {
     "objectID": "posts/other_tech/useful_git.html",
@@ -263,7 +298,7 @@
     "href": "posts/pandas/pandas_dictionaries.html",
     "title": "Generate dictionaries from dataframes",
     "section": "",
-    "text": "Concrete example could be working with messy country names. Let’s say I have a dataframe containing some values per country:\ndf = pd.DataFrame([['Poland', 'Jan Nowak', 3], ['POL', 'Martyna Kowalska', 15], ['PL', 'Joanna Byk', 19]], \n        columns=['country', 'athlete', 'score'])\nand another dataframe which contains attribution of a messy country name to a proper country name:\ncountries = pd.DataFrame(['Poland', 'PL'], ['POL', 'PL'], ['PL', 'PL'], columns=['messy', 'proper'])\nHere countries is generated programmatically, but the benefit of using a countries dataframe is that it can be maintained in a form of an external csv or xlsx, which contains a hand-curated list of synonyms.\nWhat we want to get is a dictionary of a form: {'messy_name': 'proper_name'}.\nWe can achieve it in a following way:\nnames_dict = countries.drop_duplicates().set_index('messy')['proper'].to_dict()\nWe need to drop duplicates, otherwise we will only get the first entry (keys are unique in a dictionary). Optimally we would do it at the earlier stage.\nTo clean the messy names, we can then do:\ndf['country'].replace(names_dict)\nto get a disambiguated column. We can overwrite the original or create a new column, e.g. country_clean."
+    "text": "Sometimes it is useful to use dictionaries in pandas workflows. For example, when using a df.replace() or df.rename() command. Sometimes it is useful when those dictionaries are generated from another dataframe.\nConcrete example could be working with messy country names. Let’s say I have a dataframe containing some values per country:\ndf = pd.DataFrame([['Poland', 'Jan Nowak', 3], ['POL', 'Martyna Kowalska', 15], ['PL', 'Joanna Byk', 19]], \n        columns=['country', 'athlete', 'score'])\nand another dataframe which contains attribution of a messy country name to a proper country name:\ncountries = pd.DataFrame(['Poland', 'PL'], ['POL', 'PL'], ['PL', 'PL'], columns=['messy', 'proper'])\nHere countries is generated programmatically, but the benefit of using a countries dataframe is that it can be maintained in a form of an external csv or xlsx, which contains a hand-curated list of synonyms.\nWhat we want to get is a dictionary of a form: {'messy_name': 'proper_name'}.\nWe can achieve it in a following way:\nnames_dict = countries.drop_duplicates().set_index('messy')['proper'].to_dict()\nWe need to drop duplicates, otherwise we will only get the first entry (keys are unique in a dictionary). Optimally we would do it at the earlier stage.\nTo clean the messy names, we can then do:\ndf['country'].replace(names_dict)\nto get a disambiguated column. We can overwrite the original or create a new column, e.g. country_clean."
   },
   {
     "objectID": "posts/pandas/reading_messy_csvs.html",
@@ -298,7 +333,7 @@
     "href": "posts/pandas/skipping_arbitrary_empty_rows.html",
     "title": "Skipping empty csv rows",
     "section": "",
-    "text": "Comment line 1 \nComment line 2 \nComment line 3 \n\ncol1, col2, col3 \n10, 12, 13\n21, 20, 22\nPandas accepts also file objects as an input, so you can travel through the lines until you find a separating line (or another condition) and then proceed with pd.read_csv:\nimport pandas as pd\n\nf = open(\"data.csv\")\nwhile f.readline() != '\\n':\n    pass\n\ndf = pd.read_csv(f, header=None)\nf.close()\nAs suggested in src"
+    "text": "Let’s say you got a series of csv files which contain tabular data, but there is a certain amount of commentary above the table:\nComment line 1 \nComment line 2 \nComment line 3 \n\ncol1, col2, col3 \n10, 12, 13\n21, 20, 22\nPandas accepts also file objects as an input, so you can travel through the lines until you find a separating line (or another condition) and then proceed with pd.read_csv:\nimport pandas as pd\n\nf = open(\"data.csv\")\nwhile f.readline() != '\\n':\n    pass\n\ndf = pd.read_csv(f, header=None)\nf.close()\nAs suggested in src"
   },
   {
     "objectID": "posts/pandas/various_pandas_resources.html",
@@ -312,14 +347,14 @@
     "href": "posts/pandas/working_with_datetimes.html",
     "title": "Working with datetimes",
     "section": "",
-    "text": "import pandas as pd\n\n\n\n\ns = pd.Series(pd.date_range(\"20130101\", periods=4, freq='H'))\ns\n\n0   2013-01-01 00:00:00\n1   2013-01-01 01:00:00\n2   2013-01-01 02:00:00\n3   2013-01-01 03:00:00\ndtype: datetime64[ns]\n\n\nKeep just the date:\n\ns.dt.date\n\n0    2013-01-01\n1    2013-01-01\n2    2013-01-01\n3    2013-01-01\ndtype: object\n\n\nKeep just the date as datetime object:\n\ns.dt.date.astype('datetime64')\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep just the date by resetting the timestamp:\n\ns.dt.normalize()\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep the date with a particular formatting:\n\ns.dt.strftime(\"%Y/%m/%d\")\n\n0    2013/01/01\n1    2013/01/01\n2    2013/01/01\n3    2013/01/01\ndtype: object\n\n\nLinks:\n- source\n- .dt docs"
+    "text": "Working with datetimes\n\nimport pandas as pd\n\n\nTo extract just date from a full datetime\n\ns = pd.Series(pd.date_range(\"20130101\", periods=4, freq='H'))\ns\n\n0   2013-01-01 00:00:00\n1   2013-01-01 01:00:00\n2   2013-01-01 02:00:00\n3   2013-01-01 03:00:00\ndtype: datetime64[ns]\n\n\nKeep just the date:\n\ns.dt.date\n\n0    2013-01-01\n1    2013-01-01\n2    2013-01-01\n3    2013-01-01\ndtype: object\n\n\nKeep just the date as datetime object:\n\ns.dt.date.astype('datetime64')\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep just the date by resetting the timestamp:\n\ns.dt.normalize()\n\n0   2013-01-01\n1   2013-01-01\n2   2013-01-01\n3   2013-01-01\ndtype: datetime64[ns]\n\n\nKeep the date with a particular formatting:\n\ns.dt.strftime(\"%Y/%m/%d\")\n\n0    2013/01/01\n1    2013/01/01\n2    2013/01/01\n3    2013/01/01\ndtype: object\n\n\nLinks:\n- source\n- .dt docs"
   },
   {
     "objectID": "posts/tips_quarto/ojs_define_series.html",
     "href": "posts/tips_quarto/ojs_define_series.html",
     "title": "Coupling Python and Observable using ojs_define()",
     "section": "",
-    "text": "import pandas as pd \nmy_variable = pd.Series([0,1,2,3])\nojs_define(my_variable = pd.DataFrame(my_variable)) # this works\nojs_define(my_variable2 = my_variable.tolist()) # this works\n# ojs_define(my_variable = my_variable) # this doesn't\n\nDeprecationWarning:\n\nImporting display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display\n\n\n\n\n\n\n\n\n\n\nmy_variable"
+    "text": "See src and this Issue\n\nimport pandas as pd \nmy_variable = pd.Series([0,1,2,3])\nojs_define(my_variable = pd.DataFrame(my_variable)) # this works\nojs_define(my_variable2 = my_variable.tolist()) # this works\n# ojs_define(my_variable = my_variable) # this doesn't\n\nDeprecationWarning:\n\nImporting display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display\n\n\n\n\n\n\n\n\n\n\nmy_variable"
   },
   {
     "objectID": "posts/tips_quarto/quarto_howto.html",
@@ -340,13 +375,13 @@
     "href": "posts/tips_quarto/quarto_links.html",
     "title": "Various resources about quarto",
     "section": "",
-    "text": "Porting a distill blog to quarto\nThe ultimate guide to starting a Quarto blog\nHow to style your Quarto blog without knowing a lot of HTML/CSS\nGet started with Quarto: RConf2022\nAwesome Quarto"
+    "text": "Various resources on quarto\nPorting a distill blog to quarto\nThe ultimate guide to starting a Quarto blog\nHow to style your Quarto blog without knowing a lot of HTML/CSS\nGet started with Quarto: RConf2022\nAwesome Quarto"
   },
   {
     "objectID": "posts/tips_quarto/quarto_worktree.html",
     "href": "posts/tips_quarto/quarto_worktree.html",
     "title": "Fix the quarto publish gh-pages error on windows",
     "section": "",
-    "text": "For me the following worked (suggested by this tutorial and the commands quarto publish uses ).\nFirst notice the extra directory in your git repository, called 2054a64 or similar.\nThen do:\ncd 2054a64 \ngit add -Af . \ngit commit --allow-empty -m \"Semi-manual deploy\"\ngit remote -v\ngit push --force origin HEAD:gh-pages\ncd ..\ngit worktree remove 2054a64 \ngit worktree prune"
+    "text": "Sometimes quarto publish gh-pages hangs while creating the worktree.\nFor me the following worked (suggested by this tutorial and the commands quarto publish uses ).\nFirst notice the extra directory in your git repository, called 2054a64 or similar.\nThen do:\ncd 2054a64 \ngit add -Af . \ngit commit --allow-empty -m \"Semi-manual deploy\"\ngit remote -v\ngit push --force origin HEAD:gh-pages\ncd ..\ngit worktree remove 2054a64 \ngit worktree prune"
   }
 ]
