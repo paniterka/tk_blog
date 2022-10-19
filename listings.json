@@ -18,7 +18,9 @@
       "/posts/mpl/various_resources.html",
       "/posts/pandas/various_pandas_resources.html",
       "/posts/mpl/watermarks_footnotes.html",
+      "/posts/pandas/weekday_weekname.html",
       "/posts/pandas/working_with_datetimes.html",
+      "/posts/other_tech/conda_environments.html",
       "/posts/other_tech/poetry.html",
       "/posts/other_tech/table_like_li_css.html",
       "/posts/other_tech/useful_git.html",
@@ -28,6 +30,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/other_tech/conda_environments.html",
+      "/posts/pandas/weekday_weekname.html",
       "/posts/mpl/font_magic.html",
       "/posts/mpl/legend.html",
       "/posts/mpl/watermarks_footnotes.html",
