@@ -1,0 +1,29 @@
+---
+title: "Dual axes plots and measuring correlations"
+date: "2022-10-17"
+format: html
+draft: true
+categories:
+  - data visualization 
+---
+
+Dual axes plots: yes or no. 
+
+Richard Brath argues: https://richardbrath.wordpress.com/2022/02/03/two-y-axes-may-be-appropriate/ that the two axes may be appropriate 
+
+Two curves with vastly varying scales 
+
+DA useful to see offset in time between the trends 
+
+Should we use DA to show correlation? 
+
+Better question: why do you need to show the correlation visually? And what for does your user need to assess the correlation? 
+
+We have many better tools to actually quantify correlation instead of eyeballing it 
+- Scatterplot y1 vs y2 (you can also see the off-by-one errors there)
+- Correlation coefficients (Pearson, Spearman)
+- Make a regression model and provide the coefficients 
+- Make a more sophisticated model and show the relation between the variables 
+- Offset of trends and characteristic features in time - autocorrelation function 
+
+Build an accurate pipeline to estimate the correlation using one of these and then maybe provide a dual-axis chart to illustrate it - but the scatterplot would be better for it anyway 

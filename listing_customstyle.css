@@ -1,0 +1,43 @@
+
+/* style for listing_cumstomstyle.ejs */
+.custom_listing {
+    margin: 0;
+}
+
+.custom_listing ul {
+    list-style-type: square;
+}
+
+.custom_listing li {
+    margin-bottom: 0.5em;
+}
+
+.custom_listing li .li-contents-container{
+    display: flex; 
+    align-items: center;
+}
+/* ol.matchGraph li {margin-bottom: 5px;}
+ol.matchGraph li .leftLabel {width: 60%; display: inline-block;}
+ol.matchGraph li .rightMatch {width: 38%; display: inline-block;} */
+
+
+.custom_listing .title-container {
+    width: 70%;
+    margin-right: auto;
+}
+
+.custom_listing .detail {
+    color: #aaaaaa;
+    font-style: italic;
+    font-size: smaller;
+}
+
+.custom_listing .categories {
+    color: #aaaaaa;
+    /* font-style: normal; */
+    font-size: smaller;
+    font-variant: small-caps;
+    max-width: 25%;
+    margin-left: auto; 
+    text-align: right;
+}

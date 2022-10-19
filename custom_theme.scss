@@ -1,0 +1,28 @@
+/*-- scss:defaults --*/
+$h2-font-size:          1.6em !default;
+// $headings-font-weight:  500 !default;
+// $body-color:            #abcdef !default;
+
+/*-- scss:rules --*/
+
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&family=Proza+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Spline+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'); */
+
+
+
+h2, h3, h4 {
+    margin-top: 2em !important;
+}
+
+.view_all {
+    text-align: center;
+}
+
+.view_all a {
+    font-weight: bold;
+}

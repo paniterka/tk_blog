@@ -1,0 +1,44 @@
+---
+title: "Doing things with conda environments"
+date: "2022-10-08"
+format: html
+categories:
+  - python 
+  - conda
+---
+
+# Update the Python version  
+
+It's scary, but needs to be done sometimes (e.g. when you have a perfectly working old environment built on Python 3.6, but then one dependency stops behaving and requires P3.8+). 
+
+If in a conda environment: 
+```
+conda activate my_env
+conda install -c anaconda python=<version>
+```
+[src](https://stackoverflow.com/questions/41535881/how-do-i-upgrade-to-python-3-6-with-conda)
+
+# Clone an environment
+If you want to make a clone of the environment for a backup purpose:
+
+```
+conda create --name <target_environment> --clone <source_environment> 
+```
+
+If you want to clone the base: 
+
+```
+conda create --name <myenv> --clone base
+```
+
+# Solve the libarchive error 
+https://github.com/ContinuumIO/anaconda-issues/issues/11104#issuecomment-510285329 
+
+- install miniconda to a separate folder. Tell it not to run conda init
+- activate that installation with source /path/to/new/miniconda/bin/activate
+- run conda install -p /path/to/broken/anaconda --force python-libarchive-c conda-package-handling libarchive 
+
+Similar here: https://github.com/conda/conda/issues/7714#issuecomment-417553149 
+
+# Install geopandas at start 
+https://stackoverflow.com/questions/61927004/conda-install-some-package-hangs-with-solving-environment-failed 

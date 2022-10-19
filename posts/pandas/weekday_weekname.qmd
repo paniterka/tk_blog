@@ -1,0 +1,48 @@
+---
+title: "Weekday names in pandas"
+date: "2022-10-08"
+format: html
+jupyter: python3
+categories:
+  - pandas
+  - datetime
+---
+
+Pandas offers you a functionality to read the day of the week out of a datetime column: `dt.weekday`. However these are values ranging from 0..6. Is there a better way to convert them to human-readable days rather than using our real-world knowledge? (yes, there is!) 
+
+```{python}
+import pandas as pd 
+```
+
+# generate the weekday names in a given locale 
+
+We can use the `.dt.day_name()` function to generate named days. This function alone gets us only to discover that 2018-01-01 was a Monday. But we can do the following: 
+
+1. Generate 7 consecutive dates with `pd.date_range()` 
+1. For each of them, read out its `.dt.weekday` 
+1. For each of them, read out its `.dt.day_name()` 
+1. Ignore/drop the first column and use the dataframe as a mapping between the integer denoting a day and its human-readable form. 
+
+Bonus: we can generate named days in a given locale. So for example to obtain a mapping between integers, day names in English, day names in German: 
+
+```{python}
+s = pd.DataFrame(pd.date_range(start='2018-01-01', freq='D', periods=7), columns=['date'])
+s['weekday'] = s['date'].dt.weekday
+s['weekday_en'] = s['date'].dt.day_name()
+s['weekday_de'] = s['date'].dt.day_name(locale='de')
+s 
+```
+
+We can add variations of weekday names, such as:  
+```{python}
+s['weekday_short'] = s['weekday_en'].apply(lambda x: x[0:3]).str.upper()
+```
+
+We can also [create a dictionary](pandas_dictionaries.qmd): 
+
+```{python}
+weekday_dict = s[['weekday', 'weekday_short']].set_index('weekday_short')['weekday'].to_dict()
+weekday_dict
+```
+
+

@@ -1,19 +1,5 @@
 /* css styles */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&family=Proza+Libre&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Spline+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-
-body {
-    /* font-weight: 200 !important; */
-}
-
-.quarto-title-banner{
-    /* background-color: red; */
-}
 
 .title {
     padding-top: 2em;
@@ -24,60 +10,4 @@ body {
     text-transform: uppercase;
     /* font-stretch: 150%; */
     text-align: center;
-}
-
-h2, h3, h4 {
-    margin-top: 2em !important;
-}
-
-/* style for listing_cumstomstyle.ejs */
-.custom_listing {
-    margin: 0;
-}
-
-.custom_listing ul {
-    list-style-type: square;
-}
-
-.custom_listing li {
-    margin-bottom: 0.5em;
-}
-
-.custom_listing li .li-contents-container{
-    display: flex; 
-    align-items: center;
-}
-/* ol.matchGraph li {margin-bottom: 5px;}
-ol.matchGraph li .leftLabel {width: 60%; display: inline-block;}
-ol.matchGraph li .rightMatch {width: 38%; display: inline-block;} */
-
-
-.custom_listing .title-container {
-    width: 70%;
-    margin-right: auto;
-}
-
-.custom_listing .detail {
-    color: #aaaaaa;
-    font-style: italic;
-    font-size: smaller;
-}
-
-.custom_listing .categories {
-    color: #aaaaaa;
-    /* font-style: normal; */
-    font-size: smaller;
-    font-variant: small-caps;
-    max-width: 25%;
-    margin-left: auto; 
-    text-align: right;
-}
-
-.view_all {
-    text-align: center;
-
-}
-
-.view_all a {
-    font-weight: bold;
 }

@@ -10,7 +10,7 @@ listing:
     sort-ui: false
     filter-ui: false
     categories: false
-    max-items: 5
+    max-items: 8
 page-layout: article
 title-block-banner: 1811433_adj.jpg
 toc: false

@@ -14,12 +14,13 @@ website:
         href: http://www.teresa-kubacka.com
 format:
   html:
-    theme: flatly
-    css: styles.css
-    # mainfont: Source Sans Pro
+    theme: 
+      - flatly
+      - custom_theme.scss
+    css: 
+      - styles.css
+      - listing_customstyle.css
     mainfont: Assistant
-    # mainfont: Archivo
-    # mainfont: Spline Sans
     toc: true
     toc-location: left 
 
