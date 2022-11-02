@@ -1,0 +1,14 @@
+---
+title: "Tips for transitioning between careers (to data science / tech)"
+date: "2022-11-02"
+format: html
+draft: true
+categories:
+  - career 
+---
+
+cf. Priska's post https://www.linkedin.com/feed/update/urn:li:activity:6993218347974676480/ 
+
+
+I can relate to the frustration! My experience has been that if you change profile, it is quite difficult to get a job in Switzerland by applying to a public job oopening. People are very conservative here, and the companies that still have a luxury of getting only the "properly" certified candidates do not have an incentive to change their judgement. And the competition for the open position is anyway so big that candidates are disqualified for tiniest of reasons (like an cv in a slightly wrong format). Also knowing German is a big deal. On a more practical level, I would advise all the people who transition between careers to: 1. Tap into the hidden market (positions that are not yet open but will be soon, or positions at KMUs who are only advertised among friends of friends or the KMUs that don't have a conservative minded HR department but have a real need) and network, network, network. 2. Consider getting a job which is a stepping stone towards your goal. For example when transitioning into data science, get an analyst job which has a potential to include more and more coding, and stay there for a year or two. 3. Volunteer in organizations like Correlaid to gain hands-on experience and build portfolio. Prove that you can build something real before getting the job. This means working for free which sucks, but is often very effective. 4. On some point it is just a numbers game. Don't be picky and think creatively. When I was switching to data science, it took me around 100 applications to get my first job. It gets way easier afterwards. Of course ideally we would be able to change the mindset of HR managers, but as an applicant your chances to do so are slim. Or maybe we need to establish a bootcamp for HR people so that they become more open for people with less traditional profiles? :)
+
