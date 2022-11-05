@@ -1,5 +1,5 @@
 ---
-title: "Font magic"
+title: "Using fontprops"
 date: "2022-09-27"
 format: html
 jupyter: python3

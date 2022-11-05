@@ -1,0 +1,14 @@
+/* css styles */
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+.title {
+    /* padding-top: 2em;
+    padding-bottom: 2em;  */
+    /* padding-left: 1em; */
+    /* padding-right: 1em; */
+    font-family: "Jost";
+    text-transform: uppercase;
+    font-size: 3em;
+    /* font-stretch: 150%; */
+    text-align: center;
+}

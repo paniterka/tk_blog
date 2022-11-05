@@ -1,18 +1,13 @@
 /*-- scss:defaults --*/
+$h1-font-size:          1.8em !default;
 $h2-font-size:          1.6em !default;
-// $headings-font-weight:  500 !default;
-// $body-color:            #abcdef !default;
-
+$primary: #648C90 !default;
+$font-family-base:  'Spline Sans' !default;
+$link-color: #978A7B !default;
+$body-color: #212529;  
 /*-- scss:rules --*/
 
-/* @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&family=Proza+Libre&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Assistant&family=Spline+Sans&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'); */
-
 
 
 h2, h3, h4 {
@@ -21,8 +16,45 @@ h2, h3, h4 {
 
 .view_all {
     text-align: center;
+    font-size: $h3-font-size;
 }
 
 .view_all a {
     font-weight: bold;
+}
+
+.quarto-title-meta-heading {
+    display: none;
+}
+
+.quarto-title-meta {
+    display: inline !important;
+    > div {
+        display: inline-block;
+        padding-right: 0.5em;
+
+    }
+    > div:not(:first-child) {
+        border-left: 1px solid ; 
+        padding-left: 0.5em;
+    }
+}
+
+.title{
+    font-size: 2.5em !important;
+}
+
+
+.pagination {
+    .page-link {
+        background: white;
+        border-color: $link-color;
+    }
+
+    .active .page-link {
+        background: $link-color;
+        font-weight: bold;
+        color: white;
+        border-color: $link-color;
+    }
 }

@@ -1,5 +1,5 @@
 ---
-title: "All posts"
+title: "Browse all recipes"
 listing:
   - id: quarto_listing
     contents: posts\tips_quarto
@@ -42,22 +42,24 @@ listing:
   #   categories: true
   #   sort-ui: false
   #   filter-ui: false
-page-layout: full
+page-layout: article
 title-block-banner: true 
+# title-block-banner-color: white 
+css: styles_nonpost.scss
 ---
 
-## Python 
+# Python 
 Mostly pandas and matplotlib tricks.
 
 ::: {#python_listing}
 :::
 
-## Quarto 
+# Quarto 
 ::: {#quarto_listing}
 :::
 
 
-## Other tech topics 
+# Various 
 ::: {#other_tech_listing}
 :::
 

@@ -1,5 +1,5 @@
 ---
-title: "Figuring things out<br>one post at a time"
+title: "Data visualization recipes<br>in Python"
 listing:
   - id: latest_posts
     contents: posts
@@ -12,27 +12,28 @@ listing:
     categories: false
     max-items: 8
 page-layout: article
-title-block-banner: 1811433_adj.jpg
+title-block-banner: true 
+# title-block-banner-color: black
 toc: false
 toc-location: body
-css: styles_main.css
+css: styles_main.scss
 ---
 
 :::{.column-page}
 :::
 
 
-Welcome! 
+Welcome! I am Teresa, data scientist focused on data visualization. 
 
-At this point this blog is mostly just a collection of code snippets and tips for visualizing data with Python. 
+Here I collect useful code snippets, recipes and tips for visualizing and analysing data with Python. 
 
 
-## Latest posts
+# Latest recipes 
 
 ::: {#latest_posts}
 :::
 
-<div class="view_all">[Browse all posts...](all_posts_categorized.qmd)</div>
+<div class="view_all">[Browse all recipes...](all_posts_categorized.qmd)</div>
 
 <!-- ## Tutorials and projects  -->
 

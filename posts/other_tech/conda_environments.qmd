@@ -8,7 +8,7 @@ categories:
 ---
 
 # Update the Python version  
-
+  
 It's scary, but needs to be done sometimes (e.g. when you have a perfectly working old environment built on Python 3.6, but then one dependency stops behaving and requires P3.8+). 
 
 If in a conda environment: 
@@ -40,5 +40,18 @@ https://github.com/ContinuumIO/anaconda-issues/issues/11104#issuecomment-5102853
 
 Similar here: https://github.com/conda/conda/issues/7714#issuecomment-417553149 
 
-# Install geopandas at start 
-https://stackoverflow.com/questions/61927004/conda-install-some-package-hangs-with-solving-environment-failed 
+# Install packages when creating environment 
+[Packages can be defined at env creation, which supposedly helps with resolving conflicts](https://stackoverflow.com/questions/61927004/conda-install-some-package-hangs-with-solving-environment-failed) 
+
+# Basics 
+
+List environments: 
+```
+conda info --envs 
+```
+
+Install ipykernel pointing to a venv: 
+```
+pip install ipykernel 
+python -m ipykernel install --name my_venv
+```
