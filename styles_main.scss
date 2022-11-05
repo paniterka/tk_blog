@@ -5,8 +5,8 @@
 
 .title {
     padding-top: 1em;
-    font-family: "Jost";
-    text-transform: uppercase;
+    font-family: "Jost" !important;
+    text-transform: uppercase !important;
     // color: black;
     font-size: 3em;
     /* font-stretch: 150%; */
@@ -15,8 +15,8 @@
 
 
 .quarto-title-banner {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
 }
 
 .quarto-title {
