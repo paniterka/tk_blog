@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teresa Kubacka’s Blog - All posts</title>
+<title>pythonviz.blog - Browse all recipes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-format","listing-execute","listing-jupyter","listing-categories","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title-block-banner-color","listing-author","listing-page-layout","listing-title-block-style","listing-format","listing-title","listing-date","listing-execute","listing-jupyter","listing-categories","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       page: 10,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-categories","listing-draft","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-format","listing-jupyter"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title-block-banner-color","listing-author","listing-page-layout","listing-title-block-style","listing-format","listing-title","listing-date","listing-categories","listing-draft","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-jupyter"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-format","listing-categories","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title-block-banner-color","listing-author","listing-page-layout","listing-title-block-style","listing-format","listing-title","listing-date","listing-categories","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -151,6 +151,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="listing_customstyle.css">
+<link rel="stylesheet" href="styles_nonpost.scss">
 </head>
 
 <body class="floating nav-fixed">
@@ -161,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Teresa Kubacka’s Blog</span>
+    <span class="navbar-title">pythonviz.blog</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -181,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="http://www.teresa-kubacka.com">
- <span class="menu-text">Home</span></a>
+ <span class="menu-text">Author</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -193,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">All posts</h1>
+      <h1 class="title">Browse all recipes</h1>
                       </div>
   </div>
     
@@ -206,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -215,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python">Python</a></li>
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#other-tech-topics" id="toc-other-tech-topics" class="nav-link" data-scroll-target="#other-tech-topics">Other tech topics</a></li>
+  <li><a href="#various" id="toc-various" class="nav-link" data-scroll-target="#various">Various</a></li>
   </ul>
 </nav>
 </nav>
@@ -223,13 +224,13 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(24)</span></div><div class="category" data-category="cheatsheet">cheatsheet <span class="quarto-category-count">(8)</span></div><div class="category" data-category="conda">conda <span class="quarto-category-count">(1)</span></div><div class="category" data-category="css">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="datetime">datetime <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ejs">ejs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geodata">geodata <span class="quarto-category-count">(1)</span></div><div class="category" data-category="git">git <span class="quarto-category-count">(2)</span></div><div class="category" data-category="javascript">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="matplotlib">matplotlib <span class="quarto-category-count">(7)</span></div><div class="category" data-category="numpy">numpy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandas">pandas <span class="quarto-category-count">(8)</span></div><div class="category" data-category="poetry">poetry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="quarto">quarto <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="python" class="level2">
-<h2 class="anchored" data-anchor-id="python">Python</h2>
+<section id="python" class="level1">
+<h1>Python</h1>
 <p>Mostly pandas and matplotlib tricks.</p>
 <div id="listing-python_listing" class="quarto-listing quarto-listing-container-custom">
   <div class="custom_listing">
@@ -289,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> cheatsheet, pandas </span>
         </span>
       </li>
-      <li data-index="5" data-categories="pandas,geodata" data-listing-date-sort="1667602800000" data-listing-file-modified-sort="1667652825643" data-listing-reading-time-sort="1.555">
+      <li data-index="5" data-categories="pandas,geodata" data-listing-date-sort="1667602800000" data-listing-file-modified-sort="1667654860712" data-listing-reading-time-sort="1.555">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/pandas/installing_geopandas.html" class="listing-title">Installing geopandas on Windows</a> 
@@ -409,8 +410,8 @@ No matching items
 </nav>
 </div>
 </section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<section id="quarto" class="level1">
+<h1>Quarto</h1>
 <div id="listing-quarto_listing" class="quarto-listing quarto-listing-container-custom">
   <div class="custom_listing">
     <ul class="list">
@@ -465,13 +466,13 @@ No matching items
 </div>
 </div>
 </section>
-<section id="other-tech-topics" class="level2">
-<h2 class="anchored" data-anchor-id="other-tech-topics">Other tech topics</h2>
+<section id="various" class="level1">
+<h1>Various</h1>
 <div id="listing-other_tech_listing" class="quarto-listing quarto-listing-container-custom">
 
   <div class="custom_listing">
     <ul class="list">
-      <li data-index="0" data-categories="python,conda" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1667652986916" data-listing-reading-time-sort="0.705">
+      <li data-index="0" data-categories="python,conda" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1667681753362" data-listing-reading-time-sort="0.78">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/other_tech/conda_environments.html" class="listing-title">Doing things with conda environments</a> 
@@ -672,6 +673,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">(c) by Teresa Kubacka, 2022</div>
+  </div>
+</footer>
 
 
 

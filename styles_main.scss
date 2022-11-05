@@ -1,15 +1,24 @@
-/* css styles */
+
+/*-- scss:defaults --*/
+
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
 .title {
-    /* padding-top: 2em;
-    padding-bottom: 2em;  */
-    /* padding-left: 1em; */
-    /* padding-right: 1em; */
+    padding-top: 1em;
     font-family: "Jost";
     text-transform: uppercase;
-    color: $primary;
+    // color: black;
     font-size: 3em;
     /* font-stretch: 150%; */
     text-align: center;
+}
+
+
+.quarto-title-banner {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.quarto-title {
+    padding: 0;
 }

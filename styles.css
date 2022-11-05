@@ -1,1 +1,31 @@
 /* css styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
+
+
+.title {
+    padding-top: 1em;
+    padding-bottom: 0em; 
+    /* padding-left: 1em; */
+    /* padding-right: 1em; */
+    /* font-family: "Zen Antique"; */
+    /* font-stretch: 150%; */
+}
+
+.quarto-title {
+    padding-bottom: 0em;
+    width: 100vp;
+
+}
+
+.quarto-title-meta {
+    padding-bottom: 2em;
+}
+
+.quarto-title-block {
+}
+
+.quarto-title-banner {
+    /* background: white; */
+    padding-bottom: 0em;
+}

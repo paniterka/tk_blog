@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teresa Kubacka’s Blog - Figuring things outone post at a time</title>
+<title>pythonviz.blog - Data visualization recipesin Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-date","listing-categories","listing-path","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-format","listing-jupyter","listing-draft","listing-execute"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title-block-banner-color","listing-author","listing-page-layout","listing-title-block-style","listing-format","listing-title","listing-date","listing-categories","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-jupyter","listing-draft","listing-execute"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -89,18 +89,12 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
-<style>
-    .quarto-title-block .quarto-title-banner {
-      background-image: url(1811433_adj.jpg);
-background-size: cover;
-    }
-    </style>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="listing_customstyle.css">
-<link rel="stylesheet" href="styles_main.css">
+<link rel="stylesheet" href="styles_main.scss">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -111,7 +105,7 @@ background-size: cover;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Teresa Kubacka’s Blog</span>
+    <span class="navbar-title">pythonviz.blog</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -131,7 +125,7 @@ background-size: cover;
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="http://www.teresa-kubacka.com">
- <span class="menu-text">Home</span></a>
+ <span class="menu-text">Author</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -143,7 +137,7 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Figuring things out<br>one post at a time</h1>
+      <h1 class="title">Data visualization recipes<br>in Python</h1>
                       </div>
   </div>
     
@@ -169,14 +163,14 @@ background-size: cover;
 <div class="column-page">
 
 </div>
-<p>Welcome!</p>
-<p>At this point this blog is mostly just a collection of code snippets and tips for visualizing data with Python.</p>
-<section id="latest-posts" class="level2">
-<h2 class="anchored" data-anchor-id="latest-posts">Latest posts</h2>
+<p>Welcome! I am Teresa, data scientist focused on data visualization.</p>
+<p>Here I collect useful code snippets, recipes and tips for visualizing and analysing data with Python.</p>
+<section id="latest-recipes" class="level1">
+<h1>Latest recipes</h1>
 <div id="listing-latest_posts" class="quarto-listing quarto-listing-container-custom">
   <div class="custom_listing">
     <ul class="list">
-      <li data-index="0" data-categories="pandas,geodata" data-listing-date-sort="1667602800000" data-listing-file-modified-sort="1667652825643" data-listing-reading-time-sort="1.555">
+      <li data-index="0" data-categories="pandas,geodata" data-listing-date-sort="1667602800000" data-listing-file-modified-sort="1667654860712" data-listing-reading-time-sort="1.555">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/pandas/installing_geopandas.html" class="listing-title">Installing geopandas on Windows</a> 
@@ -187,7 +181,7 @@ background-size: cover;
           <span class="categories"> pandas, geodata </span>
         </span>
       </li>
-      <li data-index="1" data-categories="python,conda" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1667652986916" data-listing-reading-time-sort="0.705">
+      <li data-index="1" data-categories="python,conda" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1667681753362" data-listing-reading-time-sort="0.78">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/other_tech/conda_environments.html" class="listing-title">Doing things with conda environments</a> 
@@ -271,7 +265,7 @@ No matching items
 </div>
 </div>
 <div class="view_all">
-<a href="./all_posts_categorized.html">Browse all posts…</a>
+<a href="./all_posts_categorized.html">Browse all recipes…</a>
 </div>
 <!-- ## Tutorials and projects  -->
 
@@ -414,6 +408,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">(c) by Teresa Kubacka, 2022</div>
+  </div>
+</footer>
 
 
 
