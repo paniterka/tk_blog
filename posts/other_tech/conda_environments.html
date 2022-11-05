@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.214">
+<meta name="generator" content="quarto-1.2.247">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -139,6 +139,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#clone-an-environment" id="toc-clone-an-environment" class="nav-link" data-scroll-target="#clone-an-environment">Clone an environment</a></li>
   <li><a href="#solve-the-libarchive-error" id="toc-solve-the-libarchive-error" class="nav-link" data-scroll-target="#solve-the-libarchive-error">Solve the libarchive error</a></li>
   <li><a href="#install-geopandas-at-start" id="toc-install-geopandas-at-start" class="nav-link" data-scroll-target="#install-geopandas-at-start">Install geopandas at start</a></li>
+  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">Basics</a></li>
   </ul>
 </nav>
 </nav>
@@ -179,6 +180,14 @@ conda install -c anaconda python=&lt;version&gt;</code></pre>
 <section id="install-geopandas-at-start" class="level1">
 <h1>Install geopandas at start</h1>
 <p>https://stackoverflow.com/questions/61927004/conda-install-some-package-hangs-with-solving-environment-failed</p>
+</section>
+<section id="basics" class="level1">
+<h1>Basics</h1>
+<p>List environments:</p>
+<pre><code>conda info --envs </code></pre>
+<p>Install ipykernel pointing to a venv:</p>
+<pre><code>pip install ipykernel 
+python -m ipykernel install --name my_venv</code></pre>
 
 
 </section>

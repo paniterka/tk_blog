@@ -9,12 +9,13 @@
       "/posts/mpl/colormaps.html",
       "/posts/mpl/legend.html",
       "/posts/pandas/reading_messy_csvs.html",
-      "/posts/mpl/font_magic.html",
       "/posts/pandas/pandas_dictionaries.html",
       "/posts/pandas/generate_fake_dates_in_pandas.html",
+      "/posts/pandas/installing_geopandas.html",
       "/posts/mpl/mpl_numpy_warping.html",
       "/posts/pandas/skipping_arbitrary_empty_rows.html",
       "/posts/mpl/tick_formatting.html",
+      "/posts/mpl/font_magic.html",
       "/posts/mpl/various_resources.html",
       "/posts/pandas/various_pandas_resources.html",
       "/posts/mpl/watermarks_footnotes.html",
@@ -30,6 +31,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/pandas/installing_geopandas.html",
       "/posts/other_tech/conda_environments.html",
       "/posts/pandas/weekday_weekname.html",
       "/posts/mpl/font_magic.html",

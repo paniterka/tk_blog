@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-26">
+<meta name="dcterms.date" content="2022-11-02">
 
-<title>Teresa Kubacka’s Blog - Working with datetimes</title>
+<title>Teresa Kubacka’s Blog - Tips for transitioning between careers (to data science / tech)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,69 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -165,121 +102,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Working with datetimes</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">cheatsheet</div>
-                <div class="quarto-category">pandas</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">July 26, 2022</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#working-with-datetimes" id="toc-working-with-datetimes" class="nav-link active" data-scroll-target="#working-with-datetimes">Working with datetimes</a></li>
-  </ul>
-</nav>
+    
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tips for transitioning between careers (to data science / tech)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">career</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="working-with-datetimes" class="level1">
-<h1>Working with datetimes</h1>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="to-extract-just-date-from-a-full-datetime" class="level4">
-<h4 class="anchored" data-anchor-id="to-extract-just-date-from-a-full-datetime">To extract just date from a full datetime</h4>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series(pd.date_range(<span class="st">"20130101"</span>, periods<span class="op">=</span><span class="dv">4</span>, freq<span class="op">=</span><span class="st">'H'</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>0   2013-01-01 00:00:00
-1   2013-01-01 01:00:00
-2   2013-01-01 02:00:00
-3   2013-01-01 03:00:00
-dtype: datetime64[ns]</code></pre>
-</div>
-</div>
-<p>Keep just the date:</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s.dt.date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>0    2013-01-01
-1    2013-01-01
-2    2013-01-01
-3    2013-01-01
-dtype: object</code></pre>
-</div>
-</div>
-<p>Keep just the date as datetime object:</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s.dt.date.astype(<span class="st">'datetime64'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>0   2013-01-01
-1   2013-01-01
-2   2013-01-01
-3   2013-01-01
-dtype: datetime64[ns]</code></pre>
-</div>
-</div>
-<p>Keep just the date by resetting the timestamp:</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>s.dt.normalize()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>0   2013-01-01
-1   2013-01-01
-2   2013-01-01
-3   2013-01-01
-dtype: datetime64[ns]</code></pre>
-</div>
-</div>
-<p>Keep the date with a particular formatting:</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s.dt.strftime(<span class="st">"%Y/%m/</span><span class="sc">%d</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>0    2013/01/01
-1    2013/01/01
-2    2013/01/01
-3    2013/01/01
-dtype: object</code></pre>
-</div>
-</div>
-<p>Links:<br>
-- <a href="https://stackoverflow.com/questions/16176996/keep-only-date-part-when-using-pandas-to-datetime">source</a><br>
-- <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#dt-accessor">.dt docs</a></p>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 2, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>cf.&nbsp;Priska’s post https://www.linkedin.com/feed/update/urn:li:activity:6993218347974676480/</p>
+<p>I can relate to the frustration! My experience has been that if you change profile, it is quite difficult to get a job in Switzerland by applying to a public job oopening. People are very conservative here, and the companies that still have a luxury of getting only the “properly” certified candidates do not have an incentive to change their judgement. And the competition for the open position is anyway so big that candidates are disqualified for tiniest of reasons (like an cv in a slightly wrong format). Also knowing German is a big deal. On a more practical level, I would advise all the people who transition between careers to: 1. Tap into the hidden market (positions that are not yet open but will be soon, or positions at KMUs who are only advertised among friends of friends or the KMUs that don’t have a conservative minded HR department but have a real need) and network, network, network. 2. Consider getting a job which is a stepping stone towards your goal. For example when transitioning into data science, get an analyst job which has a potential to include more and more coding, and stay there for a year or two. 3. Volunteer in organizations like Correlaid to gain hands-on experience and build portfolio. Prove that you can build something real before getting the job. This means working for free which sucks, but is often very effective. 4. On some point it is just a numbers game. Don’t be picky and think creatively. When I was switching to data science, it took me around 100 applications to get my first job. It gets way easier afterwards. Of course ideally we would be able to change the mindset of HR managers, but as an applicant your chances to do so are slim. Or maybe we need to establish a bootcamp for HR people so that they become more open for people with less traditional profiles? :)</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
