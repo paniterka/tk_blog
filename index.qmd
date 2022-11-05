@@ -16,7 +16,7 @@ title-block-banner: true
 # title-block-banner-color: black
 toc: false
 toc-location: body
-css: styles_main.scss
+css: styles_main.css
 ---
 
 :::{.column-page}

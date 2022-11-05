@@ -45,7 +45,7 @@ listing:
 page-layout: article
 title-block-banner: true 
 # title-block-banner-color: white 
-css: styles_nonpost.scss
+css: styles_nonpost.css
 ---
 
 # Python 

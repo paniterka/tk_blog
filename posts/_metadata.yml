@@ -17,3 +17,5 @@ title-block-style: default
 format: 
   html:
     toc-location: right
+    theme: 
+      - styles_post.scss
