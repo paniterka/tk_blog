@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Teresa Kubacka's Blog"
+  title: "pythonviz.blog"
   navbar:
     right:
 #       - about.qmd
@@ -10,17 +10,17 @@ website:
         href: https://github.com/paniterka
       - icon: twitter
         href: https://twitter.com/paniterka_ch
-      - text: "Home" 
+      - text: "Author" 
         href: http://www.teresa-kubacka.com
+  page-footer: "(c) by Teresa Kubacka, 2022" 
 format:
   html:
     theme: 
-      - flatly
       - custom_theme.scss
     css: 
       - styles.css
       - listing_customstyle.css
-    mainfont: Assistant
+    # mainfont: Assistant
     toc: true
     toc-location: left 
 
