@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.247">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Teresa Kubacka">
+<meta name="dcterms.date" content="2022-11-07">
+
+<title>pythonviz.blog - Create small-multiples charts from scratch in Matplotlib</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      color: black;
+background: white;
+    }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../listing_customstyle.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">pythonviz.blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/paniterka"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/paniterka_ch"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://www.teresa-kubacka.com">
+ <span class="menu-text">Author</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Create small-multiples charts from scratch in Matplotlib</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">matplotlib</div>
+                <div class="quarto-category">tutorial</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Teresa Kubacka </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 7, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#in-this-tutorial" id="toc-in-this-tutorial" class="nav-link active" data-scroll-target="#in-this-tutorial">In this tutorial:</a></li>
+  <li><a href="#step-1-read-and-pre-transform-the-data" id="toc-step-1-read-and-pre-transform-the-data" class="nav-link" data-scroll-target="#step-1-read-and-pre-transform-the-data">Step 1: read and pre-transform the data</a></li>
+  <li><a href="#step-2-create-a-small-multiples-skeleton" id="toc-step-2-create-a-small-multiples-skeleton" class="nav-link" data-scroll-target="#step-2-create-a-small-multiples-skeleton">Step 2: create a small-multiples skeleton</a></li>
+  <li><a href="#step-3-add-missing-x-labels" id="toc-step-3-add-missing-x-labels" class="nav-link" data-scroll-target="#step-3-add-missing-x-labels">Step 3: add missing x-labels</a></li>
+  <li><a href="#step-4-add-the-data-in-the-background" id="toc-step-4-add-the-data-in-the-background" class="nav-link" data-scroll-target="#step-4-add-the-data-in-the-background">Step 4: add the data in the background</a></li>
+  <li><a href="#step-5-legend-and-annotations" id="toc-step-5-legend-and-annotations" class="nav-link" data-scroll-target="#step-5-legend-and-annotations">Step 5: legend and annotations</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="in-this-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-tutorial">In this tutorial:</h2>
+<ul>
+<li>how to loop over axes and data</li>
+<li>how to display axis labels only in some axes</li>
+<li>how to store styles in dictionaries</li>
+<li>how to adjust tick frequency</li>
+<li>how to create a custom legend</li>
+<li>how to pass properties inside a charting function</li>
+</ul>
+<p>Small multiples is an extremely helpful technique in data visualization. See below <a href="https://seaborn.pydata.org/examples/timeseries_facets.html">how a small multiples chart can be done using seaborn’s <code>relplot</code></a>. How could we make such a chart from scratch in MPL, adjusted to our needs?</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>flights <span class="op">=</span> sns.load_dataset(<span class="st">"flights"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot each year's time series in its own facet</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.relplot(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>flights,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"month"</span>, y<span class="op">=</span><span class="st">"passengers"</span>, col<span class="op">=</span><span class="st">"year"</span>, hue<span class="op">=</span><span class="st">"year"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">"line"</span>, palette<span class="op">=</span><span class="st">"crest"</span>, linewidth<span class="op">=</span><span class="dv">4</span>, zorder<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    col_wrap<span class="op">=</span><span class="dv">5</span>, height<span class="op">=</span><span class="dv">2</span>, aspect<span class="op">=</span><span class="fl">1.5</span>, legend<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over each subplot to customize further</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year, ax <span class="kw">in</span> g.axes_dict.items():</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot every year's time series in the background</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    sns.lineplot(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>flights, x<span class="op">=</span><span class="st">"month"</span>, y<span class="op">=</span><span class="st">"passengers"</span>, units<span class="op">=</span><span class="st">"year"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        estimator<span class="op">=</span><span class="va">None</span>, color<span class="op">=</span><span class="st">".7"</span>, linewidth<span class="op">=</span><span class="dv">1</span>, ax<span class="op">=</span>ax,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>g.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="step-1-read-and-pre-transform-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-read-and-pre-transform-the-data">Step 1: read and pre-transform the data</h2>
+<p>Let’s read in dummy data and preprocess the datetimes, so that we can easily plot:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seaborn <span class="im">import</span> load_dataset</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> load_dataset(<span class="st">'flights'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'m'</span>] <span class="op">=</span> df[<span class="st">'month'</span>].cat.codes.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(by<span class="op">=</span>[<span class="st">'year'</span>,<span class="st">'m'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-create-a-small-multiples-skeleton" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-create-a-small-multiples-skeleton">Step 2: create a small-multiples skeleton</h2>
+<p>We want to create a small multiples chart, one chart per year.</p>
+<p>Let’s start from defining the rows and columns in the grid manually. We can use <code>plt.subplots()</code> and then iterate over the axes and the sub-dataframe for each axes. For this, we’re going to <code>zip</code> the axes and the keys used to sub-sample the dataframe.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">5</span>, nrows<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> <span class="bu">zip</span>(df[<span class="st">'year'</span>].unique(), axes.ravel()): </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    tmp_df <span class="op">=</span> df[df[<span class="st">'year'</span>]<span class="op">==</span>chosen]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    ax.plot(tmp_df[<span class="st">'m'</span>], tmp_df[<span class="st">'passengers'</span>], )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Bummer: <code>zip</code> will stop evaluating the moment the shorter list is exhausted.</p>
+<p>However, we can use a <a href="https://docs.python.org/3/library/itertools.html#itertools.zip_longest"><code>zip_longest</code> function from <code>itertools</code></a> which will iterate until it exhausts the longer list. If we don’t provide a <code>fillvalue</code> to it, it will produce <code>None</code> once the shorter iterable has been exhausted. E.g.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> zip_longest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> first, second <span class="kw">in</span> zip_longest(<span class="bu">range</span>(<span class="dv">3</span>), <span class="bu">range</span>(<span class="dv">5</span>)):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(first, second)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 0
+1 1
+2 2
+None 3
+None 4</code></pre>
+</div>
+</div>
+<p>We need to generate more or equal axes than the number of charts we effectively expect (i.e.&nbsp;in our example, the number of available years). Then whenever we get <code>None</code> for the year, we can remove the axis from the figure:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">5</span>, nrows<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df[<span class="st">'year'</span>].unique(), axes.ravel()): </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df[df[<span class="st">'year'</span>]<span class="op">==</span>chosen]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df[<span class="st">'m'</span>], tmp_df[<span class="st">'passengers'</span>], )</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#         ax.axis('off')</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        ax.remove()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Looks good!</p>
+<p>Only the last adjustment: until now we have defined the number of charts by hand. Let’s only define the number of columns and let the script handle the relevant number of rows. Also, let’s not hardcode our column name, but rather store it in a variable:</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> <span class="st">'year'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> (df[col].nunique() <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df[col].unique(), axes.ravel()): </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df[df[col]<span class="op">==</span>chosen]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df[<span class="st">'m'</span>], tmp_df[<span class="st">'passengers'</span>], )</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        ax.remove()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="step-3-add-missing-x-labels" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-add-missing-x-labels">Step 3: add missing x-labels</h2>
+<p>Another problem has arisen. Because we are using <code>sharex</code>, <code>sharey</code>, the labels on the bottom line of charts are missing. Let’s find out which charts are on the bottom. We will create a bool table where we define 1 for the charts where we want to see the xlabels:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>remaining <span class="op">=</span>  df[col].nunique() <span class="op">%</span> num_cols </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>is_xlabeled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>array([[0., 0., 0., 0., 0.],
+       [0., 0., 1., 1., 1.],
+       [1., 1., 0., 0., 0.]])</code></pre>
+</div>
+</div>
+<p>Now I can integrate it in my code by adding it to the <code>zip_longest</code>:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> <span class="st">'year'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>num_charts <span class="op">=</span> df[col].nunique()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax, xlab <span class="kw">in</span> zip_longest(df[col].unique(), axes.ravel(), is_xlabeled.ravel()): </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df[df[col]<span class="op">==</span>chosen]</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df[<span class="st">'m'</span>], tmp_df[<span class="st">'passengers'</span>], )</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> xlab: </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        ax.remove()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>However, I don’t like it for the readability. Also, maybe I don’t want to have this option hardcoded - it will be easier to parametrize it if I add the labels in a second loop. Here I can use a simple <code>zip</code>, because the <code>is_xlabeled</code> and <code>axes</code> have the same shapes.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> <span class="st">'year'</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>num_charts <span class="op">=</span> df[col].nunique()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df[col].unique(), axes.ravel()): </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df[df[col]<span class="op">==</span>chosen]</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df[<span class="st">'m'</span>], tmp_df[<span class="st">'passengers'</span>], )</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        ax.remove()    </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> xlab: </span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Looks good!</p>
+</section>
+<section id="step-4-add-the-data-in-the-background" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-add-the-data-in-the-background">Step 4: add the data in the background</h2>
+<p>For this, let’s reshape our data. It’s going to be easier if we take advantage of the long-wide conversion and create a pivot table containing our data. Here we don’t need to do any aggregation, but this would be the first step in a data prep pipeline.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span><span class="st">'m'</span>, columns<span class="op">=</span>col, values<span class="op">=</span><span class="st">'passengers'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_pivot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>year</th>
+      <th>1949</th>
+      <th>1950</th>
+      <th>1951</th>
+      <th>1952</th>
+      <th>1953</th>
+      <th>1954</th>
+      <th>1955</th>
+      <th>1956</th>
+      <th>1957</th>
+      <th>1958</th>
+      <th>1959</th>
+      <th>1960</th>
+    </tr>
+    <tr>
+      <th>m</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>112</td>
+      <td>115</td>
+      <td>145</td>
+      <td>171</td>
+      <td>196</td>
+      <td>204</td>
+      <td>242</td>
+      <td>284</td>
+      <td>315</td>
+      <td>340</td>
+      <td>360</td>
+      <td>417</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>118</td>
+      <td>126</td>
+      <td>150</td>
+      <td>180</td>
+      <td>196</td>
+      <td>188</td>
+      <td>233</td>
+      <td>277</td>
+      <td>301</td>
+      <td>318</td>
+      <td>342</td>
+      <td>391</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>132</td>
+      <td>141</td>
+      <td>178</td>
+      <td>193</td>
+      <td>236</td>
+      <td>235</td>
+      <td>267</td>
+      <td>317</td>
+      <td>356</td>
+      <td>362</td>
+      <td>406</td>
+      <td>419</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>129</td>
+      <td>135</td>
+      <td>163</td>
+      <td>181</td>
+      <td>235</td>
+      <td>227</td>
+      <td>269</td>
+      <td>313</td>
+      <td>348</td>
+      <td>348</td>
+      <td>396</td>
+      <td>461</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>121</td>
+      <td>125</td>
+      <td>172</td>
+      <td>183</td>
+      <td>229</td>
+      <td>234</td>
+      <td>270</td>
+      <td>318</td>
+      <td>355</td>
+      <td>363</td>
+      <td>420</td>
+      <td>472</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>135</td>
+      <td>149</td>
+      <td>178</td>
+      <td>218</td>
+      <td>243</td>
+      <td>264</td>
+      <td>315</td>
+      <td>374</td>
+      <td>422</td>
+      <td>435</td>
+      <td>472</td>
+      <td>535</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>148</td>
+      <td>170</td>
+      <td>199</td>
+      <td>230</td>
+      <td>264</td>
+      <td>302</td>
+      <td>364</td>
+      <td>413</td>
+      <td>465</td>
+      <td>491</td>
+      <td>548</td>
+      <td>622</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>148</td>
+      <td>170</td>
+      <td>199</td>
+      <td>242</td>
+      <td>272</td>
+      <td>293</td>
+      <td>347</td>
+      <td>405</td>
+      <td>467</td>
+      <td>505</td>
+      <td>559</td>
+      <td>606</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>136</td>
+      <td>158</td>
+      <td>184</td>
+      <td>209</td>
+      <td>237</td>
+      <td>259</td>
+      <td>312</td>
+      <td>355</td>
+      <td>404</td>
+      <td>404</td>
+      <td>463</td>
+      <td>508</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>119</td>
+      <td>133</td>
+      <td>162</td>
+      <td>191</td>
+      <td>211</td>
+      <td>229</td>
+      <td>274</td>
+      <td>306</td>
+      <td>347</td>
+      <td>359</td>
+      <td>407</td>
+      <td>461</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>104</td>
+      <td>114</td>
+      <td>146</td>
+      <td>172</td>
+      <td>180</td>
+      <td>203</td>
+      <td>237</td>
+      <td>271</td>
+      <td>305</td>
+      <td>310</td>
+      <td>362</td>
+      <td>390</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>118</td>
+      <td>140</td>
+      <td>166</td>
+      <td>194</td>
+      <td>201</td>
+      <td>229</td>
+      <td>278</td>
+      <td>306</td>
+      <td>336</td>
+      <td>337</td>
+      <td>405</td>
+      <td>432</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Now I can refactor the code: I can use <code>df_pivot</code> for getting my selected curve and for getting the background curves:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> <span class="st">'year'</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>num_charts <span class="op">=</span> df[col].nunique()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span><span class="st">'m'</span>, columns<span class="op">=</span>col, values<span class="op">=</span><span class="st">'passengers'</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df[col].unique(), axes.ravel()): </span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df, color<span class="op">=</span><span class="st">'orange'</span>, lw<span class="op">=</span><span class="dv">2</span>, zorder<span class="op">=</span><span class="dv">99</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>        ax.plot(df_pivot, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        ax.remove()    </span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> xlab: </span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>        ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Let’s move the styling outside of the loop where we plotting the dashboard. Maybe in the future we want to try out various colors and build up a legend basing on those colors. Dictionary is great for this:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> <span class="st">'year'</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>style_selected <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'orange'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'zorder'</span>: <span class="dv">99</span>}</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>style_bg <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'gray'</span>, <span class="st">'lw'</span>: <span class="dv">1</span>, <span class="st">'alpha'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>num_charts <span class="op">=</span> df[col].nunique()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span><span class="st">'m'</span>, columns<span class="op">=</span>col, values<span class="op">=</span><span class="st">'passengers'</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df[col].unique(), axes.ravel()): </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df, <span class="op">**</span>style_selected)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        ax.plot(df_pivot, <span class="op">**</span>style_bg)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>        ax.remove()    </span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> xlab: </span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>        ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Also, let’s not use hardcoded values for x,y values and only use df_pivot from now on.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> <span class="st">'year'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x_col <span class="op">=</span> <span class="st">'m'</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>y_col <span class="op">=</span> <span class="st">'passengers'</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>style_selected <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'orange'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'zorder'</span>: <span class="dv">99</span>}</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>style_bg <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'gray'</span>, <span class="st">'lw'</span>: <span class="dv">1</span>, <span class="st">'alpha'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span>x_col, columns<span class="op">=</span>col, values<span class="op">=</span>y_col)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>num_charts <span class="op">=</span> <span class="bu">len</span>(df_pivot.columns)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df_pivot.columns, axes.ravel()): </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>        ax.plot(tmp_df, <span class="op">**</span>style_selected)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        ax.plot(df_pivot, <span class="op">**</span>style_bg)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        ax.remove()    </span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> xlab: </span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>        ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Now it looks like we have separated the data and plotting parts. We can wrap our code in a function. We define default styles inside the function, and return <code>f</code> and <code>axes</code> objects for easy modification further on.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> small_multiples(df, col, x_col, y_col, num_cols, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                    style_selected <span class="op">=</span> <span class="va">None</span>, style_bg <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_selected <span class="kw">is</span> <span class="va">None</span>: </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        style_selected <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'orange'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'zorder'</span>: <span class="dv">99</span>}</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_bg <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        style_bg <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'gray'</span>, <span class="st">'lw'</span>: <span class="dv">1</span>, <span class="st">'alpha'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span>x_col, columns<span class="op">=</span>col, values<span class="op">=</span>y_col)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    num_charts <span class="op">=</span> <span class="bu">len</span>(df_pivot.columns)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df_pivot.columns, axes.ravel()): </span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>            tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>            ax.plot(tmp_df, <span class="op">**</span>style_selected)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>            ax.plot(df_pivot, <span class="op">**</span>style_bg)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: </span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>            ax.remove()    </span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> xlab: </span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f, axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With such a structure, we can easily modify the look and feel of our small-multiples dashboard:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> small_multiples(df<span class="op">=</span>df, col<span class="op">=</span><span class="st">'year'</span>, x_col<span class="op">=</span><span class="st">'m'</span>, y_col<span class="op">=</span><span class="st">'passengers'</span>, </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                          num_cols<span class="op">=</span><span class="dv">5</span>, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                          style_selected<span class="op">=</span>{<span class="st">'color'</span>:<span class="st">'limegreen'</span>, <span class="st">'lw'</span>:<span class="dv">3</span>},)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">'Flights over the years'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>Text(0.5, 0.98, 'Flights over the years')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>However, there is something we are missing. We cannot easily scale the size of the dashboard. For this, let’s declare another variable <code>dashboard_props</code>, which we will pass to <code>plt.subplots()</code>:</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> small_multiples(df, col, x_col, y_col, num_cols, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                    style_selected <span class="op">=</span> <span class="va">None</span>, style_bg <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                    dashboard_props <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_selected <span class="kw">is</span> <span class="va">None</span>: </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        style_selected <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'orange'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'zorder'</span>: <span class="dv">99</span>}</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_bg <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        style_bg <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'gray'</span>, <span class="st">'lw'</span>: <span class="dv">1</span>, <span class="st">'alpha'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> dashboard_props <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        dashboard_props <span class="op">=</span> {}</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span>x_col, columns<span class="op">=</span>col, values<span class="op">=</span>y_col)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    num_charts <span class="op">=</span> <span class="bu">len</span>(df_pivot.columns)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, </span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>                           sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>                           <span class="op">**</span>dashboard_props)</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df_pivot.columns, axes.ravel()): </span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>            tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>            ax.plot(tmp_df, <span class="op">**</span>style_selected)</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>            ax.plot(df_pivot, <span class="op">**</span>style_bg)</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: </span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>            ax.remove()    </span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> xlab: </span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f, axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can also make x-ticks a bit more human-friendly. With the current structure, it is easy to do without having to modify the base function:</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> small_multiples(df<span class="op">=</span>df, col<span class="op">=</span><span class="st">'year'</span>, x_col<span class="op">=</span><span class="st">'month'</span>, y_col<span class="op">=</span><span class="st">'passengers'</span>, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                          num_cols<span class="op">=</span><span class="dv">5</span>, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                          style_selected<span class="op">=</span>{<span class="st">'color'</span>:<span class="st">'limegreen'</span>, <span class="st">'lw'</span>:<span class="dv">3</span>},</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                         dashboard_props<span class="op">=</span>{<span class="st">'figsize'</span>: (<span class="dv">10</span>,<span class="dv">5</span>)})</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">'Flights over the years'</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> MultipleLocator</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>[ax.xaxis.set_major_locator(MultipleLocator(<span class="dv">3</span>)) <span class="cf">for</span> ax <span class="kw">in</span> axes.ravel()]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="step-5-legend-and-annotations" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-legend-and-annotations">Step 5: legend and annotations</h2>
+<p>Let’s add annotations: at this point there is no information about the actual year!</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> small_multiples(df, col, x_col, y_col, num_cols, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                    style_selected <span class="op">=</span> <span class="va">None</span>, style_bg <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                    dashboard_props <span class="op">=</span> <span class="va">None</span>, text_props <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_selected <span class="kw">is</span> <span class="va">None</span>: </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        style_selected <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'orange'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'zorder'</span>: <span class="dv">99</span>}</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_bg <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        style_bg <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'gray'</span>, <span class="st">'lw'</span>: <span class="dv">1</span>, <span class="st">'alpha'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> dashboard_props <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        dashboard_props <span class="op">=</span> {}</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    default_text_props <span class="op">=</span> {<span class="st">'x'</span>: <span class="fl">0.95</span>, <span class="st">'y'</span>: <span class="fl">0.95</span>}</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> text_props <span class="kw">is</span> <span class="va">None</span>: </span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>        text_props <span class="op">=</span> {}</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'x'</span> <span class="kw">not</span> <span class="kw">in</span> text_props.keys(): </span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        text_props[<span class="st">'x'</span>] <span class="op">=</span> default_text_props[<span class="st">'x'</span>]</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'y'</span> <span class="kw">not</span> <span class="kw">in</span> text_props.keys(): </span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>        text_props[<span class="st">'y'</span>] <span class="op">=</span> default_text_props[<span class="st">'y'</span>]</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span>x_col, columns<span class="op">=</span>col, values<span class="op">=</span>y_col)</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    num_charts <span class="op">=</span> <span class="bu">len</span>(df_pivot.columns)</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, </span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>                           sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>                           <span class="op">**</span>dashboard_props)</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df_pivot.columns, axes.ravel()): </span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>            tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>            ax.plot(tmp_df, <span class="op">**</span>style_selected)</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>            ax.plot(df_pivot, <span class="op">**</span>style_bg)</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>            ax.text(s<span class="op">=</span>chosen, </span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>                transform<span class="op">=</span>ax.transAxes, </span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>                va<span class="op">=</span><span class="st">'top'</span>, ha<span class="op">=</span><span class="st">'right'</span>, zorder<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>                   <span class="op">**</span>text_props)</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: </span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>            ax.remove()    </span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> xlab: </span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f, axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> small_multiples(df<span class="op">=</span>df, col<span class="op">=</span><span class="st">'year'</span>, x_col<span class="op">=</span><span class="st">'month'</span>, y_col<span class="op">=</span><span class="st">'passengers'</span>, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                          num_cols<span class="op">=</span><span class="dv">5</span>, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                          style_selected<span class="op">=</span>{<span class="st">'color'</span>:<span class="st">'limegreen'</span>, <span class="st">'lw'</span>:<span class="dv">3</span>},</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                         dashboard_props<span class="op">=</span>{<span class="st">'figsize'</span>: (<span class="dv">10</span>,<span class="dv">5</span>)}, text_props<span class="op">=</span>{<span class="st">'size'</span>:<span class="dv">8</span>})</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">'Flights over the years'</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> MultipleLocator</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>[ax.xaxis.set_major_locator(MultipleLocator(<span class="dv">3</span>)) <span class="cf">for</span> ax <span class="kw">in</span> axes.ravel()]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>And let’s add a legend:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> small_multiples(df, col, x_col, y_col, num_cols, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                    style_selected <span class="op">=</span> <span class="va">None</span>, style_bg <span class="op">=</span> <span class="va">None</span>, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                    dashboard_props <span class="op">=</span> <span class="va">None</span>, text_props <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_selected <span class="kw">is</span> <span class="va">None</span>: </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        style_selected <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'orange'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'zorder'</span>: <span class="dv">99</span>}</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> style_bg <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        style_bg <span class="op">=</span> {<span class="st">'color'</span>: <span class="st">'gray'</span>, <span class="st">'lw'</span>: <span class="dv">1</span>, <span class="st">'alpha'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> dashboard_props <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>        dashboard_props <span class="op">=</span> {}</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    default_text_props <span class="op">=</span> {<span class="st">'x'</span>: <span class="fl">0.95</span>, <span class="st">'y'</span>: <span class="fl">0.95</span>}</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> text_props <span class="kw">is</span> <span class="va">None</span>: </span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        text_props <span class="op">=</span> {}</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'x'</span> <span class="kw">not</span> <span class="kw">in</span> text_props.keys(): </span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        text_props[<span class="st">'x'</span>] <span class="op">=</span> default_text_props[<span class="st">'x'</span>]</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'y'</span> <span class="kw">not</span> <span class="kw">in</span> text_props.keys(): </span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>        text_props[<span class="st">'y'</span>] <span class="op">=</span> default_text_props[<span class="st">'y'</span>]</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span>x_col, columns<span class="op">=</span>col, values<span class="op">=</span>y_col)</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>    num_charts <span class="op">=</span> <span class="bu">len</span>(df_pivot.columns)</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    num_rows <span class="op">=</span> (num_charts <span class="op">//</span> num_cols) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span>  num_charts <span class="op">%</span> num_cols </span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    is_xlabeled <span class="op">=</span> np.zeros((num_rows, num_cols))</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>:remaining] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    is_xlabeled[<span class="op">-</span><span class="dv">2</span>][remaining:] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>    f, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span>num_cols, nrows<span class="op">=</span>num_rows, </span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>                           sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>                           <span class="op">**</span>dashboard_props)</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> chosen, ax <span class="kw">in</span> zip_longest(df_pivot.columns, axes.ravel()): </span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> chosen <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>            tmp_df <span class="op">=</span> df_pivot[chosen]</span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>            ax.plot(tmp_df, <span class="op">**</span>style_selected)</span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>            ax.plot(df_pivot, <span class="op">**</span>style_bg)</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>            ax.text(s<span class="op">=</span>chosen, </span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>                transform<span class="op">=</span>ax.transAxes, </span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a>                va<span class="op">=</span><span class="st">'top'</span>, ha<span class="op">=</span><span class="st">'right'</span>, zorder<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>                   <span class="op">**</span>text_props)</span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: </span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a>            ax.remove()    </span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> xlab, ax <span class="kw">in</span> <span class="bu">zip</span>(is_xlabeled.ravel(), axes.ravel()): </span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> xlab: </span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelbottom<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> [<span class="st">'selected year'</span>, <span class="st">'other years'</span>]</span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a>    handles <span class="op">=</span> [Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], <span class="op">**</span>style_selected), Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], <span class="op">**</span>style_bg)]</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>    axes.ravel()[num_charts<span class="op">-</span><span class="dv">1</span>]<span class="op">\</span></span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a>        .legend(labels<span class="op">=</span>labels, handles<span class="op">=</span>handles,</span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a>              bbox_to_anchor<span class="op">=</span>[<span class="fl">1.25</span>,<span class="fl">0.5</span>], loc<span class="op">=</span><span class="st">'center left'</span>, </span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a>              edgecolor<span class="op">=</span><span class="st">'white'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a>              borderpad<span class="op">=</span><span class="dv">0</span>, borderaxespad<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f, axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>f, axes <span class="op">=</span> small_multiples(df<span class="op">=</span>df, col<span class="op">=</span><span class="st">'year'</span>, x_col<span class="op">=</span><span class="st">'month'</span>, y_col<span class="op">=</span><span class="st">'passengers'</span>, </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                          num_cols<span class="op">=</span><span class="dv">5</span>, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                          style_selected<span class="op">=</span>{<span class="st">'color'</span>:<span class="st">'limegreen'</span>, <span class="st">'lw'</span>:<span class="dv">3</span>},</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                         dashboard_props<span class="op">=</span>{<span class="st">'figsize'</span>: (<span class="dv">10</span>,<span class="dv">5</span>)}, text_props<span class="op">=</span>{<span class="st">'size'</span>:<span class="dv">8</span>})</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">'Flights over the years'</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> MultipleLocator</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>[ax.xaxis.set_major_locator(MultipleLocator(<span class="dv">3</span>)) <span class="cf">for</span> ax <span class="kw">in</span> axes.ravel()]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mpl_small-multiples_ziplongest_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">(c) by Teresa Kubacka, 2022</div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -6,6 +6,7 @@
       "/posts/tips_quarto/quarto_worktree.html",
       "/posts/tips_quarto/quarto_howto.html",
       "/posts/tips_quarto/quarto_links.html",
+      "/posts/mpl/mpl_small-multiples_ziplongest.html",
       "/posts/mpl/colormaps.html",
       "/posts/mpl/legend.html",
       "/posts/pandas/reading_messy_csvs.html",
@@ -31,6 +32,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/mpl/mpl_small-multiples_ziplongest.html",
       "/posts/pandas/installing_geopandas.html",
       "/posts/other_tech/conda_environments.html",
       "/posts/pandas/weekday_weekname.html",
