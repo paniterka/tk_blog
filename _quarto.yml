@@ -12,7 +12,10 @@ website:
         href: https://twitter.com/paniterka_ch
       - text: "Author" 
         href: http://www.teresa-kubacka.com
-  page-footer: "(c) by Teresa Kubacka, 2022" 
+  page-footer: 
+        center: "(c) by Teresa Kubacka, 2022"
+        border: false
+        # right: "User traffic is analyzed with GoatCounter" 
 format:
   html:
     theme: 

@@ -1,0 +1,34 @@
+---
+title: "Add traffic analytics to your quarto blog"
+date: "2022-11-09"
+format: html
+categories:
+  - quarto
+---
+
+I have recently added lightweight traffic analytics to this blog. I decided not to go for Google Analytics, but use [one of the free, open-source, privacy-conscious options](https://stackdiary.com/open-source-analytics/) instead. I went with [GoatCounter](https://www.goatcounter.com/). To set up traffic analytics with GoatCounter is quite easy:  
+
+- register an account with them 
+- add a JS snippet to the website you wish to track 
+- voila! 
+
+To integrate the GoatCounter tracking script in the Quarto blog, I used the solution which I found on [Danielle Navarro's blog](https://github.com/djnavarro/quarto-blog): 
+
+- create an html that will host the script, in my case it was a snippet that GoatCounter sent to me upon creating the account: 
+```
+<script data-goatcounter="https://HERE_YOUR_GOATCOUNTER_ACCOUNT_NAME.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+```
+
+- put this html (in my case, `traffic.html`) in the main directory of my blog, in the same folder where `_quarto.yml` lives 
+
+- edit `_quarto.yml` to include the following: 
+```
+format:
+  html:
+    include-after-body: traffic.html
+``` 
+
+That's it! Now the GoatCounter script will be embedded in all the pages on the blog. 
+
+If you are using another tracking provider, Quarto has a [tutorial how to switch on cookies and embed your own script](https://quarto.org/docs/websites/website-tools.html#custom-scripts-and-cookie-consent). 

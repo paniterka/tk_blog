@@ -17,6 +17,7 @@ title-block-banner: true
 toc: false
 toc-location: body
 css: styles_main.css
+
 ---
 
 :::{.column-page}
@@ -36,4 +37,11 @@ Here I collect useful code snippets, recipes and tips for visualizing and analys
 <div class="view_all">[Browse all recipes...](all_posts_categorized.qmd)</div>
 
 <!-- ## Tutorials and projects  -->
+<!-- 
+<div style="height:1em;"> </div> -->
 
+<!-- <div > 
+  <div class='nav-footer-center'>
+  I am using GoatCounter to track the user traffic. There are no ads here. I will be grateful if you disable your adblocker, so that I can see that you have visited this blog!
+  </div>
+</div> -->
