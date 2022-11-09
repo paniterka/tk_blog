@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Teresa Kubacka">
-<meta name="dcterms.date" content="2022-08-04">
+<meta name="dcterms.date" content="2022-11-09">
 
-<title>pythonviz.blog - Various Pandas resources</title>
+<title>pythonviz.blog - Add traffic analytics to your quarto blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,9 +112,9 @@ background: white;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Various Pandas resources</h1>
+      <h1 class="title">Add traffic analytics to your quarto blog</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">pandas</div>
+                <div class="quarto-category">quarto</div>
               </div>
                   </div>
   </div>
@@ -132,7 +132,7 @@ background: white;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 4, 2022</p>
+        <p class="date">November 9, 2022</p>
       </div>
     </div>
     
@@ -144,13 +144,7 @@ background: white;
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#r-related" id="toc-r-related" class="nav-link active" data-scroll-target="#r-related">R-related</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -158,15 +152,29 @@ background: white;
 
 
 
-<section id="r-related" class="level2">
-<h2 class="anchored" data-anchor-id="r-related">R-related</h2>
+<p>I have recently added lightweight traffic analytics to this blog. I decided not to go for Google Analytics, but use <a href="https://stackdiary.com/open-source-analytics/">one of the free, open-source, privacy-conscious options</a> instead. I went with <a href="https://www.goatcounter.com/">GoatCounter</a>. To set up traffic analytics with GoatCounter is quite easy:</p>
 <ul>
-<li><a href="https://www.mit.edu/~amidi/teaching/data-science-tools/conversion-guide/r-python-data-manipulation/#">Data manipulation R-Python conversion guide</a></li>
-<li>RPY2 <a href="https://github.com/rpy2/rpy2">github</a> and <a href="https://rpy2.github.io/doc/v3.5.x/html/index.html">docs</a></li>
+<li>register an account with them</li>
+<li>add a JS snippet to the website you wish to track</li>
+<li>voila!</li>
 </ul>
+<p>To integrate the GoatCounter tracking script in the Quarto blog, I used the solution which I found on <a href="https://github.com/djnavarro/quarto-blog">Danielle Navarro’s blog</a>:</p>
+<ul>
+<li>create an html that will host the script, in my case it was a snippet that GoatCounter sent to me upon creating the account:</li>
+</ul>
+<pre><code>&lt;script data-goatcounter="https://HERE_YOUR_GOATCOUNTER_ACCOUNT_NAME.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</code></pre>
+<ul>
+<li><p>put this html (in my case, <code>traffic.html</code>) in the main directory of my blog, in the same folder where <code>_quarto.yml</code> lives</p></li>
+<li><p>edit <code>_quarto.yml</code> to include the following:</p></li>
+</ul>
+<pre><code>format:
+  html:
+    include-after-body: traffic.html</code></pre>
+<p>That’s it! Now the GoatCounter script will be embedded in all the pages on the blog.</p>
+<p>If you are using another tracking provider, Quarto has a <a href="https://quarto.org/docs/websites/website-tools.html#custom-scripts-and-cookie-consent">tutorial how to switch on cookies and embed your own script</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script data-goatcounter="https://paniterka.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>

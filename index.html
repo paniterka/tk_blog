@@ -71,7 +71,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
-      
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-freeze","listing-title-block-banner","listing-title-block-banner-color","listing-author","listing-page-layout","listing-title-block-style","listing-format","listing-title","listing-date","listing-categories","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-jupyter","listing-draft","listing-execute"],
     };
 
@@ -170,7 +171,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="listing-latest_posts" class="quarto-listing quarto-listing-container-custom">
   <div class="custom_listing">
     <ul class="list">
-      <li data-index="0" data-categories="matplotlib,tutorial" data-listing-date-sort="1667775600000" data-listing-file-modified-sort="1667777970208" data-listing-reading-time-sort="3.485">
+      <li data-index="0" data-categories="quarto" data-listing-date-sort="1667948400000" data-listing-file-modified-sort="1668026749367" data-listing-reading-time-sort="0.97">
+        <span class="li-contents-container">
+          <span class="title-container">
+            <a href="./posts/tips_quarto/quarto_traffic.html" class="listing-title">Add traffic analytics to your quarto blog</a> 
+            <span class="detail">
+              <span class="listing-date">(Nov 9, 2022)</span>
+            </span>
+          </span>
+          <span class="categories"> quarto </span>
+        </span>
+      </li>
+      <li data-index="1" data-categories="matplotlib,tutorial" data-listing-date-sort="1667775600000" data-listing-file-modified-sort="1667777970208" data-listing-reading-time-sort="3.485">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/mpl/mpl_small-multiples_ziplongest.html" class="listing-title">Create small-multiples charts from scratch in Matplotlib</a> 
@@ -181,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> matplotlib, tutorial </span>
         </span>
       </li>
-      <li data-index="1" data-categories="pandas,geodata" data-listing-date-sort="1667602800000" data-listing-file-modified-sort="1667654860712" data-listing-reading-time-sort="1.555">
+      <li data-index="2" data-categories="pandas,geodata" data-listing-date-sort="1667602800000" data-listing-file-modified-sort="1667654860712" data-listing-reading-time-sort="1.555">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/pandas/installing_geopandas.html" class="listing-title">Installing geopandas on Windows</a> 
@@ -192,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> pandas, geodata </span>
         </span>
       </li>
-      <li data-index="2" data-categories="python,conda" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1667681753362" data-listing-reading-time-sort="0.78">
+      <li data-index="3" data-categories="python,conda" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1667681753362" data-listing-reading-time-sort="0.78">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/other_tech/conda_environments.html" class="listing-title">Doing things with conda environments</a> 
@@ -203,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> python, conda </span>
         </span>
       </li>
-      <li data-index="3" data-categories="pandas,datetime" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1665761385111" data-listing-reading-time-sort="0.94">
+      <li data-index="4" data-categories="pandas,datetime" data-listing-date-sort="1665180000000" data-listing-file-modified-sort="1665761385111" data-listing-reading-time-sort="0.94">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/pandas/weekday_weekname.html" class="listing-title">Weekday names in pandas</a> 
@@ -214,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> pandas, datetime </span>
         </span>
       </li>
-      <li data-index="4" data-categories="matplotlib" data-listing-date-sort="1664229600000" data-listing-file-modified-sort="1667653042635" data-listing-reading-time-sort="0.505">
+      <li data-index="5" data-categories="matplotlib" data-listing-date-sort="1664229600000" data-listing-file-modified-sort="1667653042635" data-listing-reading-time-sort="0.505">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/mpl/font_magic.html" class="listing-title">Using fontprops</a> 
@@ -225,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> matplotlib </span>
         </span>
       </li>
-      <li data-index="5" data-categories="matplotlib" data-listing-date-sort="1664229600000" data-listing-file-modified-sort="1665251545571" data-listing-reading-time-sort="0.4">
+      <li data-index="6" data-categories="matplotlib" data-listing-date-sort="1664229600000" data-listing-file-modified-sort="1665251545571" data-listing-reading-time-sort="0.4">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/mpl/legend.html" class="listing-title">Customizing the legend</a> 
@@ -236,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> matplotlib </span>
         </span>
       </li>
-      <li data-index="6" data-categories="matplotlib" data-listing-date-sort="1664229600000" data-listing-file-modified-sort="1665251545574" data-listing-reading-time-sort="1.845">
+      <li data-index="7" data-categories="matplotlib" data-listing-date-sort="1664229600000" data-listing-file-modified-sort="1665251545574" data-listing-reading-time-sort="1.845">
         <span class="li-contents-container">
           <span class="title-container">
             <a href="./posts/mpl/watermarks_footnotes.html" class="listing-title">Watermarks, footnotes and other annotations</a> 
@@ -247,27 +259,26 @@ ul.task-list li input[type="checkbox"] {
           <span class="categories"> matplotlib </span>
         </span>
       </li>
-      <li data-index="7" data-categories="matplotlib" data-listing-date-sort="1663711200000" data-listing-file-modified-sort="1665251545572" data-listing-reading-time-sort="1.03">
-        <span class="li-contents-container">
-          <span class="title-container">
-            <a href="./posts/mpl/tick_formatting.html" class="listing-title">Tick formatting recipes</a> 
-            <span class="detail">
-              <span class="listing-date">(Sep 21, 2022)</span>
-            </span>
-          </span>
-          <span class="categories"> matplotlib </span>
-        </span>
-      </li>
     </ul>
   </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="latest_posts-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
 <div class="view_all">
 <a href="./all_posts_categorized.html">Browse all recipes…</a>
 </div>
 <!-- ## Tutorials and projects  -->
+<!-- 
+<div style="height:1em;"> </div> -->
+<!-- <div > 
+  <div class='nav-footer-center'>
+  I am using GoatCounter to track the user traffic. There are no ads here. I will be grateful if you disable your adblocker, so that I can see that you have visited this blog!
+  </div>
+</div> -->
 
 
 
@@ -275,6 +286,10 @@ No matching items
 
 </main> <!-- /main -->
 <script data-goatcounter="https://paniterka.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<noscript>
+    <img src="https://paniterka.goatcounter.com/count?p=/test-noscript">
+</noscript>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -2,6 +2,7 @@
   {
     "listing": "/all_posts_categorized.html",
     "items": [
+      "/posts/tips_quarto/quarto_traffic.html",
       "/posts/tips_quarto/ojs_define_series.html",
       "/posts/tips_quarto/quarto_worktree.html",
       "/posts/tips_quarto/quarto_howto.html",
@@ -32,6 +33,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/tips_quarto/quarto_traffic.html",
       "/posts/mpl/mpl_small-multiples_ziplongest.html",
       "/posts/pandas/installing_geopandas.html",
       "/posts/other_tech/conda_environments.html",
