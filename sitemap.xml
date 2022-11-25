@@ -2,118 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://paniterka.github.io/tk_blog/about.html</loc>
-    <lastmod>2022-11-09T21:31:27.655Z</lastmod>
+    <lastmod>2022-11-25T21:44:36.259Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/all_posts_categorized.html</loc>
-    <lastmod>2022-11-09T21:31:35.023Z</lastmod>
+    <lastmod>2022-11-25T21:44:38.266Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/index.html</loc>
-    <lastmod>2022-11-09T21:31:41.595Z</lastmod>
+    <lastmod>2022-11-25T21:44:40.448Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/colormaps.html</loc>
-    <lastmod>2022-11-09T21:32:15.508Z</lastmod>
+    <lastmod>2022-11-25T21:44:50.375Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/font_magic.html</loc>
-    <lastmod>2022-11-09T21:32:23.888Z</lastmod>
+    <lastmod>2022-11-25T21:44:53.664Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/legend.html</loc>
-    <lastmod>2022-11-09T21:32:30.875Z</lastmod>
+    <lastmod>2022-11-25T21:44:55.419Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/mpl_numpy_warping.html</loc>
-    <lastmod>2022-11-09T21:32:36.502Z</lastmod>
+    <lastmod>2022-11-25T21:44:57.015Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/mpl_small-multiples_ziplongest.html</loc>
-    <lastmod>2022-11-09T21:32:44.621Z</lastmod>
+    <lastmod>2022-11-25T21:44:58.950Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/tick_formatting.html</loc>
-    <lastmod>2022-11-09T21:32:51.801Z</lastmod>
+    <lastmod>2022-11-25T21:45:00.787Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/various_resources.html</loc>
-    <lastmod>2022-11-09T21:32:57.481Z</lastmod>
+    <lastmod>2022-11-25T21:45:02.169Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/watermarks_footnotes.html</loc>
-    <lastmod>2022-11-09T21:33:04.886Z</lastmod>
+    <lastmod>2022-11-25T21:45:03.976Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/conda_environments.html</loc>
-    <lastmod>2022-11-09T21:33:10.447Z</lastmod>
+    <lastmod>2022-11-25T21:45:05.314Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/ejs.html</loc>
-    <lastmod>2022-11-09T21:33:16.750Z</lastmod>
+    <lastmod>2022-11-25T21:45:07.187Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/poetry.html</loc>
-    <lastmod>2022-11-09T21:33:22.181Z</lastmod>
+    <lastmod>2022-11-25T21:45:09.756Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/table_like_li_css.html</loc>
-    <lastmod>2022-11-09T21:33:27.692Z</lastmod>
+    <lastmod>2022-11-25T21:45:11.385Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/useful_git.html</loc>
-    <lastmod>2022-11-09T21:33:33.436Z</lastmod>
+    <lastmod>2022-11-25T21:45:12.717Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/generate_fake_dates_in_pandas.html</loc>
-    <lastmod>2022-11-09T21:33:39.658Z</lastmod>
+    <lastmod>2022-11-25T21:45:14.113Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/installing_geopandas.html</loc>
-    <lastmod>2022-11-09T21:33:45.557Z</lastmod>
+    <lastmod>2022-11-25T21:45:15.415Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/pandas_dictionaries.html</loc>
-    <lastmod>2022-11-09T21:33:51.250Z</lastmod>
+    <lastmod>2022-11-25T21:45:16.760Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/reading_messy_csvs.html</loc>
-    <lastmod>2022-11-09T21:33:57.107Z</lastmod>
+    <lastmod>2022-11-25T21:45:18.205Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/skipping_arbitrary_empty_rows.html</loc>
-    <lastmod>2022-11-09T21:34:02.610Z</lastmod>
+    <lastmod>2022-11-25T21:45:19.579Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/various_pandas_resources.html</loc>
-    <lastmod>2022-11-09T21:34:07.897Z</lastmod>
+    <lastmod>2022-11-25T21:45:20.924Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/weekday_weekname.html</loc>
-    <lastmod>2022-11-09T21:34:15.566Z</lastmod>
+    <lastmod>2022-11-25T21:45:22.610Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/working_with_datetimes.html</loc>
-    <lastmod>2022-11-09T21:34:20.883Z</lastmod>
+    <lastmod>2022-11-25T21:45:23.965Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/ojs_define_series.html</loc>
-    <lastmod>2022-11-09T21:34:29.791Z</lastmod>
+    <lastmod>2022-11-25T21:45:25.965Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_howto.html</loc>
-    <lastmod>2022-11-09T21:34:38.351Z</lastmod>
+    <lastmod>2022-11-25T21:45:28.029Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_links.html</loc>
-    <lastmod>2022-11-09T21:34:43.828Z</lastmod>
+    <lastmod>2022-11-25T21:45:29.379Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_traffic.html</loc>
-    <lastmod>2022-11-09T21:34:49.459Z</lastmod>
+    <lastmod>2022-11-25T21:45:30.739Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_worktree.html</loc>
-    <lastmod>2022-11-09T21:34:54.935Z</lastmod>
+    <lastmod>2022-11-25T21:45:32.059Z</lastmod>
   </url>
 </urlset>
