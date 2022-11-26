@@ -2,118 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://paniterka.github.io/tk_blog/about.html</loc>
-    <lastmod>2022-11-25T21:44:36.259Z</lastmod>
+    <lastmod>2022-11-26T19:11:46.883Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/all_posts_categorized.html</loc>
-    <lastmod>2022-11-25T21:44:38.266Z</lastmod>
+    <lastmod>2022-11-26T19:11:48.652Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/index.html</loc>
-    <lastmod>2022-11-25T21:44:40.448Z</lastmod>
+    <lastmod>2022-11-26T19:11:50.402Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/colormaps.html</loc>
-    <lastmod>2022-11-25T21:44:50.375Z</lastmod>
+    <lastmod>2022-11-26T19:12:00.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paniterka.github.io/tk_blog/posts/mpl/figure_coordinates_inline_tight.html</loc>
+    <lastmod>2022-11-26T19:12:02.478Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/font_magic.html</loc>
-    <lastmod>2022-11-25T21:44:53.664Z</lastmod>
+    <lastmod>2022-11-26T19:12:04.443Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/legend.html</loc>
-    <lastmod>2022-11-25T21:44:55.419Z</lastmod>
+    <lastmod>2022-11-26T19:12:06.021Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/mpl_numpy_warping.html</loc>
-    <lastmod>2022-11-25T21:44:57.015Z</lastmod>
+    <lastmod>2022-11-26T19:12:07.375Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/mpl_small-multiples_ziplongest.html</loc>
-    <lastmod>2022-11-25T21:44:58.950Z</lastmod>
+    <lastmod>2022-11-26T19:12:09.134Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/tick_formatting.html</loc>
-    <lastmod>2022-11-25T21:45:00.787Z</lastmod>
+    <lastmod>2022-11-26T19:12:10.747Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/various_resources.html</loc>
-    <lastmod>2022-11-25T21:45:02.169Z</lastmod>
+    <lastmod>2022-11-26T19:12:12.065Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/mpl/watermarks_footnotes.html</loc>
-    <lastmod>2022-11-25T21:45:03.976Z</lastmod>
+    <lastmod>2022-11-26T19:12:13.818Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/conda_environments.html</loc>
-    <lastmod>2022-11-25T21:45:05.314Z</lastmod>
+    <lastmod>2022-11-26T19:12:15.118Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/ejs.html</loc>
-    <lastmod>2022-11-25T21:45:07.187Z</lastmod>
+    <lastmod>2022-11-26T19:12:16.740Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/poetry.html</loc>
-    <lastmod>2022-11-25T21:45:09.756Z</lastmod>
+    <lastmod>2022-11-26T19:12:18.067Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/table_like_li_css.html</loc>
-    <lastmod>2022-11-25T21:45:11.385Z</lastmod>
+    <lastmod>2022-11-26T19:12:19.356Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/other_tech/useful_git.html</loc>
-    <lastmod>2022-11-25T21:45:12.717Z</lastmod>
+    <lastmod>2022-11-26T19:12:20.683Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/generate_fake_dates_in_pandas.html</loc>
-    <lastmod>2022-11-25T21:45:14.113Z</lastmod>
+    <lastmod>2022-11-26T19:12:22.044Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/installing_geopandas.html</loc>
-    <lastmod>2022-11-25T21:45:15.415Z</lastmod>
+    <lastmod>2022-11-26T19:12:23.342Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/pandas_dictionaries.html</loc>
-    <lastmod>2022-11-25T21:45:16.760Z</lastmod>
+    <lastmod>2022-11-26T19:12:24.652Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/reading_messy_csvs.html</loc>
-    <lastmod>2022-11-25T21:45:18.205Z</lastmod>
+    <lastmod>2022-11-26T19:12:26.024Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/skipping_arbitrary_empty_rows.html</loc>
-    <lastmod>2022-11-25T21:45:19.579Z</lastmod>
+    <lastmod>2022-11-26T19:12:27.304Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/various_pandas_resources.html</loc>
-    <lastmod>2022-11-25T21:45:20.924Z</lastmod>
+    <lastmod>2022-11-26T19:12:28.567Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/weekday_weekname.html</loc>
-    <lastmod>2022-11-25T21:45:22.610Z</lastmod>
+    <lastmod>2022-11-26T19:12:30.139Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/pandas/working_with_datetimes.html</loc>
-    <lastmod>2022-11-25T21:45:23.965Z</lastmod>
+    <lastmod>2022-11-26T19:12:31.429Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/ojs_define_series.html</loc>
-    <lastmod>2022-11-25T21:45:25.965Z</lastmod>
+    <lastmod>2022-11-26T19:12:33.316Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_howto.html</loc>
-    <lastmod>2022-11-25T21:45:28.029Z</lastmod>
+    <lastmod>2022-11-26T19:12:35.193Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_links.html</loc>
-    <lastmod>2022-11-25T21:45:29.379Z</lastmod>
+    <lastmod>2022-11-26T19:12:36.476Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_traffic.html</loc>
-    <lastmod>2022-11-25T21:45:30.739Z</lastmod>
+    <lastmod>2022-11-26T19:12:37.783Z</lastmod>
   </url>
   <url>
     <loc>https://paniterka.github.io/tk_blog/posts/tips_quarto/quarto_worktree.html</loc>
-    <lastmod>2022-11-25T21:45:32.059Z</lastmod>
+    <lastmod>2022-11-26T19:12:39.071Z</lastmod>
   </url>
 </urlset>

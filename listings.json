@@ -13,6 +13,7 @@
       "/posts/pandas/reading_messy_csvs.html",
       "/posts/pandas/pandas_dictionaries.html",
       "/posts/pandas/generate_fake_dates_in_pandas.html",
+      "/posts/mpl/figure_coordinates_inline_tight.html",
       "/posts/pandas/installing_geopandas.html",
       "/posts/mpl/mpl_numpy_warping.html",
       "/posts/pandas/skipping_arbitrary_empty_rows.html",
@@ -33,6 +34,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/mpl/figure_coordinates_inline_tight.html",
       "/posts/tips_quarto/quarto_traffic.html",
       "/posts/mpl/mpl_small-multiples_ziplongest.html",
       "/posts/pandas/installing_geopandas.html",
