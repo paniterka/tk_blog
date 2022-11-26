@@ -28,6 +28,7 @@ Welcome! I am Teresa, data scientist focused on data visualization.
 
 Here I collect useful code snippets, recipes and tips for visualizing and analysing data with Python. 
 
+You may want to check out my [awesome matplotlib](https://github.com/paniterka/awesome-matplotlib/) repository where I collect tutorials and other resources about Matplotlib. 
 
 # Latest recipes 
 
