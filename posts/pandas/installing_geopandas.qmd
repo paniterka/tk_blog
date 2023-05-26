@@ -1,6 +1,6 @@
 ---
 title: "Installing geopandas on Windows"
-date: "2022-11-05"
+date: "2023-05-26"
 format: html
 categories:
   - pandas
@@ -14,7 +14,7 @@ Here are the steps, how they worked for me:
 1. Create a new environment (I used conda for this)
 1. Know your Python version (your Python version is the same as your CPython version) by running `python -V` in your environment. Alternatively you can run `conda info` and look at `user-agent`. 
 1. Install the [latest MS Visual C++ binaries](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) for the X64 architecture ([permalink to the .exe](https://aka.ms/vs/17/release/vc_redist.x64.exe))
-1. Download precompiled wheels for geopandas dependencies from [Archived: Unofficial Windows Binaries for Python Extension Packages](https://www.lfd.uci.edu/~gohlke/pythonlibs/). For a 64-bit system, choose `win_amd64` suffix. Pick the wheel for your Python version, e.g. for Python 3.9 take a wheel described as `cp39`. Do NOT change the file name.  
+1. Download precompiled wheels for geopandas dependencies from [Christoph Gohlke's geospatial wheels repository](https://github.com/cgohlke/geospatial-wheels/releases)^[Note: Gohlke's wheels used to be hosted on [his University of California, Irvine webpage](https://www.lfd.uci.edu/~gohlke/pythonlibs/). This page is no longer functional.]. For a 64-bit system, choose `win_amd64` suffix. Pick the wheel for your Python version, e.g. for Python 3.9 take a wheel described as `cp39`. Do NOT change the file name.  
   - [GDAL](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal)
   - [PyProj](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyproj)
   - [Fiona](https://www.lfd.uci.edu/~gohlke/pythonlibs/#fiona)
@@ -30,3 +30,5 @@ pip install geopandas
 
 
 This recipe worked for Windows 10 Professional, Python 3.9.12, conda 4.12.0, pip 22.3, GDAL 3.4.3, PyProj 3.3.1, Fiona 1.8.21, Shapely 1.8.2, geopandas 0.12.1. 
+
+
