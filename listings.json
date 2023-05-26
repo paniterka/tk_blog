@@ -34,10 +34,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/pandas/installing_geopandas.html",
       "/posts/mpl/figure_coordinates_inline_tight.html",
       "/posts/tips_quarto/quarto_traffic.html",
       "/posts/mpl/mpl_small-multiples_ziplongest.html",
-      "/posts/pandas/installing_geopandas.html",
       "/posts/other_tech/conda_environments.html",
       "/posts/pandas/weekday_weekname.html",
       "/posts/mpl/font_magic.html",
